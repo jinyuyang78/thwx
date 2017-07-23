@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>聼花-投票</title>
+    <link rel="stylesheet" href="Content/css/xhk.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+    <style>html,body{ font-family: "Microsoft YaHei"}</style>
+</head>
+<body style="max-width: 750px;margin: 0 auto;background-color: #efeff4;">
+<p class="tssjtop">本次交易需要短信确认,验证码已发送至手机<br>186****4567,请按提示操作</p>
+<div class="ipbox">
+    <input placeholder="请输入验证码" class="input" maxlength="4" type="tel"><input type="button" value="发送验证码" class="btn" id="btnSendCode" onclick="time()">
+</div>
+<p class="yzmsbd dn" id="yzmsbd">短信验证码收不到？<a>试试语音验证码</a></p>
+<a class="xyb">下一步</a>
+
+<script>
+    var wait=60;
+    var djs=5;
+    var o=document.getElementById("btnSendCode");
+    //alert(o)
+    function yyyz() {
+        djs--;
+        if(djs == 0){
+            $("#yzmsbd").show();
+        }
+    }
+    function time() {
+        if (wait == 0) {
+            o.removeAttribute("disabled");
+            o.value="发送验证码";
+            wait = 60;
+        } else {
+            o.setAttribute("disabled", true);
+            o.value="重新发送(" + wait + ")";
+            wait--;
+            setTimeout(function() {
+                    time();
+                    yyyz();
+                },
+                1000)
+        }
+    }
+    $("#btn").on('click',function () {
+        layer.open({content:"兑换成功",time:1})
+    })
+</script>
+</body>
+</html>

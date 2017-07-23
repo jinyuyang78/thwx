@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>历史地址</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <style type="text/css">
+        .addressitem{
+            padding:15px 30px 15px 15px;
+            border-bottom: 1px solid #e5e5e5;
+            line-height: 2em;
+            position: relative;
+        }
+        .receiver_1{
+
+        }
+        .receiver_2{
+
+        }
+        .delete-all{
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            background: #a00;
+            color: #fff;
+            border:0 none;
+            border-radius: 5px;
+            padding:10px 0;
+
+        }
+        .address-remove{
+            position: absolute;
+            right:15px;
+            top:30px;
+            display: inline-block;
+            width:18px;
+            height:18px;
+            text-indent: -999px;
+            overflow: hidden;
+            background: url(Content/img/iconfont-close-tiny.png) no-repeat center;
+            background-size: cover;
+
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div id="noorders" style="position:fixed;top:0;left:0;right:0;bottom:0;text-align:center;padding-top:100px;background:#f0f0f0;display:none">
+        <img src="http://static2.flowerplus.cn/Static/img/iconfont-empty.png" width="64px">
+        <p style="margin-top:30px">没有记录</p>
+    </div>
+
+    <div id="addresslist">
+        <div class="addressitem">
+            <div><strong>好几节课来解决</strong> 15210792815</div>
+            <div>天津 天津市 南开区 空间和进口红酒</div>
+            <a class="address-remove" href="javascript:;">删除</a>
+        </div>
+
+        <div class="addressitem">
+            <div><strong>发到付</strong> 15210790815</div>
+            <div>天津 天津市 河北区 大发大水发大厦分</div>
+            <a class="address-remove" href="javascript:;" >删除</a>
+        </div>
+
+        <div class="addressitem">
+            <div><strong>金洋2</strong> 15210792815</div>
+            <div>北京 北京市 朝阳区 四惠695554</div>
+            <a class="address-remove" href="javascript:;" >删除</a>
+        </div>
+
+        <div class="addressitem">
+            <div><strong>金洋</strong> 15210792815</div>
+            <div>北京 北京市 朝阳区 四惠大厦6029</div>
+            <a class="address-remove" href="javascript:;">删除</a>
+        </div>
+    </div>
+    <div class="padding_15" id="delete_all_wrap" style="">
+        <button class="delete-all">清空所有历史记录</button>
+    </div>
+    <div id="loading" style="position: relative; line-height: 6rem; text-align: center; color: rgb(170, 170, 170); border-top-width: 1px; border-top-style: dashed; border-top-color: rgb(229, 229, 229); display: none;">加载中...</div>
+    <script>
+//        function getList(){
+//            $("#addresslist").empty();
+//            $("#loading").show();
+//            $("#delete_all_wrap").hide();
+//            $.get('/my/getaddresslist',null,function(v){
+//                $("#loading").hide();
+//                var itemTmp=$("#itemTmp").html();
+//                var ctl=$("#addresslist");
+//                if(v.length==0){
+//                    $("#noorders").show();
+//                }else{
+//                    $("#delete_all_wrap").show();
+//                }
+//                for(var i in v){
+//                    var html=itemTmp;
+//                    var data=v[i];
+//                    html=html.replace('{receiver_name}',data['receiver_name']);
+//                    html=html.replace('{receiver_mobile}',data['receiver_mobile']);
+//                    html=html.replace('{receiver_state}',data['receiver_state']);
+//                    html=html.replace('{receiver_city}',data['receiver_city']);
+//                    html=html.replace('{receiver_district}',data['receiver_district']);
+//                    html=html.replace('{receiver_address}',data['receiver_address']);
+//                    html=html.replace('{data-id}',data['id']);
+//                    ctl.append(html);
+//                }
+//            },"json");
+//        }
+
+        //getList();
+
+        $("#addresslist").delegate(".address-remove","click",function(){
+            $(this).parent().remove();
+        });
+
+        $(".delete-all").bind("click",function(){
+            $("#addresslist ").find('.addressitem').remove();
+        })
+
+    </script>
+
+</div>
+
+</body>
+</html>

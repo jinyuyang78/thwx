@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>听花挚爱寻找最有爱的花艺师</title>
+    <link rel="stylesheet" href="Content/css/tp.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+</head>
+<body style="max-width: 750px;margin: 0 auto;">
+    <div class="seabox">
+        <label><img src="Content/img/sea.png"></label>
+        <input placeholder="输入作品编号" class="input">
+        <a class="seabtn">搜索</a>
+    </div>
+
+    <div class="content">
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28号 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28号 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28号 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+        <div class="tpbox">
+            <img src="Content/img/tpt1.png">
+            <p>28号 秋天的尾巴</p>
+            <p>票数:3567</p>
+            <a class="tpbtn" href="javascript:void(0)">投票</a>
+        </div>
+
+    </div>
+
+    <div class="foot">
+        <a class="cjbtn" href="tp2.html">我也要参加</a>
+    </div>
+
+    <div class="mask" onclick="hide()"></div>
+     <img class="djdt" onclick="hide()">
+    <div class="ewmmask" onclick="hide()"></div>
+    <div class="imgbox">
+    <p>关注听花鲜花服务号才可以进行投票哦~</p>
+        <p style="font-size: 14px">请长按图片,选择识别图中二维码</p>
+    <img src="http://tinghua.img-cn-beijing.aliyuncs.com/Qrcode/75.jpg" class="ewmimg">
+    </div>
+
+    <div class="tjcgbox">
+        <a class="tjcggb" href="javascript:void(0)"></a>
+        <img class="tpfx" src="Content/img/tpfx.png">
+
+
+        <p class="tgwz">我参加了“听花 挚爱”一寻找最有爱的花艺师大赛，我的作品是［23号 秋天的尾巴］，请关注“听花鲜花”公众号。进入投票界面，为我投票哦！为我投票，炫就
+            有奖，超值优惠券＋听花粉丝实物礼包（全套明星片，花剪，书籍），总有您需要的哦！
+        </p>
+    </div>
+<script>
+    $(function () {
+        var winWidth=$(window).width();
+        $(".content").delegate("img",'click',function () {
+            $(".djdt").attr({src:$(this).attr("src")}).css({"margin-top":-winWidth/2,"margin-left":-winWidth/2}).show();
+            $(".mask").show();
+        })
+
+    });
+    $(".tjcggb").on('click',function () {
+        $(".tjcgbox").hide();
+    });
+    //var gz=false;
+        $(".content").delegate('.tpbtn','click',function () {
+            $(".ewmmask").show();
+            $(".imgbox").show();
+        });
+    //加载
+    $(window).bind("scroll", function() {
+        var top = document.documentElement.scrollTop + document.body.scrollTop;
+        var textheight = $(document).height();
+        //var curnum = parseInt($("#hidtxtPdnum").val());
+        if (textheight - top - $(window).height() <= 50) {
+            $("<div class='tpbox'> <img src='Content/img/tpt1.png'> <p>28号 秋天的尾巴</p> <p>3567</p> <a class='tpbtn' href='javascript:void(0)'>投票</a> </div> <div class='tpbox'> <img src='Content/img/tpt1.png'> <p>28号 秋天的尾巴</p> <p>3567</p> <a class='tpbtn' href='javascript:void(0)'>投票</a> </div>").appendTo(".content")
+             //alert(111);
+        }
+
+    });
+    function hide() {
+        $(".djdt").hide();
+        $(".mask").hide();
+        $(".ewmmask").hide();
+        $(".imgbox").hide();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <title>全部工单--售后-买花人新增工单</title>
+    <link rel="stylesheet" href="Content/css/jquery-weui.css">
+    <link rel="stylesheet" href="Content/css/wui.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/jquery-weui.js"></script>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <style>
+        .weui_btn{
+            color: #666;
+            text-align: left;
+            padding-top: 5px;
+            border-top: 1px solid #ebebeb
+        }
+        .weui_btn .qxz{
+            color:#04BE02;
+            float: right;
+        }
+        .qxz-js,.qxz2-js,.qxz3-js,.qxz4-js{
+            padding: 0 5px;
+        }
+        .weui_btn:after {
+            width: 0;
+            height: 0;
+            /* border-radius: 10px; */
+        }
+        .weui_btn+.weui_btn {
+             margin-top: 0;
+        }
+        .weui_cells{
+            margin-top: 5px;
+        }
+        .part1_upload{border-bottom:1px solid #d0d0d0;background: #fff;min-height: 130px;}
+        .part1_upload_title{text-align: center;}
+        .choose_image{width:80px;height:80px;border:1px dashed #c0c0c0;border-radius:6px;float:left;margin-left: 20px;color:#d0d0d0;margin-top:8px;font-size:12px;margin-bottom: 10px;}
+        .choose_image p{text-align: center;}
+        .choose_tip img{width:20px;height:20px;margin-left:28px;margin-top: 18px;}
+
+        .image_body{float:left;margin-left:20px;margin-top:8px;}
+        .image_src{width:80px;height:80px;border-radius:6px;}
+        .img_close img{width:18px;height:18px;position: relative;top:-90px;right:-67px;}
+        .weui_dialog_visible1{
+            opacity: 1;
+            visibility:visible;
+        }
+
+    </style>
+</head>
+<body>
+<div class="anniu" style="border-top: 5px solid #ebebeb;">
+    <a href="javascript:;" id="show-ddbhbox" style="font-size:14px;" class="weui_btn">订单编号:<span class="qxz qxz-js">请选择</span></a>
+    <a href="javascript:;" id="show-shrqbox" style="font-size:14px;" class="weui_btn">送花日期:<span class="qxz qxz2-js">请选择</span></a>
+</div>
+<div class="anniu" style="border-top: 5px solid #ebebeb;">
+    <a href="javascript:;" id="show-xzwtbox" style="font-size:14px;" class="weui_btn">问题类别:<span class="qxz qxz3-js">请选择</span></a>
+    <a href="javascript:;" id="show-wtxqbox" style="font-size:14px;" class="weui_btn">问题详情:<span class="qxz qxz4-js">请选择</span></a>
+</div>
+<div class="weui_cells weui_cells_form">
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <textarea class="weui_textarea" placeholder="问题描述(必填)" rows="4" style="font-size: 14px" maxlength="300"></textarea>
+            <div class="weui_textarea_counter"><span class="num">0</span>/300</div>
+        </div>
+    </div>
+</div>
+
+<div class="part1_upload">
+    <p class="part1_upload_title">请上传照片（非必传）</p>
+    <!--  @if($is_android)
+     <p class="android_tip">（安卓用户如无法上传图片请刷新本页面）</p>
+     @endif -->
+    <div class="show_image" id="showImage">
+        <div class='image_body'>
+            <img  class='image_src' src="Content/img/dt1.jpg">
+            <div  class='img_close'><img src='Content/img/close1.png'></div>
+            <input type='hidden' name='upload_image[]' value='"+res.serverId+"'>
+        </div>
+        <!--  @if($category && $category->cover_img)
+         <div class="image_body">
+           <input type="hidden" name='upload_image_1' id="upload_image_1" value="">
+           <img class="image_src" src="">
+           <div class="img_close1">
+             <img src="/Static/img/close1.png">
+           </div>
+         </div>
+         @endif -->
+        <div class="choose_image pr" id="chooseImage">
+            <div class="choose_tip"><img src="Content/img/add_image.png"></div>
+            <p class="choose_font">上传图片</p>
+            <p class="choose_font">（最多三张）</p>
+            <input type="file" class="file pa">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<a class="tjgd" id="tjgd" href="javascript:;">提交工单</a>
+<a class="shrxz" id="shrxz" href="我的工单-售后-收花人新增工单.html">收花人新增工单</a>
+<div class="weui_dialog_confirm">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">确认该图片吗？</strong></div>
+        <div class="weui_dialog_bd"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:void(0)" class="weui_btn_dialog default" id="qx">取消</a>
+            <a href="javascript:void(0)" class="weui_btn_dialog primary" id="qd">确定</a>
+        </div>
+    </div>
+</div>
+<div class="weui_mask"></div>
+<ul class="ddbhbox weui_actionsheet">
+    <li>
+        <p class="fl ddbh">W201608191425145485447</p><strong class="fr">服务中</strong>
+        <span>单品鲜花包月套餐</span>
+        <span>2016-08-29</span>
+    </li>
+    <!--<li>-->
+        <!--<p class="fl ddbh">W201608191425145485448</p><strong class="fr">服务中</strong>-->
+        <!--<span>单品鲜花包月套餐</span>-->
+        <!--<span>2016-08-29</span>-->
+    <!--</li>-->
+</ul>
+
+<ul class="shrqbox weui_actionsheet">
+    <li>
+        <p class="shrq">2016-05-26(星期一)</p>
+    </li>
+    <li>
+        <p class="shrq">2016-05-29(星期二)</p>
+    </li>
+    <li>
+        <p class="shrq">2016-08-29(星期三)</p>
+    </li>
+</ul>
+
+<ul class="xzwtbox weui_actionsheet">
+    <li>
+        <p class="xzwt">鲜花质量</p>
+    </li>
+    <li>
+        <p class="xzwt">物流催单</p>
+    </li>
+    <li>
+        <p class="xzwt">花瓶问题</p>
+    </li>
+    <li>
+        <p class="xzwt">随货配件</p>
+    </li>
+    <li>
+        <p class="xzwt">物流投诉</p>
+    </li>
+</ul>
+
+<ul class="wtxqbox weui_actionsheet">
+    <li class="xhzl">
+        <p >花枝折断/断头</p>
+    </li>
+    <li class="xhzl">
+        <p >鲜花腐烂/烂根</p>
+    </li>
+    <li class="xhzl">
+        <p >花头发霉/长斑点</p>
+    </li>
+    <li class="xhzl">
+        <p >花重复/收到忌讳花</p>
+    </li>
+    <li class="xhzl">
+        <p >签收24小时内鲜花枯/蔫</p>
+    </li>
+    <li class="xhzl">
+        <p >花头碰伤</p>
+    </li>
+    <li class="xhzl">
+        <p >花头受挤压</p>
+    </li>
+
+    <li class="wlcd">
+        <p >时效未收到（9:00--18:30）</p>
+    </li>
+    <li class="hpwt">
+        <p >花瓶漏发</p>
+    </li>
+    <li class="hpwt">
+        <p>花瓶碎了</p>
+    </li>
+    <li class="hpwt">
+        <p>花瓶发错</p>
+    </li>
+
+    <li class="sjpj">
+        <p >祝福卡未收到</p>
+    </li>
+    <li class="sjpj">
+        <p >祝福卡内容错误</p>
+    </li>
+    <li class="sjpj">
+        <p >漏鲜花卡</p>
+    </li>
+
+    <li class="wlts">
+        <p >显示签收实际未收到</p>
+    </li>
+    <li class="wlts">
+        <p >未送货上门</p>
+    </li>
+    <li class="wlts">
+        <p >服务态度差</p>
+    </li>
+
+
+
+</ul>
+<script src="Content/js/layer-mobl.js"></script>
+<script>
+    $(function () {
+        //点击订单编号按钮 弹出订单编号
+        $("#show-ddbhbox").on('click',function () {
+            var lileng=$(".ddbhbox li").length;
+            //alert(lileng);
+            if(lileng <= 0){
+                layer.open({content:"近期无订单",time:1})
+            }else {
+                $(".ddbhbox").addClass("weui_actionsheet_toggle");
+                $(".weui_mask").addClass("weui_mask_visible");
+            }
+
+        });
+        //点击订单编号 把订单编号赋值个编号按钮，并移除Class
+        $(".ddbhbox").delegate("li",'click',function () {
+            $(".qxz-js").html($(this).find('.ddbh').html()).removeClass("qxz");
+            $(".ddbhbox").removeClass("weui_actionsheet_toggle");
+            $(".weui_mask").removeClass("weui_mask_visible");
+        });
+
+        //点击送花日期按钮 弹出送花日期选择
+        $("#show-shrqbox").on('click',function () {
+            var qxzval=$(".qxz-js").html();
+            if(qxzval==="请选择"){
+                layer.open({content:"请选择订单编号",time:1})
+            }else{
+                $(".shrqbox").addClass("weui_actionsheet_toggle");
+                $(".weui_mask").addClass("weui_mask_visible");
+            }
+        });
+        //点击送花日期 把送花日期赋值个日期按钮，并移除Class
+        $(".shrqbox").delegate("li",'click',function () {
+            $(".qxz2-js").html($(this).find('.shrq').html()).removeClass("qxz");
+            $(".shrqbox").removeClass("weui_actionsheet_toggle");
+            $(".weui_mask").removeClass("weui_mask_visible");
+        });
+
+        //点击问题选择按钮 弹出选择问题
+        $("#show-xzwtbox").on('click',function () {
+            var qxzval=$(".qxz-js").html();
+            if(qxzval==="请选择"){
+                layer.open({content:"请选择订单编号",time:1})
+            }else {
+                $(".xzwtbox").addClass("weui_actionsheet_toggle");
+                $(".weui_mask").addClass("weui_mask_visible");
+                $(".qxz4-js").html("请选择").removeClass(".qxz3-js").addClass("qxz");
+            }
+        });
+        //点击问题文字 把问题文字赋值个问题按钮，并移除Class
+        $(".xzwtbox").delegate("li",'click',function () {
+            $(".qxz3-js").html($(this).find('.xzwt').html()).removeClass("qxz");
+            $(".xzwtbox").removeClass("weui_actionsheet_toggle");
+            $(".weui_mask").removeClass("weui_mask_visible");
+        });
+
+        //点击问题详情按钮 弹出问题详情
+        $("#show-wtxqbox").on('click',function () {
+            var xzwt=$(".qxz3-js").html();
+            var qxzval=$(".qxz-js").html();
+            if(qxzval==="请选择"){
+                layer.open({content:"请选择订单编号",time:1})
+            }else {
+                if (xzwt === "鲜花质量") {
+                    $(".xhzl").show();
+                } else if (xzwt === "物流催单") {
+                    $(".wlcd").show();
+                } else if (xzwt === "花瓶问题") {
+                    $(".hpwt").show();
+                } else if (xzwt === "随货配件") {
+                    $(".sjpj").show();
+                } else if (xzwt === "物流投诉") {
+                    $(".wlts").show();
+                }
+                $(".wtxqbox").addClass("weui_actionsheet_toggle");
+                $(".weui_mask").addClass("weui_mask_visible");
+            }
+        });
+        //点击问题详情 把问题文字赋值个问题详情按钮，并移除Class
+        $(".wtxqbox").delegate("li",'click',function () {
+            $(".qxz4-js").html($(this).find('p').html()).removeClass("qxz");
+            $(".wtxqbox li").hide();
+            $(".wtxqbox").removeClass("weui_actionsheet_toggle");
+            $(".weui_mask").removeClass("weui_mask_visible");
+        });
+    })
+</script>
+<script>
+
+    $(document).on("click", "#show-actions", function() {
+        $.actions({
+            actions: [
+                {
+                    text: "如何修改送花时间"
+                },
+                {
+                    text: "如何修改地址，手机号码"
+                },
+                {
+                    text: "订单购买到一半，想买个花瓶"
+                },
+                {
+                    text: "积分"
+                },
+                {
+                    text: "优惠券"
+
+                },
+                {
+                    text: "其他"
+                }
+            ]
+        });
+    });
+    //点击问题列表 把文字复制给问题
+    $(document).on("click", ".weui_actionsheet_cell", function() {
+        //alert($(this).html())
+        if($(this).hasClass('weui_actionsheet_cancel')){
+            return false;
+        }
+        $(".qxz-js").removeClass('qxz').html($(this).html())
+    });
+    //计算输入的文字数量
+    $(".weui_textarea").on('input',function () {
+        $(".num").html( ($(this).val().length));
+    });
+    //点击x 弹出确定删除
+    $(".img_close").delegate("img","click",function(){
+        var $this=$(this);
+        $('.weui_mask').addClass('weui_mask_visible');
+        $('.weui_dialog').addClass('weui_dialog_visible1');
+        $("#qd").on('click',function () {
+            $this.parents('.image_body').remove();
+            $('.weui_mask').removeClass('weui_mask_visible');
+            $('.weui_dialog').removeClass('weui_dialog_visible1');
+        });
+    });
+    $("#qx").on('click',function () {
+        $('.weui_mask').removeClass('weui_mask_visible');
+        $('.weui_dialog').removeClass('weui_dialog_visible1');
+    });
+
+    $("#tjgd").on('click',function () {
+        var wtval=$(".qxz-js").html();
+        var wzval=$(".weui_textarea").val();
+        if(wtval=="请选择"){
+            layer.open({content:"请选择订单",time:1});
+            return false;
+        }else if(wzval===""||wzval.length==0){
+            layer.open({content:"问题内容不能为空",time:1});
+            return false;
+        }else {
+            layer.open({
+                content: '提交成功，请耐心等待客服处理~',
+                btn: ['确认', '取消'],
+                shadeClose: false,
+                yes: function () {
+                    window.location.href="全部工单--售后.html";
+                },
+                no: function () {
+                }
+            });
+            //layer.open({content:"提交问题成功",time:1});
+        }
+    });
+</script>
+</body>
+</html>

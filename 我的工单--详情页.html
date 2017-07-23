@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <title>工单详情说</title>
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <script src="Content/js/layer-mobl.js"></script>
+</head>
+<body class="pading-b40" style="max-width: 750px; margin: 0 auto">
+<div class="lybox">
+    <div class="lytx"><img src="Content/img/dt1.jpg"></div>
+    <h3>无法下单&nbsp;哈哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款</h3>
+    <div class="wtimg"><img src="Content/img/dt1.jpg"></div>
+    <div class="wtimg"><img src="Content/img/dt1.jpg"></div>
+    <div class="wtimg"><img src="Content/img/dt1.jpg"></div>
+    <p class="sj">09-10 18:36</p>
+</div>
+
+<div class="lybox">
+    <div class="lytx"><img src="Content/img/dt1.jpg"></div>
+    <h3>无法下单&nbsp;哈哈哈卡死的房间按贷款哈哈哈卡死哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款哈哈哈卡死的房间哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款哈哈哈卡死的房间的房间按贷款哈哈哈卡死的房间按贷款</h3>
+    <p class="sj">09-10 18:36</p>
+</div>
+
+<div class="lybox">
+    <div class="lytx"><img src="Content/img/dt1.jpg"></div>
+    <h3>无法下单&nbsp;哈哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款哈哈哈卡死的房间按贷款</h3>
+    <div class="wtimg"><img src="Content/img/dt1.jpg"></div>
+    <p class="sj">09-10 18:36</p>
+</div>
+<div class="gdfoot">
+    <a href="javascript:;" class="fl jxly" id="jxly">继续留言</a>
+    <a href="javascript:;" class="fl" id="gbgd">关闭工单</a>
+</div>
+
+<script>
+    $(function () {
+      $("#gbgd").on('click',function () {
+          var gbgd=$("#gbgd").html();
+          if(gbgd==="关闭工单"){
+              layer.open({
+                  content: '确认关闭该工单吗？',
+                  btn: ['确认', '取消'],
+                  shadeClose: false,
+                  yes: function () {
+                      layer.open({ content: '工单已关闭', time: 1 });
+                      $("#jxly").html("重启工单");
+                      $("#gbgd").html("评价").addClass("pj")
+                  },
+                  no: function () {
+
+                  }
+              });
+          }else{
+              window.location.href="我的工单--评价.html"
+          }
+
+      });
+
+        $("#jxly").on('click',function () {
+            var jxly=$("#jxly").html();
+            if(jxly==="继续留言"){
+                window.location.href="我的工单--继续留言.html";
+            }else {
+                layer.open({
+                    content: '售前，售中工单不能重启',time:1
+                });
+            }
+        })
+    })
+</script>
+</body>
+</html>
+

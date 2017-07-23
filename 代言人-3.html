@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>我的兑换码</title>
+    <link rel="stylesheet" href="Content/css/code.css" type="text/css">
+</head>
+<body>
+<div class="page">
+    <div class="page">
+        <ul class="header-top">
+            <li ><a href="代言人-1.html">我的二维码</a></li>
+            <li><a href="代言人-2.html">已下单的人</a></li>
+            <li class="current"><a href="代言人-3.html">我的兑换码</a></li>
+        </ul>
+        <div class="yqm-conout">
+            <ul class="reward-con borderBottom">
+                <li>兑换内容</li>
+                <li>兑换码</li>
+                <li>状态</li>
+            </ul>
+            <ul class="reward-con borderBottom" style="padding:10px 0;">
+                <li>混合单次</li>
+                <li>352972</li>
+                <li class="over">已使用</li>
+            </ul>
+            <p style="text-align:center;padding:15px;color:#aaa">
+                共1个兑换码
+            </p>
+        </div>
+    </div>
+    <!--  弹窗	 -->
+    <div class="w-out" style="display:none;">
+        <div class="w-in">
+            <p style="text-align:right;display:none">
+                <a href="javascript:void(0)" class="close"></a>
+            </p>
+            <div class="w-in-header"></div>
+            <p id="content_code"></p>
+        </div>
+    </div>
+    <!--  弹窗  -->
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script>
+        // ok  waining  waiting
+        function gengxin() {
+            $('.w-out').find('div').find('div').removeClass('waining','ok').addClass('waiting');
+            $('#content_code').text('更新中...');
+            $('.w-out').show();
+//            $.post('/wx_cs/update_my_code',{},function(d) {
+//                $('#content_code').text(d.data);
+//                if (d.f== true) {
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('ok');
+//                    $('.close').parent('p').show();
+//                }else{
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('waining');
+//                    $('.close').parent('p').show();
+//                }
+//            },'json')
+        }
+        $(".close").click(function(event) {
+            event.stopPropagation();
+            $('.w-out').hide();
+            window.location.reload();
+
+        });
+    </script>
+
+</div>
+
+
+</body></html>

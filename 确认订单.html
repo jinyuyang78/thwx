@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,lestenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/zfk.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+</head>
+<body>
+<div class="page">
+    <div id="buyWrap">
+        <div class="delivery_wrap">
+            <div class="delivery_no_address">请填写收货地址</div>
+            <div class="delivery_content" style="display: none">
+                <div style="float:left;width:40px;font-weight:bold;color:#fff;">送至</div>
+                <div style="margin-left:40px;overflow:hidden;color:#fcfcfc" id="addressinfo"></div>
+            </div>
+        </div>
+        <div class="delivery_date">
+        <strong>送达时间：</strong>
+        <div class="shsj">
+            <div data-key="周一送达">周一送达<p>首次8月22号</p></div>
+            <div data-key="周六送达">周六送达<p>首次8月27号</p></div>
+        </div>
+    </div>
+        <div class="pinfo-wrap">
+            <div class="pinfo-image"><img src="Content/img/zhutu160801.jpg!sml"></div>
+            <div class="pinfo-content">
+                <div class="pinfo-title">混合花束包月套餐</div>
+                <div class="pinfo-sku">3个月,买1个花瓶<span></span></div>
+            </div>
+            <div class="pinfo-price">￥520</div>
+        </div>
+
+        <dl id="e_zhufu" class="zhufu Elec-greeting">
+            <dt>电子祝福卡（5元/张）</dt>
+            <dd class="e_zhufu_dd">
+                <p>祝福卡全新设计，对方查收后您将收到微信通知</p>
+                <p class="clearfix">
+                    <textarea maxlength="200" placeholder="请填写祝福内容必填。电子祝福卡将在首次配送时发送给收花人。" id="e_txtZhuFu"></textarea>
+                    <i>200</i>
+                    <span>送花人:</span>
+                    <input type="text"  id="e_txtZhuFu_name" placeholder="请填写您的称呼" style="line-height: 22px">
+                </p>
+                <p id="zfk_preview_btn">点击预览</p>
+            </dd>
+        </dl>
+
+        <dl id="taboo">
+            <dt class="">忌讳的花</dt>
+            <dd style="display: none;">
+                <label><input type="checkbox" value="孕妇不宜">孕妇不宜</label>
+                <label><input type="checkbox" value="白色花">白色花</label>
+                <label><input type="checkbox" value="菊花">菊花</label>
+                <label><input type="checkbox" value="绣球">绣球</label>
+                <label><input type="checkbox" value="百合">百合</label>
+                <label><input type="checkbox" value="勿忘我">勿忘我</label>
+                <label><input type="checkbox" value="康乃馨">康乃馨</label>
+                <div style="border-top:1px dotted #ccc;padding-top:10px;color:#999;font-size: 12px">
+                    <p>为尽可能使您收到不同品种的花，忌讳的花最多可设置三项。<br>孕妇不宜的花包括百合、郁金香等浓香品种。</p>
+                </div>
+            </dd>
+        </dl>
+        <div class="padding_15" style="border-top:0 none">
+            <ul id="comfirm-fee">
+                <li>商品总额:<span class="confirm-price" id="totalfee">￥520</span></li>
+                <li>运费:<span style="font-weight: normal" id="postfee">￥0.00</span></li>
+            </ul>
+        </div>
+        <!--<a class="discount-item" id="btnJifen">积分抵扣<b></b></a>-->
+        <a class="discount-item" id="btnQuan">优惠券<b></b></a>
+        <div class="lybox1">
+        <label>备注</label>
+        <input placeholder="给商家留言对本次订单的说明~">
+        </div>
+        <!--<a class="discount-item" id="btnMa">优惠码 / 兑换码<b></b></a>-->
+        <div style="margin:20px 0 0 0;text-align:center;font-weight:bold">付款金额: <span class="confirm-price" id="payment">￥520</span></div>
+        <div style="text-align:center;display:none" id="event_xin">已优惠<strong>10</strong>元，并免费获得一个花瓶。</div>
+        <a id="payandsubmit" href="javascript:;">确认下单</a>
+        <div style="text-align: center;"><img src="Content/img/ucenterlogo.png" style="width: 60%;margin-bottom: 50px;margin-top: 10px;"></div>
+    </div>
+
+    <!--电子祝福卡预览-->
+    <div class="Zfk_content_out" style="display:none">
+        <div class="Zfk_content">
+            <div class="Zfk_tit">祝福卡</div>
+            <div class="Zfk_main_out" style="padding: 0 25px 15px;color: #666;font-family:PingFang-SC-Thin">
+                <div class="Zfk_main" style="font-size:18px"></div>
+                <div class="Zfk_name"></div>
+            </div>
+            <div class="Zfk_bottom">
+                <div class="Zfk_bottom_top"><img src="Content/img/zfk-page.png" height="79" style="display:block"></div>
+                <div class="Zfk_infor"><span>赠送内容：混合花束包月套餐</span></div>
+                <div class="Zfk_logo"><img src="Content/img/zfk-logo.png" width="332" alt=""></div>
+            </div>
+        </div>
+
+        <div><img id="zfk_close_preview_btn" src="Content/img/zfk_preview_close.png" alt="" style="width:30px;height:30px;position:fixed;top:10px;right:10px;">
+        </div>
+    </div>
+    <!--END 购买表单-->
+    <!--BEGIN 选择地址-->
+    <div class="Shipping_ads" style="display:none">
+        <div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">收货地址
+            <a class="deliver-close" href="javascript:;"></a>
+        </div>
+
+        <div id="deliver-address-con1" style="display:block">
+            <dl class="deliver-item">
+                <dt>收货人</dt>
+                <dd><input type="text" id="receiver_name" placeholder="姓名">  </dd>
+            </dl>
+            <dl class="deliver-item">
+                <dt>手机</dt>
+                <dd><input type="tel" id="receiver_mobile" placeholder="收货人手机"> </dd>
+            </dl>
+            <dl class="deliver-item">
+                <dt>所在地区</dt>
+                <dd class="address_area">
+                    <select class="form-control" id="receiver_state" name="receiver_state">
+                        <option  value="选择省份">选择省份</option>
+                        <option  value="上海">上海</option>
+                        <option  value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option  value="江苏">江苏</option>
+                        <option value="浙江">浙江</option>
+                        <option value="广东">广东</option>
+                        <option  value="河北">河北</option>
+                        <option  value="山东">山东</option>
+                        <option  value="安徽">安徽</option>
+                        <option  value="四川">四川</option>
+                    </select>
+                    <select class="form-control" id="receiver_city" name="receiver_city">
+                        <option  value="选择城市">选择城市</option>
+                        <option  value="河北">河北</option>
+                        <option value="山东">山东</option>
+                        <option  value="安徽">安徽</option>
+                        <option  value="四川">四川</option>
+                    </select>
+                    <select class="form-control" id="receiver_district" name="receiver_district">
+                        <option  value="选择区县">选择区县</option>
+                        <option  value="上海">上海</option>
+                        <option  value="北京">北京</option>
+                        <option  value="天津">天津</option>
+                        <option  value="江苏">江苏</option>
+
+                    </select>
+                </dd>
+            </dl>
+            <dl class="deliver-item">
+                <dt>详细地址</dt>
+                <dd><input type="text" id="receiver_address" placeholder="街道门牌信息"></dd>
+            </dl>
+            <!-- <p style="color:#999;padding:5px 15px">目前开通的区域为江浙沪、北京、广东和四川。</p> -->
+            <div class="deliver-save-wrap"><button class="deliver-save">保存</button></div>
+            <dl class="address_log">
+                <dt>历史</dt>
+            </dl>
+            <dl class="address_log2">
+                <dt>以下地址不可用</dt>
+            </dl>
+        </div>
+    </div>
+    <div class="weui_dialog_confirm" style="display: none">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">确认地址和手机准确吗？</strong></div>
+            <div class="weui_dialog_bd"></div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:void(0)" class="weui_btn_dialog default" id="qx">取消</a>
+                <a href="javascript:void(0)" class="weui_btn_dialog primary" id="qd">确定</a>
+            </div>
+        </div>
+    </div>
+    <!--END 选择地址-->
+    <!--BEGIN 积分优惠券抵扣-->
+    <div class="right-dialog" id="jifenWrap">
+        <h2>积分抵扣</h2>
+        <a class="right-dialog-close" href="javascript:;"></a>
+        <div class="right-dialog-content acenter" style="padding:20px 0">
+            <div>可使用积分：<strong id="total_scores">30</strong>分</div>
+            <div style="width:200px;text-align:center;margin:10px auto;position:relative"><i class="jifen-jian"></i><i class="jifen-jia"></i><input id="inp_scores" style="width:100px;text-align:center;font-size:16px;color:#000" type="number" class="inp" placeholder="积分数量"></div>
+            <p style="text-align:center;margin:10px 0;color:#999">1积分可以抵扣1元人民币</p>
+            <button id="btnusesocre" class="btn-sml">确认</button>
+        </div>
+    </div>
+    <div class="right-dialog" id="quanWrap" style="background-color: #ebebeb;">
+        <h2>优惠券</h2>
+        <a class="right-dialog-close" href="javascript:;"></a>
+        <p class="adyh">
+            <input type="text" placeholder="请输入兑换码"><a href="javascript:void(0)">兑换</a>
+        </p>
+        <div class="right-dialog-content" id="quanlist"><p class="acenter" style="color:#999;padding:20px 0;display: none">暂无可使用的优惠券</p>
+            <div class="box3" id="box3">
+                <div class="yhj">
+                    <div class="yhjebox">
+                        <input value="40">
+                        <p>¥<span>40</span></p>
+                        <div class="fl">
+                            <h1>包月券</h1>
+                            <span class="syxz">仅限购买鲜花包月使用</span>
+                        </div>
+                    </div>
+                    <span class="patop pa">还剩七天过期</span>
+                    <span class="gq pa"></span>
+                    <div class="bottom">
+                        <span class="fl des">金额满200可用</span> <span class="fr">有效期:2019-06-13</span>
+                    </div>
+                </div>
+
+                <div class="yhj">
+                    <div class="yhjebox">
+                        <input value="8">
+                        <p>¥<span>40</span></p>
+                        <div class="fl">
+                            <h1>包月券</h1>
+                            <span class="syxz">仅限购买鲜花包月使用</span>
+                        </div>
+                    </div>
+                    <span class="patop pa">还剩七天过期</span>
+                    <span class="gq pa"></span>
+                    <div class="bottom">
+                        <span class="fl des">金额满200可用</span> <span class="fr">有效期:2019-06-13</span>
+                    </div>
+                </div>
+
+
+                <div class="yhj ygq">
+                    <div class="yhjebox">
+                        <input value="10">
+                        <p>¥<span>40</span></p>
+                        <div class="fl">
+                            <h1>包月券</h1>
+                            <span class="syxz">仅限购买鲜花包月使用</span>
+                        </div>
+                    </div>
+                    <span class="patop pa"></span>
+                    <span class="gq pa" style="display: block"></span>
+                    <div class="bottom">
+                        <span class="fl des">金额满200可用</span> <span class="fr">有效期:2019-06-13</span>
+                    </div>
+                </div>
+
+
+                <div class="yhj ygq">
+                    <div class="yhjebox">
+                        <input value="8">
+                        <p>¥<span>40</span></p>
+                        <div class="fl">
+                            <h1>包月券</h1>
+                            <span class="syxz">仅限购买鲜花包月使用</span>
+                        </div>
+                    </div>
+                    <span class="patop pa"></span>
+                    <span class="gq pa" style="display: block"></span>
+                    <div class="bottom">
+                        <span class="fl des">金额满200可用</span> <span class="fr">有效期:2019-06-13</span>
+                    </div>
+                </div>
+
+                <!--<div class="yhjfd">-->
+                <!--<img src="Content/img/yhjfd.png">-->
+                <!--<p class="mes">你还没有优惠券哦~~</p>-->
+                <!--</div>-->
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="right-dialog" id="maWrap">
+        <h2>优惠码</h2>
+        <a class="right-dialog-close" href="javascript:;"></a>
+        <div class="right-dialog-content acenter" style="padding:20px 0">
+            <div style="width:200px;text-align:center;margin:10px auto;position:relative"><input id="inp_ma" style="width:160px;text-align:center;font-size:16px;color:#000" type="number" class="inp" placeholder="优惠码"></div>
+            <p style="text-align:center;margin:10px 0;color:#999">优惠码使用后不可退不找零。</p>
+            <button id="btnusema" class="btn-sml">确认</button>
+            <p style="padding:20px"><a id="btnCancelMa" href="javascript:;" style="color:#777;">取消</a></p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#btnJifen").on('click',function () {
+        $("#jifenWrap").addClass("right-dialog-show");
+        return false;
+    });
+    $("#btnusesocre").on("click",function() {
+        var scores = $("#inp_scores").val();
+        var total_scores=parseInt($("#total_scores").html());
+        if (!/^\d+$/.test(scores)) {
+            layer.open({
+                content: "请填写整数",
+                time: 1
+            });
+        }
+        scores = parseInt(scores);
+        if (scores > total_scores) {
+            layer.open({
+                content: "余额不足",
+                time: 1
+            });
+            return;
+        }
+        if(scores>20/2){
+            layer.open({
+                content: "不能超过订单总额的一半",
+                time: 1
+            });
+            return;
+        }
+        //useScores(scores);
+        $("#btnJifen b").html("-¥"+scores+"元");
+        $(".right-dialog").removeClass("right-dialog-show");
+    });
+
+    $(".jifen-jia").on('click',function(e){
+        e.stopPropagation();
+        var scores=$("#inp_scores").val();
+        var total_scores=parseInt($("#total_scores").html());
+        scores=parseInt(scores);
+        if(!scores){
+            scores=0;
+        }
+        scores++;
+        //alert("111")
+        if(scores>=total_scores){
+            scores = total_scores;
+        }
+        $("#inp_scores").val(scores);
+        return false;
+    });
+    $(".jifen-jian").on('click',function(e){
+        e.stopPropagation();
+        var scores=$("#inp_scores").val();
+        var total_scores=parseInt($("#total_scores").html());
+        scores=parseInt(scores);
+        if(!scores){
+            scores=0;
+        }
+        scores--;
+        if(scores<0){
+            scores=0;
+        }
+       // alert("111")
+        $("#inp_scores").val(scores);
+        return false;
+    });
+
+
+    $("#e_zhufu dt").bind("click",function(){
+        $(this).toggleClass("checked");
+        if($(this).hasClass("checked")){
+            $("#e_zhufu dd").show();
+        }else{
+            $("#e_zhufu dd").hide();
+        }
+    });
+    function setMemoryZhufu(content){
+        if(!isLocalStorage()){
+            return;
+        }
+        window.localStorage.setItem("flower_zhk_content",content);
+
+    }
+    $("#zfk_preview_btn").click(function(e) {
+        var content=$("#e_txtZhuFu").val();
+        var name=$("#e_txtZhuFu_name").val();
+        //if($(".e_zhufu_dd").is(":visible")) {
+        if (content.length === 0 || content.length < 1) {
+            layer.open({
+                content: "请填写电子祝福卡内容！",
+                time: 1
+            });
+            return false;
+        } else if (name.length === 0 || name.length === "") {
+            layer.open({
+                content: "请填正确输入您的称呼！",
+                time: 1
+            });
+            return false;
+        } else if (name.length > 15) {
+            layer.open({
+                content: "输入您的称呼不得大于15个字！",
+                time: 1
+            });
+            return false;
+        }
+        // }
+        $(".Zfk_main").html(content);
+        $(".Zfk_name").html(name);
+
+        //记忆默认的祝福卡内容
+
+        (function(){
+            $(".Zfk_content").css({
+                "-webkit-transform": "scale(1,1)",
+                "transform": "scale(1,1)"
+            });
+
+            $(".Zfk_content_out").css("display","block");
+            setTimeout(function(){
+                $('.Zfk_main').css({
+                    "-webkit-transition":"min-height .5s ease-out",
+                    "transition":"min-height .5s ease-out",
+                    "min-height":$(".Zfk_content_out").height()-$(".Zfk_content").height()+$(".Zfk_main").height()-15
+                }); },800);
+
+        })();
+    });
+
+    $("#zfk_close_preview_btn").click(function(e) {
+        $(".Zfk_content_out").css("display","none");
+    });
+<!--电子祝福卡预览-->
+    $("#taboo").delegate("input","change",function(){
+        if($(this).prop("checked")){
+            if($("#taboo input:checked").length>3){
+                layer.open({
+                    content: '最多选择三项',
+                    time: 1
+                });
+                $(this).prop("checked",false);
+            }
+        }
+    });
+
+    $("#taboo dt").on("click",function(){
+        if($(this).hasClass("down")){
+            $(this).removeClass("down");
+            $("#taboo dd").hide();
+        }else{
+            $(this).addClass("down");
+            $("#taboo dd").show();
+        }
+    });
+    $("#txtZhuFu").on("input",function(){
+        $("#zhufu i").html($(this).val().length);
+    });
+
+    //电子祝福卡
+    $("#e_txtZhuFu").on("input",function(){
+        $("#e_zhufu i").html(200-$(this).val().length);
+    });
+
+    $(".delivery_date .shsj div").on('click',function(){
+        $(this).addClass("select").siblings().removeClass("select");
+            var delivery_date=$(this).attr("data-key");
+            $(".pinfo-sku span").html(","+delivery_date);
+    });
+
+    $("#payandsubmit").on("click",function(){
+        var btn=$(this);
+        var adds=$("#addressinfo").html();
+        if(adds===""|| adds.length===0){
+            layer.open({
+                content: '请填写收货地址！',
+                time: 1
+            });
+            return false;
+        }
+        if($(".shsj div").hasClass('select')){
+
+        }else {
+            layer.open({
+                content: '请选择送达日期！',
+                time: 1
+            });
+            return false;
+        }
+
+        var content=$("#e_txtZhuFu").val();
+        var name=$("#e_txtZhuFu_name").val();
+        if($(".e_zhufu_dd").is(":visible")) {
+            if (content.length === 0 || content.length < 1) {
+                layer.open({
+                    content: "请填写电子祝福卡内容！",
+                    time: 1
+                });
+                return false;
+            } else if (name.length === 0 || name.length === "") {
+                layer.open({
+                    content: "请填正确输入您的称呼！",
+                    time: 1
+                });
+                return false;
+            } else if (name.length > 15) {
+                layer.open({
+                    content: "输入您的称呼不得大于15个字！",
+                    time: 1
+                });
+                return false;
+            }
+        }
+
+
+        var taboo=[];
+        $("#taboo input:checked").each(function(){
+            taboo.push($(this).val());
+        });
+        if(taboo.length>3){
+            layer.open({
+                content: '忌讳的花最多可选择三项',
+                time: 1
+            });
+            return false;
+        }
+
+        btn.attr("data-runing",1);
+        btn.html("正在创建订单，请稍候").addClass("buttondisabled");
+        window.location.href='订单列表.html';
+    });
+
+    $("body").delegate("input[type='tel']","input",function(){$(this).val($(this).val().replace(/[^0-9]/g,'').replace(/^86/,''))});
+
+    var total_scores=0;
+    $("#btnQuan").on("click",function(e){e.stopPropagation();$("#quanWrap").addClass("right-dialog-show");$('body,html').css({"overflow":"hidden"});return false;});
+    $("#btnMa").on("click",function(e){e.stopPropagation();$("#maWrap").addClass("right-dialog-show");return false;});
+    $(".right-dialog-close").on("click",function(e){e.stopPropagation();$(".right-dialog").removeClass("right-dialog-show");$('body,html').css({"overflow":""});return false;});
+    $('#box3').delegate('.yhj','click',function () {
+        //alert($(this).find('input').val());
+        if($(this).hasClass('ygq')){
+            layer.open({
+                content:"该优惠券已过期",
+                time:1
+            });
+            return false;
+        }else {
+            $('body,html').css({"overflow":""});
+            var s=$(this).find('input').val();
+            $('#btnQuan b').html("- ¥ "+ s);
+            $(".right-dialog").removeClass("right-dialog-show");
+        }
+
+    });
+
+    $("#btnusema").on("click",function(){
+        var ma_id=$("#inp_ma").val();
+        if(!/^\d+$/.test(ma_id)){
+            layer.open({
+                content:"请填写正确的优惠码",
+                time:1
+            });
+            return false;
+        }
+    });
+
+    $("#btnCancelMa").on("click",function(){
+        $("#inp_ma").val("");
+        $(".right-dialog").removeClass("right-dialog-show");
+
+    });
+    var adds=[];
+    var selectedAddress={};
+    //        $.address_b.list[0]={n:'选择省份',c:[{n:'选择城市',a:['选择区县']}]};
+    //        $.address_b("receiver_state","receiver_city","receiver_district");
+    $(".delivery_wrap").on("click",function(e){e.stopPropagation();$("#buyWrap").hide();$(".Shipping_ads").show();return false;});
+    $(".deliver-close").on("click",function(e){e.stopPropagation();$("#buyWrap").show();$('body,html').scrollTop(0);$(".Shipping_ads").hide();});
+    $(".deliver-save").on("click",function(e){
+        e.stopPropagation();
+        var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g','');
+        var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g','');
+        var receiver_state = $("#receiver_state").val();
+        var receiver_city = $("#receiver_city").val();
+        var receiver_district = $("#receiver_district").val();
+        var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g','');
+        var address={
+            receiver_name:receiver_name,
+            receiver_mobile:receiver_mobile,
+            receiver_state:receiver_state,
+            receiver_city:receiver_city,
+            receiver_district:receiver_district,
+            receiver_address:receiver_address
+        };
+        if(address.receiver_name===""){
+            layer.open({
+                content:"请填写收货人姓名",
+                time:1
+            });
+            return false;
+        }else if(address.receiver_mobile===""){
+            layer.open({
+                content:"请填写收货人手机",
+                time:1
+            });
+            return false;
+        } else if(!/^1\d{10}$/.test(address.receiver_mobile)){
+            layer.open({
+                content:"收货人手机号错误",
+                time:1
+            });
+            return false;
+        } else if(address.receiver_state==="" || address.receiver_state==="选择省份"){
+            layer.open({
+                content:"请选择省份",
+                time:1
+            });
+            return false;
+        }else if(address.receiver_city==="" || address.receiver_city==="选择城市"){
+            layer.open({
+                content:"请选择城市",
+                time:1
+            });
+            return false;
+        }else if(address.receiver_district==="" || address.receiver_district==="选择区县"){
+            layer.open({
+                content:"请选择区县",
+                time:1
+            });
+            return false;
+        }else if(address.receiver_address===""){
+            layer.open({
+                content:"请填写详细地址",
+                time:1
+            });
+            return false;
+        }
+        $(".weui_dialog_confirm").show();
+        $('.weui_dialog_bd').html('\n'+receiver_state+receiver_city+receiver_district+receiver_address+'<br>'+receiver_name+'<br>'+receiver_mobile);
+//            $.post('/buy/addaddress',address,function(v){
+//                if(v.f){
+//                    //getAddress();
+//                    $("#receiver_name").val("");
+//                    $("#receiver_mobile").val("");
+//                    $("#receiver_address").val("");
+//                    $.address_b("receiver_state","receiver_city","receiver_district");
+//                    adds=v.list;
+//                    updateAddressList();
+//                    selectAddress(v.id);
+//
+//                }else{
+//                    showerror(v.data);
+//                }
+//                btn.prop("disabled",false);
+//            },"json");
+    });
+
+    $("#qx").on('click',function () {
+        $(".weui_dialog_confirm").hide();
+    });
+
+
+    //点击地址页保存按钮弹出后的确定按钮
+    $("#qd").on('click',function () {
+        var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g','');
+        var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g','');
+        var receiver_state = $("#receiver_state").val();
+        var receiver_city = $("#receiver_city").val();
+        var receiver_district = $("#receiver_district").val();
+        var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g','');
+        //alert();
+        $('.address_log dd').removeClass("add-sel");
+        $('.address_log dt').after("<dd class='add-sel'><div class='adddz'>"+receiver_state+receiver_city+receiver_district+receiver_address+"</div><div><span class='receiver_name'>"+receiver_name+"</span>&nbsp;<span class='receiver_mobile'>"+ receiver_mobile+"</span></div> </dd>");
+        $(".weui_dialog_confirm").hide();
+        $(".Shipping_ads").hide();
+        $("#buyWrap").show();
+        $(".delivery_no_address").hide();
+        $(".delivery_content").show();
+        claerAdd();
+        $('#addressinfo').html(receiver_state+receiver_city+receiver_district+receiver_address+"<br>"+receiver_name+"&nbsp;"+ receiver_mobile);
+    });
+
+    $(".address_log").delegate( ' dd','click',function (e) {
+        var receiver_name = $(this).find('.receiver_name').html();
+        var receiver_address = $(this).find('.adddz').html();
+        var receiver_mobile= $(this).find('.receiver_mobile').html();
+        //alert(receiver_address);
+        $(this).addClass("add-sel").siblings().removeClass("add-sel");
+        $(".Shipping_ads").hide();
+        $("#buyWrap").show();
+        $(".delivery_no_address").hide();
+        $(".delivery_content").show();
+        $('#addressinfo').html(receiver_address+"<br>"+receiver_name+"&nbsp;"+ receiver_mobile);
+        claerAdd();
+    });
+    $( '.address_log dd').on('click',function (e) {
+        var receiver_name = $(this).find('.receiver_name').html();
+        var receiver_address = $(this).find('.adddz').html();
+        var receiver_mobile= $(this).find('.receiver_mobile').html();
+        //alert(receiver_address);
+        $(this).addClass("add-sel").siblings().removeClass("add-sel");
+        $(".Shipping_ads").hide();
+        $("#buyWrap").show();
+        $(".delivery_no_address").hide();
+        $(".delivery_content").show();
+        $('#addressinfo').html(receiver_address+"<br>"+receiver_name+"&nbsp;"+ receiver_mobile);
+        claerAdd();
+    });
+    //清空地址
+    function claerAdd() {
+        var receiver_name = $("#receiver_name").val("");
+        var receiver_mobile = $("#receiver_mobile").val("");
+        var receiver_state = $("#receiver_state").val("选择省份");
+        var receiver_city = $("#receiver_city").val("选择城市");
+        var receiver_district = $("#receiver_district").val("选择区县");
+        var receiver_address = $("#receiver_address").val("");
+    }
+</script>
+
+<!--END 积分优惠券抵扣-->
+</body>
+</html>

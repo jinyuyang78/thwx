@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>Title</title>
+    <script>
+        var cssE1=document.createElement('style');
+        document.documentElement.firstElementChild.appendChild(cssE1);
+        //设置html标签的font-size
+        function setPxPrePem() {
+            var dpr=1;
+            //把viewport分成10份rem;html标签的font-size设置为1rem大小
+            var PxPrePrm=document.documentElement.clientWidth*dpr/10;
+            cssE1.innerHTML="html{font-size:"+PxPrePrm+"px!important;}"
+        }
+        setPxPrePem();
+    </script>
+    <style>
+        p{
+            width: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <p>哈哈哈</p>
+</body>
+</html>

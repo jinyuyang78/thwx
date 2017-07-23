@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>未付款订单详情</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <link rel="stylesheet" href="Content/css/xhk.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="page">
+    <div class="order-out" style="z-index:2;position:relative;">
+        <div class="padding_15" style="border-top:0 none">
+            <dl class="infoitem"><dt>订单状态:</dt><dd><strong>待付款</strong></dd></dl>
+            <dl class="infoitem"><dt>下单时间:</dt><dd> 2016-08-22 14:13:12</dd></dl>
+        </div>
+
+        <div class="padding_15" style="border-bottom:1px solid #f0f0f0">
+            <dl class="infoitem"><dt>配送方式:</dt><dd>快递配送
+            </dd></dl>
+
+            <!--区分代收点和提货地点-->
+            <dl class="infoitem"><dt>收货人/手机:</dt><dd>好几节课来解决 / 15210792815</dd></dl>
+            <dl class="infoitem"><dt>收货地址:</dt><dd>天津 天津市 南开区 空间和进口红酒
+            </dd></dl>
+
+        </div>
+
+        <div class="pinfo-wrap">
+            <div class="pinfo-image"><img src="Content/img/dt1.jpg"></div>
+            <div class="pinfo-content">
+                <div class="pinfo-title">单品鲜花包月套餐</div>
+                <div class="pinfo-sku">订几个月:3个月
+                    花瓶:买1个花瓶
+                    送达日期:周六送达</div>
+            </div>
+            <div class="pinfo-price">￥313.00</div>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>订单号:</dt><dd>W2016082214131217584648349</dd></dl>
+            <dl class="infoitem"><dt>忌讳的花:</dt><dd>白色花,绣球,勿忘我</dd></dl>
+            <dl class="infoitem"><dt>电子祝福卡:</dt><dd>
+                <a style="color:rgb(247,118,37);text-decoration:underline" href="祝福卡.html">查看详情  &gt;</a></dd></dl>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>商品总额:</dt><dd><span>￥318.00</span></dd></dl>
+            <dl class="infoitem"><dt>运费:</dt><dd><span>￥0.00</span></dd></dl>
+            <dl class="infoitem"><dt>付款金额:</dt><dd><span class="confirm-price">￥<span>318.00</span></span></dd></dl>
+        </div>
+
+        <div class="ddxx" style="padding: 10px">
+            <h4>支付方式:</h4>
+            <ul class="zffsbox" style="margin-bottom:0;">
+                <li class="xhkzf p2 ">鲜花卡支付<input type="radio" name="zffs" id="xhkzf" checked="checked"><label for="xhkzf"></label></li>
+                <li class="knye">卡内余额 :<span> ¥ <span>100.0</span></span><b></b></li>
+                <li style="padding-left: 0;border-top: 1px solid #ebebeb;font-size: 12px" class="dn" id="yebz">卡内余额不足！其他支付方式支付剩余金额<span> ¥ </span><span id="syje">100.0</span>元。</li>
+                <li class="wxzf p2 js-dx  xz ">微信支付<input type="radio" name="zffs" id="wxzf" checked="checked"><label for="wxzf"></label></li>
+                <li class="zfbzf p2 js-dx">支付宝支付<input type="radio" name="zffs" id="zfb"><label for="zfb"></label></li>
+            </ul>
+        </div>
+
+
+        <!--<a href="javascript:;" class="weui_btn weui_btn_primary" style="font-size:18px;">微信支付</a>-->
+        <!--<a href="javascript:;" class="payandsubmit"  style="background:#0ae;color:#fff;margin-top:20px;width:100%;line-height:45px;display:block;text-align:center;font-size:18px;">支付宝支付</a>-->
+        <form action="" method="post" id="goalipay">
+            <input type="hidden" name="out_trade_no" value="W2016082214131217584648349">
+            <input type="hidden" name="subject" value="单品鲜花包月套餐">
+            <input type="hidden" name="total_fee" value="318.00">
+            <input type="hidden" name="show_url" value="http://t.flowerplus.cn/f0">
+            <input type="hidden" name="body" value="单品鲜花包月套餐">
+            <input type="hidden" name="id" value="1227881">
+        </form>
+        <!-- <div class="weiquan_wrap">
+
+    </div> -->
+        <div class="refund_ok">
+            <img src="Content/img/iconfont-success.png" width="64">
+            <p style="color:#000;padding:15px 0;line-height:2em"><strong>订单已取消</strong></p><p style="color:#999">如已付款，款项会在1~5个工作日内退回到付款账户</p><p></p>
+            <p style="padding:15px 0"><a href="javascript:window.location.replace('/my/');">我的所有订单</a></p>
+        </div>
+
+        <div class="right-dialog" id="shipWrap">
+            <h2>发货详情<a class="right-dialog-close" href="javascript:;"></a></h2>
+            <div class="right-dialog-content" style="padding:20px 0" id="shipDetail">
+
+            </div>
+        </div>
+    </div>
+    <div class="order-modify-bar2">
+        <a class="order-cancel2" id="" href="订单列表.html">支付</a>
+    </div>
+    <div class="order-modify-bar">
+        <a class="order-cancel" id="cancelorder" href="javascript:;">取消订单</a>
+    </div>
+    <script  src="Content/js/layer-mobl.js"></script>
+    <script>
+        $(function () {
+            var fkje=parseInt($(".confirm-price span").html()).toFixed(1);
+            var knye=parseInt($(".knye span span").html()).toFixed(1);
+            var syje=$("#syje");
+            //alert(knye)
+            if(knye<fkje){
+                $("#yebz").show();
+                syje.html((fkje-knye).toFixed(1))
+            }
+//           var array=[5,4,3,2,1,15,48,62,48,46,78,1,32,10];
+//            var temp;
+//            for(var i=0;i<array.length;i++){
+//                for(var j=0;j<array.length-1;j++){
+//                    if(array[j]===array[j+1]){
+//                        array.splice(array[j+1],1);
+//                    }else if(array[j]>array[j+1]){
+//                       temp=array[j+1];
+//                        array[j+1]=array[j];
+//                        array[j]=temp;
+//                    }
+//                }
+//            }
+//            console.log(array)
+        });
+
+        $(".js-dx label").on('click',function () {
+            if($(this).parents('.js-dx').hasClass('xz')){
+               $(this).parents('.js-dx').removeClass('xz')
+           }else{
+                $(this).parents('.js-dx').addClass('xz').siblings('.js-dx').removeClass('xz');
+            }
+
+        });
+        $(".xhkzf label").on('click',function () {
+            $(".xhkzf label").parents(".xhkzf").toggleClass('xz');
+           //.addClass().siblings().removeClass('xz');
+        });
+
+        $("#cancelorder").bind("click",function(){
+            layer.open({
+                content: '确认取消该订单吗？',
+                btn: ['确认', '取消'],
+                shadeClose: false,
+                yes: function () {
+                   // $(".layermbox ").hide();
+                    layer.open({ content: '操作成功', time: 1 });
+                    $(".refund_ok").show();
+                },
+                no: function () {
+
+                }
+            });
+        });
+        $("	#hideorder").bind("click",function(){
+            layer.open({
+                content: '删除的订单不在用户中心显示，但不影响正常配送，请放心使用！\n确认要删除？',
+                btn: ['确认', '取消'],
+                shadeClose: false,
+                yes: function () {
+                    // $(".layermbox ").hide();
+                    layer.open({ content: '操作成功', time: 1 });
+                    $(".refund_ok").show();
+                },
+                no: function () {
+
+                }
+            });
+        });
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <link href="Content/css/m_web.css" rel="stylesheet" type="text/css">
+    <title>优惠券</title>
+</head>
+<body style="max-width: 750px; margin: 0 auto;background-color: #ebebeb">
+<p class="adyh">
+    <input type="text" placeholder="请输入兑换码"><a href="javascript:void(0)">兑换</a>
+</p>
+<div class="box3" id="box3">
+    <!--<div class="yhj ygq">-->
+    <!--<div class="yhjebox">-->
+    <!--<p>¥<span>40</span></p>-->
+    <!--<div class="fl">-->
+    <!--<h1 >包月券</h1>-->
+    <!--<span class="syxz">仅限购买鲜花包月使用</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<span class="patop pa"></span>-->
+    <!--<span class="gq pa" style="display: block"></span>-->
+    <!--<div class="bottom">-->
+    <!--<span class="fl">金额满200可用</span> <span class="fr">有效期:2019-06-13</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="yhjfd">
+        <img src="Content/img/yhjfd.png">
+        <p class="mes">你还没有优惠券哦~~</p>
+    </div>
+</div>
+
+
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script>
+    data={
+        "Code": "1",
+        "Tips": null,
+        "Result": [
+            {
+                "Id": 8,
+                "Status": 2,
+                "BeginTime": "/Date(1468857",
+                "EndTime": "/Date(14698",
+                "isbegin": -1,
+                "Days": 10,
+                "Name": "优惠券",
+                "Money": 5,
+                "EnoughVal": 0,
+                "Des": "开业优惠直减5元"
+            },
+            {
+                "Id": 9,
+                "Status": 2,
+                "BeginTime": "/Date(146",
+                "EndTime": "/Date(146980",
+                "isbegin": -1,
+                "Days": 10,
+                "Name": "优惠券优惠券",
+                "Money": 20,
+                "EnoughVal": 200,
+                "Des": "开业优惠满200减20"
+            },
+            {
+                "Id": 10,
+                "Status": 2,
+                "BeginTime": "/Date(1468857",
+                "EndTime": "/Date(1469808",
+                "isbegin": -1,
+                "Days": 10,
+                "Name": "优惠券优惠券优惠券",
+                "Money": 10,
+                "EnoughVal": 199,
+                "Des": "鲜花包月满199减10"
+            },
+            {
+                "Id": 20,
+                "Status": 2,
+                "BeginTime": "/Date(1468857",
+                "EndTime": "/Date(1469808",
+                "isbegin": -1,
+                "Days": 10,
+                "Name": "开业优惠直",
+                "Money": 5,
+                "EnoughVal": 0,
+                "Des": "开业优惠直减5元"
+            },
+            {
+                "Id": 21,
+                "Status": 2,
+                "BeginTime": "/Date(1468",
+                "EndTime": "/Date(146980",
+                "isbegin": -1,
+                "Days": -1,
+                "Name": "开业优惠满200减",
+                "Money": 20,
+                "EnoughVal": 200,
+                "Des": "开业优惠满200减20"
+            },
+            {
+                "Id": 22,
+                "Status": 2,
+                "BeginTime": "/Date(1468",
+                "EndTime": "/Date(14698",
+                "isbegin": -1,
+                "Days": -1,
+                "Name": "鲜花包月满199",
+                "Money": 10,
+                "EnoughVal": 199,
+                "Des": "鲜花包月满199减10"
+            }
+        ]
+    };
+
+    //alert(data.Result[i].)
+    if(data.Result.length>0){
+        $('.yhjfd').hide();
+    }
+    for (var i=0;i<data.Result.length;i++){
+        $("<div class='yhj' id='box_"+i+"'> <div class='yhjebox'> <p>¥<span>"+data.Result[i].Money+"</span></p>" +
+            " <div class='fl'> <h1 >"+data.Result[i].Name+"</h1> <span class='syxz'>仅限购买鲜花包月使用</span> " +
+            "</div> </div> <span class='patop pa'>还剩"+data.Result[i].Days+"天过期</span> <span class='gq pa'></span><div class='bottom'>" +
+            " <span class='fl'>"+data.Result[i].Des+"</span> <span class='fr'>"+data.Result[i].BeginTime+"至"+data.Result[i].EndTime+"</span> " +
+            "</div> </div>").appendTo('#box3');
+        if((data.Result[i].Days)<0){
+            $('#box_'+i).find('.patop').hide();
+            $('#box_'+i).find('.gq').show();
+            $('#box_'+i).addClass("ygq")
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>花说详情</title>
+    <link rel="stylesheet" href="Content/css/weui.min.css">
+    <link rel="stylesheet" href="Content/css/thsq.css">
+    <style>
+        .weui-uploader__file {
+            float: left;
+            background: no-repeat 50%;
+            background-size: cover;
+            margin: 0;
+        }
+        .weui-cell {
+            padding: 10px 10px 0 10px;
+        }
+        .weui-cells {
+            margin-top: 0;
+            border-top:10px solid #f6f6f6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow: hidden;
+        }
+        .xqbox{
+            overflow: scroll;
+            padding-bottom: 55px;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+<div class="xqbox">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <div class="hsheader">
+                <div class="hsimg fl">
+                    <img src="http://tinghua.img-cn-beijing.aliyuncs.com/Users/83e4ad20c6fc25d2482d02fab1312072.png">
+                </div>
+                <div class="hsname fl">
+                    <h3 class="uname">韩洋</h3>
+                    <p class="hssj">07-05 11:26</p>
+                </div>
+                <div class="fxgz fr">
+                    <p><span>12000</span>粉丝</p>
+                    <a class="gzan2">关注</a>
+                </div>
+            </div>
+            <p class="hswz">达拉斯番窠倒臼法拉盛积分卡大厦积分安防监控打傻了路附近的拉法积分拉屎地方就安静的说法卡萨</p>
+            <div class="weui-uploader">
+                <div class="weui-uploader__bd">
+                    <ul class="weui-uploader__files" >
+                        <li class="weui-uploader__file" style="background-image:url(http://tinghua.img-cn-beijing.aliyuncs.com/Goods/b049ddddbc0441ce8f6c61a2c4f5228f.jpg@750w)"></li></ul>
+                </div>
+                <div class="pldz">
+
+                    <div class="plbox2">
+                        <div class="zanbox">
+                            <a href="javascript:;" class="wdz" onclick="dz(this)">0</a>
+                            <a href="javascript:;" class="plicon">1</a>
+                        </div>
+                        <!--自己可见删除按钮-->
+                        <div class="czbtm" onclick="delbtn()"><p></p><p></p><p></p></div>
+                        <!--他人可见举报按钮-->
+                        <div class="czbtm" onclick="jbbtn()"><p></p><p></p><p></p></div>
+                    </div>
+                    <p class="dzlist"><span>冥界摄政王</span></p>
+                    <ul class="xqpllist">
+                        <li onclick="hfbr(this)">
+                            <div class="imgtx"><img src="Content/img/dt1.jpg"></div>
+                            <div class="xx"><p class="name">冥界摄政王</p><p class="con">哈哈哈哈饭卡防静电弗拉圣诞节疯狂冷风机达拉斯防腐剂达拉斯</p></div>
+                            <div class="pltime">
+                                <p>11-16 15:26</p>
+                                <div class="czbtm"><p></p><p></p><p></p></div>
+                            </div>
+                        </li>
+
+                        <li onclick="hfbr(this)">
+                            <div class="imgtx"><img src="Content/img/dt1.jpg"></div>
+                            <div class="xx"><p class="name">冥界摄政王</p><p class="con">哈哈哈狂腐剂达拉斯</p></div>
+                            <div class="pltime"><p>11-16 15:26</p><div class="czbtm" ><p></p><p></p><p></p></div></div>
+                        </li>
+                        <li onclick="hfbr(this)">
+                            <div class="imgtx"><img src="Content/img/dt1.jpg"></div>
+                            <div class="xx"><p class="name">冥界摄政王</p><p class="con">回复 <span>有你真好</span>:哈哈哈狂腐剂达拉斯</p></div>
+                            <div class="pltime"><p>11-16 15:26</p><div class="czbtm" ><p></p><p></p><p></p></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="js_dialog" id="iosDialog1" style="display: none">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd">确认删除该条花说？</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" onclick="colose()">取消</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" onclick="delHS(this)">确认</a>
+            </div>
+        </div>
+    </div>
+    <div class="js_dialog" id="iosDialog2" style="display: none">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd">确认举报该条花说？</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" onclick="colose()">取消</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" onclick="jbHS(this)">确认</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="js_dialog" id="iosDialog3" style="display: none">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd">确认举报该条评论？</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" onclick="colose()">取消</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" onclick="jbpl(this)">确认</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <div><input placeholder="请输入评论" id="input"></div><a href="javascript:;">发表</a>
+</div>
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="Content/js/layer-mobl.js"></script>
+<script src="Content/js/click.js"></script>
+<script type="text/javascript">
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
+    }
+    var winHeight=$(window).height();
+    var winWidth=$(window).width();
+    if(winWidth>750){
+        winWidth=750
+    }
+    //$("").css({"height":winHeight});
+    $(function(){
+        $(".xqbox").delegate('.gzan2','click',function () {
+            $(this).toggleClass('ygz');
+            if($(this).hasClass('ygz')){
+                $(this).html("已关注")
+            }else {
+                $(this).html("关注")
+            }
+        });
+        $(".mask1,#quanWrap,.xqbox").css({"height":winHeight});
+        $(".plbtn").on('click',function () {
+            $("#quanWrap").addClass('right-dialog-show');
+            $(this).parent().hide();
+            //$("html,body").css({"height":winHeight,"overflow":"hidden"})
+        });
+        $(".right-dialog-close").on('click',function () {
+            $("#quanWrap").removeClass('right-dialog-show');
+            //$("html,body").css({"height":"","overflow":""})
+        });
+        if($(".gzan2").hasClass('ygz')){
+            $(this).html("已关注")
+        }else {
+            $(this).html("关注")
+        }
+        if($('.gzbox').find('.weui-cell').length>0){
+            $(".sgye").hide();
+        }else {
+            $(".sgye").show();
+        }
+        $("#nav li").on('click',function () {
+            $(this).addClass('selcet').siblings().removeClass('selcet');
+        });
+        var box=$(".weui-uploader__files");
+        for(var i=0;i<box.length;i++){
+            var li=$(box[i]).find('li');
+            //console.log(li.length)
+            //for(var j=0;)
+            if(li.length==1){
+                $(box[i]).find('li').css({"width":winWidth-100,"height":winWidth-100})
+            }
+            else{
+                $(box[i]).find('li').css({"width":(winWidth-50)/3,"height":(winWidth-50)/3,"margin":5})
+            }
+        }
+
+
+        $(".weui-uploader__files li").on('click',function () {
+            //var url=
+            var that=$(this);
+            var url=that.css('background-image').substring(4,that.css('background-image').length-1);
+            //var img=that.siblings();
+            var img_urls = [];
+            $(that.parent().find('li')).each(function() {
+                img_urls.push($(this).css('background-image').substring(4,$(this).css('background-image').length-1));
+            });
+            //console.log(img_urls)
+            wx.previewImage({
+                current: url, // 当前显示图片的http链接
+                urls: img_urls// 需要预览的图片http链接列表
+            });
+        });
+        $(".pltime .czbtm").on('click',function(){
+            var $iosDialog3 = $('#iosDialog3');
+            $iosDialog3.fadeIn(200);
+            return false;
+    })
+
+    });
+
+    function dz(obj) {
+      var  $this=$(obj);
+            if($this.hasClass('ydz')){
+                $this.removeClass('ydz');
+                $this.html(parseInt($this.html())-1)
+            }else {
+                $this.addClass('ydz');
+                $this.html(parseInt($this.html())+1)
+            }
+    }
+    function delbtn() {
+        var $iosDialog1 = $('#iosDialog1');
+            $iosDialog1.fadeIn(200);
+    }
+    function jbbtn() {
+        var $iosDialog1 = $('#iosDialog2');
+        $iosDialog1.fadeIn(200);
+    }
+    function colose() {
+        var $iosDialog1 = $('#iosDialog1');
+        $iosDialog1.fadeOut(200);
+        var $iosDialog2 = $('#iosDialog2');
+        $iosDialog2.fadeOut(200);
+        var $iosDialog3 = $('#iosDialog3');
+        $iosDialog3.fadeOut(200);
+    }
+
+    function delHS(obj) {
+        var $this=$(obj);
+        var $iosDialog1 = $('#iosDialog1');
+        $iosDialog1.fadeOut();
+        layer.open({content:"删除成功",time:1});
+        window.location.href="听花社区index.html";
+    }
+
+    function jbHS(obj) {
+        var $this=$(obj);
+        var $iosDialog1 = $('#iosDialog2');
+        $iosDialog1.fadeOut(200);
+        layer.open({content:"举报成功",time:1});
+    }
+
+    function jbpl(obj) {
+        var $this=$(obj);
+        layer.open({content:"举报成功",time:1});
+        var $iosDialog3 = $('#iosDialog3');
+        $iosDialog3.fadeOut();
+        return false;
+    }
+    function hfbr(obj) {
+        var $this=$(obj);
+        var input=$("#input");
+        var name=$this.find('.name').html();
+        console.log(name);
+        input.attr('placeholder',"回复 "+name)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/zfk.css">
+    <title>祝福卡</title>
+    <script type="text/javascript" src="Content/js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="Zfk_content_out">
+    <div class="Zfk_content">
+        <div class="Zfk_tit">祝福卡</div>
+        <div class="Zfk_main_out" style="padding: 0 25px 15px;color: #666;font-family:PingFang-SC-Thin">
+            <div class="Zfk_main" style="visibility: visible; font-size: 18px; min-height: 60px;">减肥的拉斯加罚款的垃圾费啦拉飞机快乐大家分开啦法师打发第三方</div>
+            <div class="Zfk_name" style="visibility: visible;">李莹</div>
+        </div>
+        <div class="Zfk_bottom">
+            <div class="Zfk_bottom_top"><img src="http://static2.flowerplus.cn/Static/img/zfk-page.png" height="79" width="100%" style="display:block" onload="resizePage()"></div>
+            <div class="Zfk_infor"><span>赠送内容：单品鲜花包月套餐</span></div>
+            <div class="Zfk_concern">
+                <p><img src="Content/img/ewm.jpg" alt=""></p>
+                <ul>
+                    <li>长按识别左侧二维码，关注listenflower公众号，查看配送详情及变更信息。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    setTimeout(function(){
+        $(".Zfk_content").css({
+            "-webkit-transform": "scale(1,1)",
+            "transform": "scale(1,1)"
+        });},50);
+    var flag=1;
+    function resizePage(){
+        if(flag==0){
+            flag--;
+            return;
+        }
+        $(".Zfk_main").css({
+            "min-height":$(".Zfk_content_out").height()-$(".Zfk_content").height()+$(".Zfk_main").height()-15
+        });
+    }
+    setTimeout(function(){
+        $(".Zfk_main,.Zfk_name").css({
+            'visibility':'visible'
+        });},1000);
+</script>
+</body>
+</html>

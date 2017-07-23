@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>已下单的人</title>
+    <link rel="stylesheet" href="Content/css/code.css" type="text/css">
+</head>
+<body>
+<div class="page">
+    <div class="page">
+        <ul class="header-top">
+            <li ><a href="代言人-1.html">我的二维码</a></li>
+            <li class="current"><a href="代言人-2.html">已下单的人</a></li>
+            <li ><a href="代言人-3.html">我的兑换码</a></li>
+        </ul>
+        <div class="yqm-conout">
+            <dl>
+                <dt>通过专属二维码成功下单的好友<p><span style="color:red;">备注：按照下单人数统计</span></p></dt>
+                <dd class="borderBottom">
+                    <p class="head-img"><img src="http://wx.qlogo.cn/mmopen/KetjXWSVpptMiak5f1MfW7jQF5vZukiboIOlD81mbKtq7mxRv8PAsoibribc9l5GAYgxpTtKQjyoE3myUXZoGo6nvXkNq3eECfIx9KibUjSODeW8/0" alt="" style="width:40px;height:40px"></p>
+                    <span>冥界摄政王(1单)</span>
+                </dd>
+                <dd class="borderBottom">
+                    <p class="head-img"><img src="http://wx.qlogo.cn/mmopen/KetjXWSVppta7dlRFGSYvQshgvOeian5BdTcm9u8kxoglJdUnfvSibV3wwsFmUDC0EBd5M2amZtDoZ6YEibIoxY055w3kPTsw2HVn6OotsicLEw/0" alt="" style="width:40px;height:40px"></p>
+                    <span>baby🙈豬(1单)</span>
+                </dd>
+                <dd class="borderBottom">
+                    <p class="head-img"><img src="http://wx.qlogo.cn/mmopen/3B3mXY3RuL4EQAAVJeoGkrd9ib5J8lHYscPZF3JQNc4kQmt7pW8SL37PsHMyvCMxY4M4tmSndyEicaS4nbibCsEyw4UwYAhObPB/0" alt="" style="width:40px;height:40px"></p>
+                    <span>我是个演员(1单)</span>
+                </dd>
+                <p style="text-align:center;padding:15px;color:#aaa">
+                    共3位下单人
+                </p>
+            </dl>
+        </div>
+    </div>
+    <!--  弹窗	 -->
+    <div class="w-out" style="display:none;">
+        <div class="w-in">
+            <p style="text-align:right;display:none">
+                <a href="javascript:void(0)" class="close"></a>
+            </p>
+            <div class="w-in-header"></div>
+            <p id="content_code"></p>
+        </div>
+    </div>
+    <!--  弹窗  -->
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script>
+        // ok  waining  waiting
+        function gengxin() {
+            $('.w-out').find('div').find('div').removeClass('waining','ok').addClass('waiting');
+            $('#content_code').text('更新中...');
+            $('.w-out').show();
+//            $.post('/wx_cs/update_my_code',{},function(d) {
+//                $('#content_code').text(d.data);
+//                if (d.f== true) {
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('ok');
+//                    $('.close').parent('p').show();
+//                }else{
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('waining');
+//                    $('.close').parent('p').show();
+//                }
+//            },'json')
+        }
+        $(".close").click(function(event) {
+            event.stopPropagation();
+            $('.w-out').hide();
+            window.location.reload();
+
+        });
+    </script>
+
+</div>
+
+
+</body></html>

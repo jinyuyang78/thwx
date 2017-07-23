@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,lestenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="Content/css/m_web.css">
+</head>
+<body>
+<div class="page" style="padding-bottom: 45px">
+    <div class="product-pic">
+        <div>
+            <img  src="Content/img/dt1.jpg">
+        </div>
+    </div>
+    <div class="produt-head">
+        <div class="produt-title">花剪</div>
+        <div class="produt-subtitle">清补不赏花</div>
+        <div class="produt-price">￥<strong id="price">68</strong></div>
+    </div>
+    <ul class="sku">
+        <li>
+            <dl><dt style="padding-bottom:5px">颜色:</dt>
+                <dd class="sku-item gmhp">
+                    <span >梦幻粉 <input type="hidden" value="266"></span>
+                    <span >橄榄绿 <input type="hidden" value="267"></span>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+
+    <div class="product-detail">
+        <div id="desc">
+            <div>
+                <div class="product-detail-html">
+                    <a href="#">
+                        <img class="product-detail-image" src="Content/img/x1.jpg!60">
+                    </a>
+                </div>
+                <div class="product-detail-html"></div>
+                <img class="product-detail-image" src="Content/img/dt1.jpg" >
+                <img class="product-detail-image"  src="Content/img/dt1.jpg" id="">
+                <img class="product-detail-image"  src="Content/img/dt1.jpg" id="">
+                <img class="product-detail-image" src="Content/img/dt1.jpg" >
+                <img class="product-detail-image"  src="Content/img/dt1.jpg" id="GoodsImageList">
+
+            </div>
+        </div>
+
+        <div>
+        </div>
+
+        <div class="scfxbox">
+            <div class="scfx">
+                <a class="fxan" id="gwc" href="/Cart"></a>
+                <div class="pr gwcsl"><span id="cartnum">0</span></div>
+            </div>
+        </div>
+
+        <div class="pt-foot3">
+            <a class="fr gwcan" onclick="buynow()">立即购买</a>
+            <a class="fl gwcan jrgwc" onclick="addToCart()">加入购物车</a>
+        </div>
+    </div>
+    <input type="hidden" id="choosedgaid" value="0">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+    <script type="text/javascript">
+        $('.gmhp span').on('click',function () {
+            var val = $(this).find('input').val();
+            $('#choosedgaid').val(val);
+            $(this).addClass('select').siblings().removeClass('select');
+        });
+        function checkChoosed() {
+            if ($('#choosedgaid').val()>0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function buynow() {
+            if (checkChoosed()) {
+                var li = $('.sxbox ul li.xz').eq(0);
+                var gid = $('#choosedgaid').val();
+                var num = 1;
+                if (li.html()) {
+                    num = $(".sum").eq(0).text();
+                }
+                window.location = '确认订单.html?gaid=' + gid + '&buyNowNum=' + num;
+            } else {
+                layer.open({content:'选择商品规格',time:1});
+                $("html,body").scrollTop($(".produt-head").offset().top);
+                $("#confirm").click(function() {
+                    if (checkChoosed()) {
+                        var li = $('.sxbox ul li.xz').eq(0);
+                        var gid = $('#choosedgaid').val();
+                        var num = 1;
+                        if (li.html()) {
+                            num = $(".sum").eq(0).text();
+                        }
+                        window.location = '确认订单.html?gaid=' + gid + '&buyNowNum=' + num;
+                    }
+                });
+            }
+        }
+        function addToCart() {
+            if (checkChoosed()) {
+                var li = $('.sxbox ul li.xz').eq(0);
+                var gid = $('#choosedgaid').val();
+                var num = 1;
+                if (li.html()) {
+                    num = $(".sum").eq(0).text();
+                }
+                console.log(num);
+                $.post('/Cart/Update', { id: gid, num: num }, function(data) {
+                    if (data.status === 1) {
+                        var count = parseInt($("#cartnum").text());
+                        $("#cartnum").text(count + 1);
+                    }
+                });
+            } else {
+                layer.open({content:'选择商品规格',time:1});
+                $("html,body").scrollTop($(".produt-head").offset().top);
+                $("#confirm").click(function () {
+                    var li = $('.sxbox ul li.xz').eq(0);
+                    var gid = $('#choosedgaid').val();
+                    var num = 1;
+                    if (li.html()) {
+                        num = $(".sum").eq(0).text();
+                    }
+                    console.log(num);
+                    $.post('/Cart/Update', { id: gid, num: num }, function (data) {
+                        if (data.status === 1) {
+                            var count = parseInt($("#cartnum").text());
+                            $("#cartnum").text(count + 1);
+                        }
+                    });
+                });
+            }
+        }
+
+        $('.buy-submit').on('click',function () {
+            if($('.gmhp span').hasClass('select')){
+                //alert(1111)
+            }else {
+                layer.open({content:'请选择花瓶',time:1});
+                $("html,body").scrollTop($(".produt-head").offset().top);
+                return false;
+            }
+
+        })
+    </script>
+
+
+</div>
+</body>
+</html>

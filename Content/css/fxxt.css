@@ -1,0 +1,447 @@
+@charset "UTF-8";
+
+/* 初始化CSS */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img { border:none; }
+img{display: block;width: 100%}
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family:"微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { margin:0;     border: none; font-family:"微软雅黑";font-size: 12px}
+input[type="text"],input[type="tel"], textarea,select { outline-style:none; -webkit-tap-highlight-color: transparent;}
+textarea { resize:none; }
+table { border-collapse:collapse; }
+body {
+    font: 14px "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,"Microsoft YaHei";
+    color: #444450;
+    -webkit-user-select: text;
+}
+a {text-decoration:none; outline:none;}
+a:visited {}
+a:hover, a:active, a:focus {text-decoration:none; }
+a{ -webkit-tap-highlight-color:rgba(255,0,0,0);}
+.fl{ float:left;}
+.fr{ float:right;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.dn{ display:none;}
+.db{ display:block;}
+.hidden{visibility:hidden;}
+/* CSS 1,2 & 3 and HTML5 reset stylesheet */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* 重置所有元素的盒模型 */
+textarea { resize: none; }
+/* changes textarea resizing from "both" (UA default) to vertical only */
+
+/*  HTML5 CSS */
+article, aside, audio, footer, header, nav, section, video { display: block }
+/* 对于老的浏览器，如Firefox 3.6，由于不知道HTML5元素而将它们渲染为 display: inline 。这里不用管 date, figure和HTML5表单的input*/
+input{border:0;outline:none;/*去除蓝色边框*/}
+input[type="search"]{-webkit-appearance:textfield;}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}
+input {-webkit-appearance:none;-webkit-tap-highlight-color:rgba(0,0,0,0); /*去除input默认样式*/}
+/* 去除Safari 或 Mobile Safari浏览器的HTML5搜索框和提交按钮的 OS X外观 */
+
+.page{
+    width: 100%;
+    overflow-y:auto;
+    max-width: 750px;
+    margin: 0 auto;
+
+}
+.top{
+    width: 100%;
+    height: 265px;
+    overflow: hidden;
+    border-bottom: 10px solid #f6f6f6;
+}
+.bg{
+    width: 100%;
+    height: 180px;
+    background-image: url("../img/fxbg.jpg");
+    background-size: cover;
+}
+.topxx{
+    width: 150px;
+    height: 110px;
+    overflow: hidden;
+    left: 50%;
+    margin-left: -75px;
+    bottom: -65px;
+}
+.topxx .txbox{
+    width: 80px;
+    height: 80px;
+    border-radius: 70px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 3px solid #f6f6f6;
+}
+.topxx p{
+    font-size: 14px;
+    color: #1f1f1f;
+    text-align: center;
+    padding: 10px 0;
+}
+.box{
+    /*padding: 5px 0;*/
+    border-bottom: 10px solid #f7f7f7;
+}
+.box .top2{
+    height: 40px;
+    line-height: 40px;
+
+    border-bottom: 1px solid #ebebeb;
+    padding:0 10px;
+    font-size: 14px;
+    color: #1f1f1f;
+}
+.box .top2 a{
+    float: right;
+    width: 60%;
+    height: 39px;
+    color: #b4b4b6;
+    text-align: right;
+    background: url("../img/yjth.png") no-repeat right center;
+    background-size: 8px;
+    padding-right: 15px;
+}
+.btnbox{
+    width: 100%;
+    overflow: hidden;
+}
+.btnbox a{
+    float: left;
+    width: 33.3339%;
+    color: #1f1f1f;
+    margin: 15px 0;
+}
+.btnbox a .span1{
+    display: block;
+    text-align: center;
+    line-height: 20px;
+}
+.btnbox a span.span2{
+    height: 30px;
+    display: block;
+    width: 40px;
+    position: relative;
+    margin: 0 auto;
+}
+.btnbox a span.span2 span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    background-color: #5ba997;
+    right: 0;
+    top: 2px;
+}
+.btnbox a span.span3{
+    display: block;
+    text-align: center;
+}
+.btnbox a span.dfk{
+    background: url("../img/dfkicon.png") no-repeat  center;
+    background-size: 25px;
+    height: 40px;
+}
+.btnbox a span.fwz{
+    background: url("../img/fwzicon.png") no-repeat  center;
+    background-size: 25px;
+    height: 40px;
+}
+.btnbox a span.ywc{
+    background: url("../img/wcicon.png") no-repeat  center;
+    background-size: 25px;
+    height: 40px;
+}
+.btnbox a span.qb{
+    background: url("../img/qbicon.png") no-repeat  center;
+    background-size: 25px;
+}
+.rzwzbt{
+    font-size: 16px;
+    text-align: center;
+    line-height: 36px;
+}
+.rzwz{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+}
+.rzbox{
+    padding: 10px 0;
+}
+.rzbox div{
+    height: 40px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    width: 100%;
+}
+.rzbox div input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.rzbox  label{
+    display: inline-block;
+    padding: 5px 10px;
+}
+.tj{
+    width: 100%;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #5ba997;
+    border-radius: 5px;
+}
+.txinputbox{
+    height: 45px;
+    border-bottom: 1px solid #ebebeb;
+    width: 100%;
+}
+.txinputbox input{
+    display: block;
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+}
+.ktxje{
+    font-size: 14px;
+    padding: 5px 0;
+    color: #9b9b9b;
+}
+.ktxje span{
+color:#ff0000;
+    font-weight: bold;
+}
+.top3{
+    padding-top: 50px;
+}
+.txje{
+    font-size: 30px;
+    color: #5ba997;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+}
+.topbox{
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ebebeb;
+}
+.topbox div{
+    width: 50%;
+    float: left;
+    text-align: center;
+    margin: 15px 0;
+}
+.topbox div p{
+    line-height: 22px;
+}
+.topbox div p.je{
+    color: #5ba997;
+    font-weight: bold;
+}
+.xtbtnbox{
+    width: 100%;
+    height: 45px;
+    display: block;
+    /*border-bottom: 1px solid #ebebeb;*/
+    color: #1f1f1f;
+    background-color: #ffffff;
+}
+.xtbtnbox span{
+    width: 100px;
+    line-height: 45px;
+    display: block;margin: 0 auto;
+    background: url("../img/yjthei.png") no-repeat right center;
+    background-size: 6px;
+}
+.seaboxbig1{
+    padding: 15px 10px;
+}
+.seabox{
+    overflow: hidden;
+    border: 1px solid #ebebeb;
+    /*border-bottom: 1px solid #f6f6f6;*/
+    height: 40px;
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
+}
+.seabox input{
+    background: url("../img/sea.png") no-repeat 10px center;
+    padding-left: 35px;
+    height: 38px;
+    background-size: 20px;
+    font-size: 12px;
+    width: 70%;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    color: #666;
+    background-color: #fff;
+}
+.seabox a{
+    height: 38px;
+    line-height: 38px;
+    background-color: #5ba997;
+    color: #fff;
+    font-size: 12px;
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+}
+.fsdditems{
+
+}
+.fsdditems .item{
+    padding: 0 10px 0 10px;
+    border-bottom: 10px solid #f7f7f7;
+    background-color: #ffffff;
+}
+.fsdditems .item .top4{
+    overflow: hidden;
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 0;
+    color: #666;
+}
+.fsdditems .item .top4 p{
+    line-height: 20px;
+    font-size: 12px;
+}
+.fsdditems .item .top4 p.sj{
+    color: #ccc;
+    font-size: 12px;
+}
+.item_box{
+    padding: 10px 0 ;
+    overflow: hidden;
+    /*border-bottom: 1px solid #ebebeb;*/
+    color: #666;
+}
+.item_box img{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+.item_box p{
+   line-height: 30px;
+    padding-left: 10px;
+}
+.item_box p.je{
+    color: #5ba997;
+}
+.item_box .fr p{
+   text-align: right;
+}
+.top5{
+    line-height: 60px;
+    padding:0 10px;
+    border-bottom: 1px solid #ebebeb;
+    color: #7e7e8a;
+}
+.top5 span{
+    float: right;
+    color: #5ba997;
+    font-weight: bold;
+}
+.ddxxul li{
+    padding: 10px;
+    color: #7e7e8a;
+    /*border-bottom: 1px solid #ebebeb;*/
+    overflow: hidden;
+}
+.ddxxul li span{
+    float: right;
+    color: #33383b;
+}
+.seaboxbig{
+    width: 100%;
+    padding: 10px;
+}
+.seabox2{
+    overflow: hidden;
+    border: 1px solid #ebebeb;
+    border-radius: 5px 0 0 5px;
+    height: 41px;
+    margin: 10px 0;
+    background-color: #fff;
+}
+.seabox2 input{
+    background: url("../img/sea.png") no-repeat 10px center;
+    padding-left: 35px;
+    height: 41px;
+    background-size: 20px;
+    font-size: 12px;
+    width: 70%;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    color: #666;
+    background-color: #fff;
+}
+.seabox2 a{
+    height: 41px;
+    line-height: 41px;
+    background-color: #5ba997;
+    color: #fff;
+    font-size: 12px;
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+}
+.wdfsitems{
+    border-top: 1px solid #ebebeb;
+}
+.wdfsitems li{
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+    overflow: hidden;
+    position: relative;
+}
+.wdfsitems li img{
+    width: 55px;
+    height: 55px;
+    border-radius: 60px;
+}
+.wdfsitems li .fsxx{
+    padding-left: 10px;
+}
+.wdfsitems li .gzsj{
+    font-size: 12px;
+    position: absolute;
+    bottom: 11px;
+    right: 10px;
+    line-height: 27px;
+}
+.fsxx p{
+    line-height: 27px;
+    font-size: 12px;
+}
+.fsxx p span{
+    display: inline-block;
+    padding: 0 5px;
+    background-color: #ebebeb;
+    height: 14px;
+    line-height: 14px;
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666;
+}

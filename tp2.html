@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>聼花-投票</title>
+    <link rel="stylesheet" href="Content/css/tp.css">
+    <style>html,body{height: 100%;}</style>
+</head>
+<body style="max-width: 750px;margin: 0 auto; background-color: #eef6f4;">
+    <div class="scbox">
+        <form>
+            <div class="inputbox">
+                <label for="username" class="wz">真实姓名</label><label for="username" class="xh">*</label>
+                <div><input placeholder="请输入真实姓名" type="text" id="username" class="input"></div>
+
+            </div>
+
+            <div class="inputbox">
+                <label for="tel" class="wz">手机号码</label><label for="tel" class="xh">*</label>
+                <div><input placeholder="便于获奖联系您" id="tel" type="tel" class="input" maxlength="11"></div>
+                <!--<label for="tel" class="xh">*</label>-->
+            </div>
+
+            <div class="inputbox">
+                <label for="zpname" class="wz">作品名称</label><label for="zpname" class="xh">*</label>
+                <div><input placeholder="限8字以内" id="zpname" maxlength="8" class="input"></div>
+                <!--<label for="zpname" class="xh">*</label>-->
+            </div>
+
+            <div class="inputbox">
+                <label for="zpname" class="wz">作品上传</label><label class="xh">*</label>
+                <!--<label for="zpname" class="xh" style="width: 60%">*</label>-->
+                <input type="hidden" id="zpsc">
+            </div>
+
+            <div id="view">
+                <input type="file" id="file">
+            </div>
+           <div class="sctbox">
+               <p class="xzts">双指触摸可进行图片旋转</p>
+               <div id="clipArea"></div>
+
+               <a class="file2">重新上传
+                   <input type="file" id="file2" >
+               </a>
+
+               <div class="foot2">
+                   <a id="cloBtn" type="button" class="btn2">取消</a>
+                   <a id="clipBtn" type="button" class="btn3">选取</a>
+               </div>
+           </div>
+        </form>
+        <div class="cn"><label>*</label><p>确认提交即表示您同意《我承诺本作品为原创，未抄袭其他作品》</p></div>
+        <div class="foot">
+            <a class="cjbtn" id="qrtj" >确认提交</a>
+        </div>
+    </div>
+    <script src="Content/js/jquery-3.1.1.min.js"></script>
+    <script src="Content/js/iscroll-zoom.js"></script>
+    <script src="Content/js/hammer.js"></script>
+    <script src="Content/js/lrz.all.bundle.js"></script>
+    <script src="Content/js/PhotoClip.min.js"></script>
+<script>
+    var img=false;
+    $(function () {
+        $("#file").on('click',function () {
+            $(".sctbox").show()
+        });
+        $("#clipBtn,#cloBtn").on('click',function () {
+            $(".sctbox").hide();
+        });
+        $(".cn").on('click',function () {
+            $(this).toggleClass("xz");
+        });
+        $(".input").on('input',function () {
+            $(this).parents('.inputbox').find('.error').remove();
+        });
+        var herf=true;
+
+        $("#qrtj").on('click',function () {
+            $(".error").remove();
+            var username=$("#username").val();
+            var tel=$("#tel").val();
+            var zpname=$("#zpname").val();
+            if(username===""){
+                $("#username").parents('.inputbox').find(".xh").after($("<label class='error'>此项为必填项</label>"));
+                herf=false;
+            }else {
+                herf=true;
+            }
+            if(tel===""){
+                $("#tel").parents('.inputbox').find(".xh").after($("<label class='error'>此项为必填项</label>"));
+                herf=false;
+            }else if(!/^1\d{10}$/.test(tel)){
+                $("#tel").parents('.inputbox').find(".xh").after($("<label class='error'>请输入正确手机号码</label>"));
+                herf=false;
+            }else {
+                herf=true;
+            }
+            if(zpname===""){
+                $("#zpname").parents('.inputbox').find(".xh").after($("<label class='error'>此项为必填项</label>"));
+                herf=false;
+            }else {
+                herf=true;
+            }
+            if(img == false){
+                $("#zpsc").parents('.inputbox').find(".xh").after($("<label class='error'>此项为必填项</label>"));
+            }
+            if(herf==true&&img==true){
+                window.location.href="tp1.html"
+            }
+
+
+        })
+    });
+    $("#file2").on('click',function () {
+        $(".photo-clip-rotateLayer img").attr('src','')
+    });
+    var clipArea = new PhotoClip("#clipArea", {
+        size: [200, 200],
+        file: "#file,#file2",
+        //img: "img/mm.jpg",
+        view: "#view",
+        ok: "#clipBtn",
+        loadStart: function() {
+            console.log("照片读取中");
+        },
+        loadComplete: function() {
+
+        },
+        clipFinish: function(dataURL) {
+            console.log(dataURL);
+            img = true;
+            $("#zpsc").parents('.inputbox').find(".error").remove();
+            console.log(dataURL);
+        }
+    });
+</script>
+</body>
+</html>

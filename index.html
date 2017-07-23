@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,鲜花,鲜花订阅">
+    <meta name="description" content="一周一花，用鲜花点亮生活">
+    <title>听花 用鲜花点亮生活</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="Content/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/mobile.css">
+    <script type="text/javascript" src="Content/js/jquery-1.8.3.min.js"></script>
+    <!--<script src="Content/js/m.js"></script>-->
+
+</head>
+<body>
+<div class="page">
+    <div id="mb">
+        <div class="section section1">
+            <div class="banner">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob1.jpg" alt="">
+                <div class="font">
+                    <p>－Brighten life with flowers－</p>
+                    <p>一周一花，用鲜花点亮生活</p>
+                    <p>让日常，不再习以为常</p>
+                </div>
+            </div>
+            <h3><img src="Content/img/index-pc-logo2.png"  alt=""></h3>
+        </div>
+        <div class="section section2">
+            <p class="t-1">单品花束包月</p>
+            <p class="sm-tit">Seasonal Bouquet Monthly Package</p>
+            <div class="box">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob2.jpg"  alt="">
+                <div><span class="money">¥98&nbsp;</span>单品花束月套餐</div>
+                <u class="line"></u>
+                <p>采收当季时令鲜花</p>
+                <p>品种随机派送</p>
+                <p>每周一次，共4次</p>
+                <p>单品不单调，每周有惊喜1</p>
+                <a href="普通商品详情.html">去购买</a>
+            </div>
+        </div>
+        <div class="section section2">
+            <p class="t-1">混合花束包月</p>
+            <p class="sm-tit">Mixed Bouquet Monthly Package</p>
+            <div class="box">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob3.jpg" alt="">
+                <div><span class="money">¥168&nbsp;</span>混合花束月套餐</div>
+                <u class="line"></u>
+                <p>精选3-5种当季花材</p>
+                <p>让你亲手搭配自己的心情</p>
+                <p>每周一次，共4次</p>
+                <p>花束随机派送</p>
+                <a href="普通商品详情.html">去购买</a>
+            </div>
+        </div>
+        <div class="section section2">
+            <p class="t-1">七夕唯爱玫瑰花盒</p>
+            <p class="sm-tit">Bouquet Of Roses -Double Seventh Festival Edition-</p>
+            <div class="box">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob4.jpg" alt="">
+                <div><span class="money">¥399&nbsp;</span>七夕唯爱玫瑰花盒</div>
+                <u class="line"></u>
+                <p>精选进口厄瓜多尔玫瑰</p>
+                <p>唯浪漫，唯赤诚，唯纯洁</p>
+                <p>赠给你心中唯一的那个她</p>
+                <a href="普通商品详情.html">去购买</a>
+            </div>
+        </div>
+        <div class="section section2">
+            <p class="t-1">专业花艺剪</p>
+            <p class="sm-tit">Professional floral scissors</p>
+            <div class="box">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob5.jpg" alt="">
+                <div><span class="money">¥79&nbsp;</span>专业花艺剪</div>
+                <u class="line"></u>
+                <p>花+独家定制花艺剪</p>
+                <p>为修剪鲜花而生</p>
+                <p>最优钢材硬度高</p>
+                <p>人体工学设计开合流畅</p>
+                <a href="普通商品详情.html">去购买</a>
+            </div>
+        </div>
+        <div class="section section2">
+            <p class="t-1">鲜花营养液</p>
+            <p class="sm-tit">flower food</p>
+            <div class="box">
+                <img src="http://static2.flowerplus.cn/Static/web/v1/Images/index-mob6.jpg" alt="">
+                <div><span class="money">¥29.9&nbsp;</span>保鲜液</div>
+                <u class="line"></u>
+                <p>荷兰进口</p>
+                <p>养花必备神仙水</p>
+                <a href="普通商品详情.html">去购买</a>
+            </div>
+        </div>
+        <div class="copy">
+            <p>© 2015-2016 &nbsp;&nbsp;&nbsp;&nbsp;听花 ｜ 京ICP备16030052号-1</p>
+            <p>北京听花科技有限公司</p>
+            <p>BeiJing TingHua</p></div>
+    </div>
+</div>
+
+<!--<script src="Content/js/bw.end.js"></script>-->
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script>
+    //禁用手机默认的触屏滚动行为
+//    document.addEventListener('touchmove', function(event) {
+//        event.preventDefault();
+//    }, false);
+    //touchstart事件
+    $(".section").bind('touchend',function(e){ //代码处理});
+    console.log(e.originalEvent.changedTouches[0].pageX )
+    })
+
+    //判断是否支持触摸事件
+    function isTouchDevice() {
+        //document.getElementById("version").innerHTML = navigator.appVersion;
+
+        try {
+            document.createEvent("TouchEvent");
+            //alert("支持TouchEvent事件！");
+
+            bindEvent(); //绑定事件
+        } catch (e) {
+            alert("不支持TouchEvent事件！" + e.message);
+        }
+    }
+</script>
+</body>
+</html>

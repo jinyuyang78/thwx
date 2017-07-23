@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>付款订单详情</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="page" id="page">
+    <div class="order-out" style="z-index:2;position:relative;">
+        <div class="padding_15" style="border-top:0 none">
+            <dl class="infoitem"><dt>订单状态:</dt><dd><strong>服务中</strong></dd></dl>
+            <dl class="infoitem"><dt>下单时间:</dt><dd> 2016-08-22 14:13:12</dd></dl>
+        </div>
+        <div class="btnbox">
+            <div class="btndiv">
+            <div class="li"><p class="select2">1</p><span>8-26</span></div>
+            <div class="li"><p class="select1">2</p><span>8-26</span></div>
+            <div class="li"><p>3</p><span>8-26</span></div>
+            <div class="li"><p>4</p><span>8-26</span></div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="sybox">
+            <a href="javascript:void(0);" id="syshbtn">修改订单信息</a>
+            <!--<p>绿色代表在备货或是配送中，不可顺延或修改地址</p>-->
+        </div>
+
+        <div class="padding_15" style="border-bottom:1px solid #f0f0f0">
+            <dl class="infoitem"><dt>配送方式:</dt><dd>快递配送
+            </dd></dl>
+
+            <!--区分代收点和提货地点-->
+            <dl class="infoitem"><dt>收货人/手机:</dt><dd class="shrtel">好几节课来解决 / 15210792815</dd></dl>
+            <dl class="infoitem">
+                <dt>收货地址:</dt>
+                <dd class="add-inf"><span>天津 天津市 南开区 空间和进口红酒</span></dd>
+            </dl>
+
+        </div>
+
+        <div class="pinfo-wrap">
+            <div class="pinfo-image"><img src="Content/img/dt1.jpg"></div>
+            <div class="pinfo-content">
+                <div class="pinfo-title">单品鲜花包月套餐</div>
+                <div class="pinfo-sku">订几个月:3个月
+                    花瓶:买1个花瓶
+                    送达日期:周六送达</div>
+            </div>
+            <div class="pinfo-price">￥313.00</div>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>订单号:</dt><dd>W2016082214131217584648349</dd></dl>
+            <dl class="infoitem"><dt>忌讳的花:</dt><dd>白色花,绣球,勿忘我</dd></dl>
+            <dl class="infoitem"><dt>电子祝福卡:</dt><dd>
+                <a style="color:rgb(247,118,37);text-decoration:underline" href="祝福卡.html">查看详情  &gt;</a></dd></dl>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>商品总额:</dt><dd><span>￥318.00</span></dd></dl>
+            <dl class="infoitem"><dt>运费:</dt><dd><span>￥0.00</span></dd></dl>
+            <dl class="infoitem"><dt>付款金额:</dt><dd><span class="confirm-price">￥318.00</span></dd></dl>
+        </div>
+
+        <form  id="goalipay">
+            <input type="hidden" name="out_trade_no" value="W2016082214131217584648349">
+            <input type="hidden" name="subject" value="单品鲜花包月套餐">
+            <input type="hidden" name="total_fee" value="318.00">
+            <input type="hidden" name="show_url" value="http://t.flowerplus.cn/f0">
+            <input type="hidden" name="body" value="单品鲜花包月套餐">
+            <input type="hidden" name="id" value="1227881">
+        </form>
+
+
+        <!-- <div class="weiquan_wrap">
+
+    </div> -->
+        <div class="refund_ok">
+            <img src="Content/img/iconfont-success.png" width="64">
+            <p style="color:#000;padding:15px 0;line-height:2em"><strong>订单已取消</strong></p><p style="color:#999">如已付款，款项会在1~5个工作日内退回到付款账户</p><p></p>
+            <p style="padding:15px 0"><a href="#">我的所有订单</a></p>
+        </div>
+
+        <div class="right-dialog" id="shipWrap">
+            <h2>发货详情<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content" style="padding:20px 0" id="shipDetail">
+                <ul class="shxqbox">
+                    <li><span class="span1">服务次数:</span><span>第三次/2016-05-26/星期一</span></li>
+                    <li><span class="span1">发货日期:</span><span>收货前一天</span></li>
+                    <li><span class="span1">随货配件:</span><span>无</span></li>
+                    <li><span class="span1">收货地址:</span><span>北京按揭付款大家撒附近的卡上就发了地方大沙发上发点福利</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-dialog" id="syshbox">
+            <h2>修改所有配送<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content">
+                <ul class="xgpsbox">
+                    <li class="psfsbtn">配送方式 <span class="fr">快递配送</span></li>
+                    <li class="shdzbtn"><span class="span2">收货地址</span> <span class="span3">北京 北京市 朝阳区 金山上发空间按房间的法拉盛附近1306<br>靳阳阳 15210792815</span></li>
+                    <li class="sdsjbtn">送达时间 <span class="fr">周一</span></li>
+                    <li class="pssybtn">配送日顺延一周 </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="right-dialog" id="psfsbox" style="background-color: #ebebeb;">
+            <h2>配送方式<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content">
+                <p class="p2"><img src="Content/img/tis.png" style=" width: 25px;margin-right: 10px;">从第3次配送开始生效</p>
+                <ul class="psfs">
+                    <li class="psxz">快递</li>
+                    <!--<li class="psxz"></li>-->
+                </ul>
+                <p class="p4">收货日前2日18:00之后不能修改本次配送方式</p>
+            </div>
+        </div>
+
+        <div class="right-dialog" id="box" style="background-color: #eee;">
+            <h2>配送方式<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content">
+                <p class="p2"><img src="Content/img/tis.png" style=" width: 25px;margin-right: 10px;">从第3次配送开始生效</p>
+                <ul class="psfs">
+                    <li class="psxz">快递</li>
+                    <!--<li class="psxz"></li>-->
+                </ul>
+                <p class="p4">收货日前2日18:00之后不能修改本次配送方式</p>
+            </div>
+        </div>
+
+        <div class="Shipping_ads right-dialog" id="shdzbox">
+            <div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">收货地址
+                <a class="deliver-close" href="javascript:;" onclick="removeClass($(this))"></a>
+            </div>
+            <p class="p2"><img src="Content/img/tis.png" style=" width: 25px;margin-right: 10px;">从第3次配送开始生效</p>
+            <a class="xzdz" id="xzshdz">新增收货地址</a>
+                <dl class="address_log">
+                    <dt>从历史地址中选择</dt>
+                    <dd class="lsxzlist select2">
+                        <div> <span class="sheng">上海</span> <span class="shi">上海市</span> <span class="qu">朝阳区</span> <span class="dz">四打的快放假看案发的康师傅发</span></div>
+                        <div> <span class="name2">金样</span><span class="moble">15110792815</span> </div>
+                        <a href="javascript:void(0);" class="bjbtn"></a>
+                    </dd>
+
+                    <dd class="lsxzlist">
+                        <div> <span class="sheng">北京</span> <span class="shi">北京市</span> <span class="qu">朝阳区</span> <span class="dz">四打的快放假看案发的康师傅发</span></div>
+                        <div> <span class="name2">金样2</span><span class="moble">15110792815</span> </div>
+                        <a href="javascript:void(0);" class="bjbtn"></a>
+                    </dd>
+                </dl>
+        </div>
+
+        <div class="right-dialog" id="sdsjbox" style="background-color: #ebebeb;">
+            <h2>送达时间<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content">
+                <p class="p2"><img src="Content/img/tis.png" style=" width: 25px;margin-right: 10px;">从第3次配送开始生效</p>
+                <h2 style="font-size: 14px;">送达时间</h2>
+                <ul class="psfs">
+                    <li>周一</li>
+                    <li class="psxz">周六</li>
+                </ul>
+                <p class="p4">收货日前2日18:00之后不能修改本次送达时间</p>
+            </div>
+        </div>
+
+        <div class="right-dialog" id="pssybox" style="background-color: #ebebeb;">
+            <h2 style="text-align: center">配送日顺延一周<a class="right-dialog-close" href="javascript:;" onclick="removeClass($(this))"></a></h2>
+            <div class="right-dialog-content">
+                <h2 style="font-size: 14px;">从第3次起，配送时间顺延一周</h2>
+                <div class="bg">
+                <ul class="pssy">
+                    <li class="fl"><p>3</p><span class="rq">09-05</span> <span>周六</span></li>
+                    <li class="line"><div></div></li>
+                    <li class="fr"><p>3</p><span class="rq">09-05</span> <span>周六</span></li>
+                </ul>
+                    <a class="bcbtn" href="javascript:void(0);">保存</a>
+                </div>
+                <p class="p5">如果需要顺延两周或更多，可重复操作。撤销请联系客服。收货日前2日18:00之后不能顺延本次配送</p>
+            </div>
+        </div>
+
+        <div class="Shipping_ads right-dialog" id="shbjdzbox">
+            <div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">收货地址
+                <a class="deliver-close" href="javascript:;"></a>
+            </div>
+
+            <div id="deliver-address-con1" style="display:block">
+                <dl class="deliver-item">
+                    <dt>收货人</dt>
+                    <dd><input type="text" id="receiver_name" placeholder="姓名">  </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>手机</dt>
+                    <dd><input type="tel" id="receiver_mobile" placeholder="收货人手机"> </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>所在地区</dt>
+                    <dd class="address_area">
+                        <select class="form-control" id="receiver_state" name="receiver_state">
+                            <option  value="选择省份">选择省份</option>
+                            <option  value="上海">上海</option>
+                        </select>
+                        <select class="form-control" id="receiver_city" name="receiver_city">
+                            <option  value="选择城市">选择城市</option>
+                            <option  value="河北">河北</option>
+                            <option  value="上海市">上海市</option>
+
+                        </select>
+                        <select class="form-control" id="receiver_district" name="receiver_district">
+                            <option  value="选择区县">选择区县</option>
+                            <option  value="朝阳区">朝阳区</option>
+
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>详细地址</dt>
+                    <dd><input type="text" id="receiver_address" placeholder="街道门牌信息"></dd>
+                </dl>
+                <!-- <p style="color:#999;padding:5px 15px">目前开通的区域为江浙沪、北京、广东和四川。</p> -->
+                <div class="deliver-save-wrap"><button class="deliver-save">保存</button></div>
+                <!--<dl class="address_log">-->
+                    <!--<dt>历史</dt>-->
+                <!--</dl>-->
+            </div>
+        </div>
+        <div class="weui_dialog_confirm" style="display: none">
+            <div class="weui_mask"></div>
+            <div class="weui_dialog">
+                <div class="weui_dialog_hd"><strong class="weui_dialog_title">确认地址和手机准确吗？</strong></div>
+                <div class="weui_dialog_bd"></div>
+                <div class="weui_dialog_ft">
+                    <a href="javascript:void(0)" class="weui_btn_dialog default" id="qx">取消</a>
+                    <a href="javascript:void(0)" class="weui_btn_dialog primary" id="qd">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="order-modify-bar">
+        <a class="order-cancel" id="cancelorder" href="javascript:;">取消订单</a>
+
+        <a class="order-cancel" id="hideorder" href="javascript:;">隐藏订单</a>
+
+    </div>
+
+</div>
+<script src="Content/js/layer-mobl.js"></script>
+<script>
+    $(function () {
+        var wid=$(window).width();
+        if(wid>750){
+            wid=750;
+        }
+        $(".btnbox").css({"width":wid});
+        var li_leng=$(".btnbox .li").length;
+        if(li_leng===12){
+            $(".btndiv").css({"width":1000});
+            $(".btndiv .li").css({"margin-right":20,"width":60})
+        } else if(li_leng===24){
+            $(".btndiv").css({"width":2000});
+            $(".btndiv .li").css({"margin-right":20,"width":60})
+        }else if(li_leng===48){
+            $(".btndiv").css({"width":3900});
+            $(".btndiv .li").css({"margin-right":20,"width":60})
+        }
+        $(".psfsbtn").on('click',function () {
+            $("#psfsbox").addClass("right-dialog-show");
+        });
+        $(".shdzbtn").on('click',function () {
+            $("#shdzbox").addClass("right-dialog-show");
+        });
+        $(".lsxzlist").delegate('.bjbtn','click',function () {
+            $("#receiver_name").val($(this).parent().find('.name2').html());
+            $("#receiver_mobile").val($(this).parent().find('.moble').html());
+            $("#receiver_address").val($(this).parent().find('.dz').html());
+            $("#receiver_state").val($(this).parent().find('.sheng').html());
+            $("#receiver_city").val($(this).parent().find('.shi').html());
+            $("#receiver_district").val($(this).parent().find('.qu').html());
+           //alert("2222" );
+            $("#shbjdzbox").addClass("right-dialog-show");
+            return false;
+        });
+        $(".sdsjbtn").on('click',function () {
+            $("#sdsjbox").addClass("right-dialog-show");
+        });
+//        $(".bjbtn").on('click',function () {
+//            $("#receiver_name").val($(this).parent().find('.name2').html());
+//            $("#receiver_mobile").val($(this).parent().find('.moble').html());
+//            $("#receiver_address").val($(this).parent().find('.dz').html());
+//            $("#receiver_state").val($(this).parent().find('.sheng').html());
+//            $("#receiver_city").val($(this).parent().find('.shi').html());
+//            $("#receiver_district").val($(this).parent().find('.qu').html());
+//            //alert("2222" );
+//            $("#shbjdzbox").addClass("right-dialog-show");
+//            return false;
+//        });
+        $("#xzshdz").on('click',function () {
+            $("#shbjdzbox").addClass("right-dialog-show")
+        });
+            $(".psfs li").on('click',function () {
+                $(this).addClass("psxz").siblings().removeClass("psxz");
+                $("#sdsjbox").removeClass("right-dialog-show");
+                $(".sdsjbtn span").html($(this).html());
+            });
+        $(".pssybtn").on('click',function () {
+            $("#pssybox").addClass("right-dialog-show");
+        });
+        $(".bcbtn").on('click',function () {
+            $("#pssybox").removeClass("right-dialog-show");
+        })
+    });
+    function removeClass(obj) {
+        var btn=$(obj);
+            btn.parents(".right-dialog").removeClass("right-dialog-show");
+       //alert("1111")
+    }
+
+    //禁止分享
+    function onBridgeReady(){
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined"){
+        if( document.addEventListener ){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    }else{
+        onBridgeReady();
+    }
+</script>
+<script>
+    $(function () {
+
+        $("#xgdzbtn").on('click',function () {
+            //alert("1111")
+            $(".Shipping_ads").addClass("right-dialog-show")
+        });
+        $('.deliver-close').on('click',function () {
+            $(".Shipping_ads").removeClass("right-dialog-show");
+        });
+        $(".deliver-save").on("click",function(e){
+            e.stopPropagation();
+            var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g','');
+            var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g','');
+            var receiver_state = $("#receiver_state").val();
+            var receiver_city = $("#receiver_city").val();
+            var receiver_district = $("#receiver_district").val();
+            var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g','');
+            var address={
+                receiver_name:receiver_name,
+                receiver_mobile:receiver_mobile,
+                receiver_state:receiver_state,
+                receiver_city:receiver_city,
+                receiver_district:receiver_district,
+                receiver_address:receiver_address
+            };
+            if(address.receiver_name===""){
+                layer.open({
+                    content:"请填写收货人姓名",
+                    time:1
+                });
+                return false;
+            }else if(address.receiver_mobile===""){
+                layer.open({
+                    content:"请填写收货人手机",
+                    time:1
+                });
+                return false;
+            } else if(!/^1\d{10}$/.test(address.receiver_mobile)){
+                layer.open({
+                    content:"收货人手机号错误",
+                    time:1
+                });
+                return false;
+            } else if(address.receiver_state==="" || address.receiver_state==="选择省份"){
+                layer.open({
+                    content:"请选择省份",
+                    time:1
+                });
+                return false;
+            }else if(address.receiver_city==="" || address.receiver_city==="选择城市"){
+                layer.open({
+                    content:"请选择城市",
+                    time:1
+                });
+                return false;
+            }else if(address.receiver_district==="" || address.receiver_district==="选择区县"){
+                layer.open({
+                    content:"请选择区县",
+                    time:1
+                });
+                return false;
+            }else if(address.receiver_address===""){
+                layer.open({
+                    content:"请填写详细地址",
+                    time:1
+                });
+                return false;
+            }
+            $(".weui_dialog_confirm").show();
+            $('.weui_dialog_bd').html('\n'+receiver_state+receiver_city+receiver_district+receiver_address+'<br>'+receiver_name+'<br>'+receiver_mobile);
+        });
+
+        $("#qx").on('click',function () {
+            $(".weui_dialog_confirm").hide();
+        });
+
+
+        //点击地址页保存按钮弹出后的确定按钮
+        $("#qd").on('click',function () {
+            var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g','');
+            var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g','');
+            var receiver_state = $("#receiver_state").val();
+            var receiver_city = $("#receiver_city").val();
+            var receiver_district = $("#receiver_district").val();
+            var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g','');
+            //alert();
+            $('.address_log dd').removeClass("select2");
+            $('.address_log dt').after("<dd class='lsxzlist select2'><div>"+"<span class='sheng'>"+receiver_state+"</span><span class='shi'>"+receiver_city+"</span><span class='qu'>"+receiver_district+"</span><span class='dz'>"+receiver_address+"</span></div><div><span class='name2'>"+receiver_name+"</span>&nbsp;<span class='moble'>"+ receiver_mobile+"</span></div><a href='javascript:void(0);' class='bjbtn'></a> </dd>");
+            $(".weui_dialog_confirm").hide();
+            $(".Shipping_ads").removeClass("right-dialog-show");
+
+            claerAdd();
+            //receiver_state+receiver_city+receiver_district+receiver_address+"<br>"+
+            $('.shrtel').html(receiver_name+"/"+"<br>"+ receiver_mobile);
+            $('.span3').html(receiver_state+"&nbsp;"+receiver_city+"&nbsp;"+receiver_district+"&nbsp;"+receiver_address+"<br>"+receiver_name+"&nbsp;"+receiver_mobile);
+            $(".add-inf span").html(receiver_state+"&nbsp;"+receiver_city+"&nbsp;"+receiver_district+"&nbsp;"+receiver_address)
+
+        });
+
+        $(".address_log").delegate( ' dd','click',function (e) {
+            var sheng = $(this).find('.sheng').html();
+            var shi = $(this).find('.shi').html();
+            var qu = $(this).find('.qu').html();
+            var dz = $(this).find('.dz').html();
+            var receiver_name = $(this).find('.name2').html();
+            var receiver_mobile= $(this).find('.moble').html();
+            //alert(receiver_address);
+            $(this).addClass("select2").siblings().removeClass("select2");
+            $("#shdzbox").removeClass("right-dialog-show");
+            $('.shrtel').html(receiver_name+"/"+"<br>"+ receiver_mobile);
+            $('.span3').html(sheng+"&nbsp;"+shi+"&nbsp;"+qu+"&nbsp;"+dz+"<br>"+receiver_name+"&nbsp;"+receiver_mobile);
+            $(".add-inf span").html(sheng+"&nbsp;"+shi+"&nbsp;"+qu+"&nbsp;"+dz);
+            //$('.shrtel').html(receiver_name+"/"+"<br>"+ receiver_mobile);
+            claerAdd();
+        });
+
+//        $(".address_log  dd").on('click',function (e) {
+//            var sheng = $(this).find('.sheng').html();
+//            var shi = $(this).find('.shi').html();
+//            var qu = $(this).find('.qu').html();
+//            var dz = $(this).find('.dz').html();
+//            var receiver_name = $(this).find('.name2').html();
+//            var receiver_mobile= $(this).find('.moble').html();
+//            //alert(receiver_address);
+//            $(this).addClass("select2").siblings().removeClass("select2");
+//            $("#shdzbox").removeClass("right-dialog-show");
+//            $('.shrtel').html(receiver_name+"/"+"<br>"+ receiver_mobile);
+//            $('.span3').html(sheng+"&nbsp;"+shi+"&nbsp;"+qu+"&nbsp;"+dz+"<br>"+receiver_name+"&nbsp;"+receiver_mobile);
+//            $(".add-inf span").html(sheng+"&nbsp;"+shi+"&nbsp;"+qu+"&nbsp;"+dz);
+//            //$('.shrtel').html(receiver_name+"/"+"<br>"+ receiver_mobile);
+//            claerAdd();
+//        });
+
+    });
+    //清空地址
+    function claerAdd() {
+        var receiver_name = $("#receiver_name").val("");
+        var receiver_mobile = $("#receiver_mobile").val("");
+        var receiver_state = $("#receiver_state").val("选择省份");
+        var receiver_city = $("#receiver_city").val("选择城市");
+        var receiver_district = $("#receiver_district").val("选择区县");
+        var receiver_address = $("#receiver_address").val("");
+    }
+</script>
+<script>
+    $("#syshbtn").on('click',function () {
+        $("#syshbox").addClass("right-dialog-show");
+    });
+
+    $(".btnbox .li").on('click',function () {
+        $("#shipWrap").addClass("right-dialog-show");
+    });
+//    $(".right-dialog-close").on('click',function () {
+//        $(".right-dialog").removeClass("right-dialog-show");
+//    });
+
+    $("#cancelorder").bind("click",function(){
+        layer.open({
+            content: '确认取消该订单吗？',
+            btn: ['确认', '取消'],
+            shadeClose: false,
+            yes: function () {
+                // $(".layermbox ").hide();
+                layer.open({ content: '操作成功', time: 1 });
+                $(".refund_ok").show();
+            },
+            no: function () {
+
+            }
+        });
+    });
+    $("	#hideorder").bind("click",function(){
+        layer.open({
+            content: '隐藏的订单不在用户中心显示，但不影响正常配送，请放心使用！确认要隐藏？',
+            btn: ['确认', '取消'],
+            shadeClose: false,
+            yes: function () {
+                // $(".layermbox ").hide();
+                layer.open({ content: '操作成功', time: 1 });
+                //$(".refund_ok").show();
+            },
+            no: function () {
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,lestenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+</head>
+<body>
+<div class="page">
+    <div class="product-pic">
+        <div>
+            <img  src="Content/img/dt1.jpg">
+        </div>
+    </div>
+    <div class="produt-head">
+        <div class="produt-title">混合花束包月套餐</div>
+        <div class="produt-subtitle">每周一束，每月4周，品种随机</div>
+        <div class="produt-price">￥<strong id="price">168-1019</strong></div>
+    </div>
+    <ul class="sku">
+        <li>
+            <dl><dt style="font-size:12px;color:#333;padding-bottom:5px">订几个月:</dt>
+                <dd class="sku-item shsc">
+                    <span >1个月(4束)</span>
+                    <span >3个月(12束)</span>
+                    <span >6个月(24束)</span>
+                </dd>
+            </dl>
+        </li>
+        <li>
+            <dl><dt style="font-size:12px;color:#333;padding-bottom:5px">花瓶:</dt>
+                <dd class="sku-item gmhp">
+                    <span >不购买花瓶</span>
+                    <span >买1个花瓶</span>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+
+    <div class="product-detail">
+        <div id="desc">
+            <div>
+                <div class="product-detail-html">
+                    <a href="#">
+                        <img class="product-detail-image" src="Content/img/x1.jpg!60">
+                    </a>
+                </div>
+                <div class="product-detail-html"></div>
+                <img class="product-detail-image" src="Content/img/dt1.jpg">
+                <img class="product-detail-image"  src="Content/img/dt1.jpg">
+                <img class="product-detail-image"  src="Content/img/dt1.jpg">
+                <img class="product-detail-image" src="Content/img/dt1.jpg">
+                <img class="product-detail-image"  src="Content/img/dt1.jpg">
+
+            </div>
+        </div>
+
+        <div>
+            <!--<a href="http://wap.webei.cn/28a6fd08f6">-->
+                <!--<img style="max-width:100%" src="/Static/img/shaitu.jpg">-->
+            <!--</a>-->
+            <a href="#"><img src="Content/img/yanghushuoming.jpg"  width="100%" style="vertical-align:middle"></a>
+            <a href="#"><img src="Content/img/hunheshuoming.jpg" width="100%" style="vertical-align:middle"></a>
+        </div>
+    </div>
+    <div style="padding:10px;font-size:12px;color:#666">
+        <p>部分苹果手机用户反应无法点击"立即购买"连接，经核实后发现是IOS 9.2.*系统和微信不兼容导致的bug，用户大多有以下表现：</p>
+        <ul style="margin-left:20px;list-style-type: decimal;">
+            <li>系统版本为IOS9.2.1</li>
+            <li>公众号推送的文章无法点击『阅读原文』</li>
+            <li>使用『在safari中打开链接』功能时微信出现假死现象。</li>
+        </ul>
+        <p>如果有类似的表现，请升级手机系统至最新版本。</p>
+    </div>
+    <div class="buy-wrap" style="z-index: 9999">
+        <a class="buy-tohome tBor" href="http://t.flowerplus.cn/"></a>
+        <a class="buy-submit " href="#">立即购买</a>
+    </div>
+    <div class="fixmask"></div>
+    <script type="text/javascript">
+            $('.shsc span').on('click',function () {
+                $(this).addClass('select').siblings().removeClass('select');
+            });
+            $('.gmhp span').on('click',function () {
+                $(this).addClass('select').siblings().removeClass('select');
+            });
+            $('.buy-submit').on('click',function () {
+                if($('.shsc span').hasClass('select')){
+
+                }else {
+                    layer.open({content:'请选择定几个月',time:1});
+                    $("html,body").scrollTop($(".produt-head").offset().top);
+                    return false;
+                }
+                if($('.gmhp span').hasClass('select')){
+                        //alert(1111)
+                }else {
+                    layer.open({content:'请选择花瓶',time:1});
+                    $("html,body").scrollTop($(".produt-head").offset().top);
+                    return false;
+                }
+
+            })
+    </script>
+    <!-- 2016-08-18 14:16:26 -->
+
+</div>
+</body>
+</html>

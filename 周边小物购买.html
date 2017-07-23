@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>周边小物下单</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+    <!--<script src="http://static2.flowerplus.cn/Static/js/m.js?_t=11"></script>-->
+
+</head>
+<body>
+<div class="page">
+    <div class="comm-pics">
+        <div id="swip">
+            <a href="javascript:;" ><img data-src="" src="Content/img/dt1.jpg"></a>
+            <a href="javascript:;" ><img data-src="" src="Content/img/dt1.jpg"></a>
+        </div>
+        <div class="swip-nav"></div>
+    </div>
+    <div class="produt-head">
+        <div class="produt-title">花剪</div>
+        <div class="produt-subtitle"></div>
+        <div class="produt-price">￥<strong id="price">79</strong></div>
+    </div>
+    <ul class="sku">
+        <li>
+            <dl><dt style="font-size:12px;color:#333;padding-bottom:5px">花剪:</dt>
+                <dd class="sku-item">
+                    <span >花剪(梦幻粉)</span>
+                    <span >花剪(魅惑紫)</span>
+                    <span >花剪(Tiffany蓝)</span>
+                </dd>
+            </dl>
+        </li>
+        <li><p style="color:#666;font-size:12px">此商品单独发售</p></li>
+    </ul>
+
+    <div class="product-detail">
+        <div id="desc">
+            <div>
+                <img src="Content/img/dt1.jpg">
+                <img src="Content/img/dt1.jpg">
+                <img src="Content/img/dt1.jpg">
+                <img src="Content/img/dt1.jpg">
+                <img src="Content/img/dt1.jpg">
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            <!--<a href="http://wap.webei.cn/28a6fd08f6">-->
+                <!--<img style="max-width:100%" src="/Static/img/shaitu.jpg">-->
+            <!--</a>-->
+            <a href="#"><img src="Content/img/yanghushuoming.jpg" width="100%" style="vertical-align:middle"></a>
+        </div>
+    </div>
+    <div style="padding:10px;font-size:12px;color:#666">
+        <p>部分苹果手机用户反应无法点击"立即购买"连接，经核实后发现是IOS 9.2.*系统和微信不兼容导致的bug，用户大多有以下表现：</p>
+        <ul style="margin-left:20px;list-style-type: decimal;">
+            <li>系统版本为IOS9.2.1</li>
+            <li>公众号推送的文章无法点击『阅读原文』</li>
+            <li>使用『在safari中打开链接』功能时微信出现假死现象。</li>
+        </ul>
+        <p>如果有类似的表现，请升级手机系统至最新版本。</p>
+    </div>
+    <div class="buy-wrap" style="z-index: 9999">
+        <a class="buy-tohome tBor" href="http://t.flowerplus.cn/"></a>
+        <a class="buy-submit " href="#">立即购买</a>
+    </div>
+    <div class="fixmask"></div>
+    <input type="hidden" id="guge">
+    <script src="Content/js/swip.js"></script>
+    <script type="text/javascript">
+        $("#main_pic").css({
+            "opacity":0,
+            "-webkit-transition":"opacity .3s linear 0s",
+            "transition":"opacity .3s linear 0s"
+        });
+        $("#main_pic").bind("load",function(){
+            $("#main_pic").css({
+                "opacity":1
+            });
+        });
+        $("#main_pic").attr("src",$("#main_pic").attr("data-src"));
+
+        $(".sku-item span").on('click',function(){
+            var guge=$("#guge");
+            $(this).parent().find("span").removeClass("select");
+            $(this).addClass("select");
+            var data_key=parseInt($(this).parent().attr("data-key"));
+            sku[data_key]=parseInt($(this).attr("data-key"));
+            //updatePrice();
+        });
+//        function updatePrice(){
+//            for(var i=0;i<sku.length;i++){
+//                if(sku[i]<0){
+//                    return;
+//                }
+//            }
+//            var sku_id='i'+sku.join("_");
+//            var sku_item=data.sku[sku_id];
+//            $("#price").html(sku_item.price);
+//        }
+//        if(data.sku_item.length==1 && data.sku_item[0].item.length==1){
+//            sku=[0];
+//        }
+
+        $(".buy-submit").bind("click",function(e){
+//            e.preventDefault();
+//            if(is_runing){
+//                return;
+//            }
+//            if(data.status!=1){
+//                showerror("已下架");
+//                return;
+//            }
+//            if($(this).hasClass("buy-submit-disabled")){
+//                showerror("已下架");
+//                return;
+//            }
+//            for(var i=0;i<sku.length;i++){
+//                if(sku[i]<0){
+//                    showerror("请选择\""+data.sku_item[i].name+"\"");
+//                    //$("html,body").animate({scrollTop:$(".produt-head").offset().top}, 500);
+//                    $("html,body").scrollTop($(".produt-head").offset().top);
+//                    return;
+//                }
+//            }
+//            is_runing=true;
+//            var btn=$(this);
+//            var btn_text=btn.html();
+//            btn.html('请求中...').addClass('buy-submit-sending');
+//
+//
+//            var _submit=function(){
+//                var sku_id=data.id+'i'+sku.join("_");
+//                var inputs=[];
+//                inputs.push($("<input>",{name:"sku",value:sku_id}));
+//                if(marketingid.length>0){
+//                    inputs.push($("<input>",{name:"marketingid",value:marketingid}));
+//                }
+//                if(oid.length>0){
+//                    inputs.push($("<input>",{name:"oid",value:oid}));
+//                }
+//                inputs.push($("<input>",{name:"_t",value:(new Date().getTime())}));
+//                $("<form>",{method:"get",action:_web_base+"buy/confirm"}).append(inputs).submit();
+//            }
+
+//            ajaxpost(
+//                _web_base+"product/productstatus/",
+//                {id:data.id},
+//                function(v){
+//                    if(v.f){
+//                        _submit();
+//                    }else{
+//                        showerror(v.data);
+//                    }
+//                    is_runing=false;
+//                    btn.html(btn_text).removeClass('buy-submit-sending');
+//                },
+//                function(){
+//                    _submit();
+//                }
+//            );
+            //return false;
+//            $.getJSON(_web_base+"product/pstatus?id="+data.id+"&callback=?", function(v){
+//                if(v.f){
+//                    var sku_id=data.id+'i'+sku.join("_");
+//                    var inputs=[];
+//                    inputs.push($("<input>",{name:"sku",value:sku_id}));
+//                    if(marketingid.length>0){
+//                        inputs.push($("<input>",{name:"marketingid",value:marketingid}));
+//                    }
+//                    if(oid.length>0){
+//                        inputs.push($("<input>",{name:"oid",value:oid}));
+//                    }
+//                    inputs.push($("<input>",{name:"_t",value:(new Date().getTime())}));
+//                    $("<form>",{method:"get",action:_web_base+"buy/confirm"}).append(inputs).submit();
+//                }else{
+//                    showerror(v.data);
+//                }
+//                is_runing=false;
+//                btn.html(btn_text).removeClass('buy-submit-sending');
+//
+//            });
+            // var confirmUrl=_web_base+"buy/confirm?sku="+sku_id+"&_t="+(new Date().getTime())+(marketingid.length>0?"&marketingid="+marketingid:"");
+            // $(this).attr("href",confirmUrl+'&opaction=href');
+            // window.setTimeout(function(){window.location.href=confirmUrl+'&opaction=locationopen';},1000);
+            // e.stopPropagation();
+            // e.preventDefault();
+            //showerror("正在跳转");
+            //window.location.href=confirmUrl;
+
+
+
+        });
+
+//        function loadDesc(){
+//            var desc=$("<div>");
+//            for(var i=0;i<data.desc.length;i++){
+//                var item=data.desc[i];
+//                switch(item['type']){
+//                    case "html":
+//                        desc.append("<div class=\"product-detail-html\">"+item.content+"</div>");
+//                        break;
+//                    case "image":
+//                        desc.append("<img class=\"product-detail-image\" width=\"100%\" src=\"\" data-src=\""+item.content+"\"/>");
+//                        break;
+//                }
+//
+//            }
+//            $("#desc").append(desc);
+//        }
+//        function loadpic(){
+//            $(".product-detail-image").each(function(){
+//                $(this).attr("src",$(this).attr("data-src")+"!60");
+//            });
+//        }
+
+//        $(function(){
+//            loadDesc();
+//            loadpic();
+//            set_wx_share({title:document.title+"FlowerPlus 花+",subtitle:data.subtitle,image:data.image_64,link:window.location.href});
+//            if(!data.can_share){
+//                hideAllNonBaseMenuItem();
+//            }
+//
+//            $marks=/marketingid=(\d+)/.exec(window.location.search);
+//            if($marks!=null){
+//                marketingid=$marks[1];
+//            }
+//
+//        });
+    </script>
+    <div class="page-barcode">
+        <img src="http://static2.flowerplus.cn/Static/img/mobile.png">
+    </div>
+    <!-- 2016-08-24 09:38:43 -->
+
+</div>
+</body>
+</html>

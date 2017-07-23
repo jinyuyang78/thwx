@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <link href="Content/css/m_web.css" rel="stylesheet" type="text/css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <title>支付宝支付</title>
+</head>
+<body style="max-width: 750px; margin: 0 auto;">
+<div class="zfbtop">
+    <p class="fl">订单支付</p>
+    <a class="djsx fr"></a>
+</div>
+<div class="tscontent">
+    <div class="weui_icon_area fl"><i class="weui_icon_success weui_icon_msg"></i></div>
+    <div class="tsxx fl">
+        <h2>支付信息加载成功</h2>
+        <p>因微信无法处理支付宝请求<br>请您按照以下步骤继续完成支付</p>
+    </div>
+</div>
+
+<div class="czbz">
+    <p>一、点击微信客户端右上角（三个小点）</p>
+    <a class="ckrh">点击查看如何操作</a>
+    <p>二、选择在其他浏览器打开。苹果系统选择"在Safari中打开"，安卓系统选择"在其他浏览器打开"即可</p>
+    <p>三、在外部浏览器打开后继续完成支付，然后支付成功返回此页面刷新，即可看到订单状态</p>
+</div>
+<div class="mask2"><img src="Content/img/fx.png"></div>
+<script>
+    $(function () {
+        $('.ckrh').on('click',function () {
+            $(".mask2").show();
+        });
+        $('.mask2').on('click',function () {
+            $(this).hide();
+        })
+    })
+</script>
+</body>
+</html>

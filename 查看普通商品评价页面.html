@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>查看普通商品评价</title>
+    <link rel="stylesheet" type="text/css" href="Content/css/webuploader.css">
+    <link href="Content/css/font-A.css" rel="stylesheet">
+    <style>
+        .file-item img{height: 100%;  }
+    </style>
+</head>
+
+<body style="max-width: 750px;margin: 0 auto;padding-bottom: 60px">
+<div class="pjdx" style="border-bottom: 1px solid #ebebeb">
+    <p class="wz">商品评分</p>
+
+    <div class="wxbox">
+        <p class="fl">描述相符 :</p>
+        <select id="msxf" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+    <div class="wxbox">
+        <p class="fl">物流服务 :</p>
+        <select id="wlfw" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+    <div class="wxbox">
+        <p class="fl">服务态度 :</p>
+        <select id="fwtd" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+</div>
+<div class="pjbox">
+    <img src="Content/img/dt1.jpg">
+    <textarea class="textarea" readonly="readonly">哈哈哈回复哈哈</textarea>
+</div>
+<div class="uploader-demo">
+    <p class="stwz">晒图（<span class="num1">3</span>/4）</p>
+    <div id="fileList1" class="uploader-list">
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div> <div  class="file-item thumbnail" >
+        <img src="Content/img/dt2.jpg">
+    </div> <div  class="file-item thumbnail" >
+        <img src="Content/img/dt2.jpg">
+    </div>
+    </div>
+</div>
+<div class="pjbox" >
+    <img src="Content/img/dt1.jpg">
+    <textarea class="textarea" readonly="readonly">哈哈哈回复哈哈</textarea>
+</div>
+<div class="uploader-demo">
+    <p class="stwz">晒图（<span class="num2">4</span>/4）</p>
+    <div  class="uploader-list">
+        <div  class="file-item thumbnail" >
+        <img src="Content/img/dt2.jpg">
+        </div>
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+    </div>
+</div>
+<div class="pjbox">
+    <img src="Content/img/dt1.jpg">
+    <textarea class="textarea" readonly="readonly">哈哈哈回复哈哈</textarea>
+</div>
+<div class="uploader-demo">
+    <p class="stwz">晒图（<span class="num3">3</span>/4）</p>
+    <div id="fileList3" class="uploader-list">
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+        <div  class="file-item thumbnail" >
+            <img src="Content/img/dt2.jpg">
+        </div>
+    </div>
+</div>
+
+<a class="tjpj">提交评价</a>
+</body>
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script src="Content/js/jquery.barrating.js"></script>
+<script src="Content/js/examples.js"></script>
+<script>
+    var widnth=$(window).width();
+    if(widnth>750){
+        widnth=750;
+    }
+    var imgnum=0;
+    var src=" http://webuploader.duapp.com/server/fileupload.php";
+//    var pjboxlength=3;
+//    for(var i=1;i<=pjboxlength;i++){
+//        $('<div class="pjbox"> <img src="Content/img/dt1.jpg"> <textarea class="textarea" placeholder="非常满意，好评吧！不少于10个字哦~~"></textarea></div> <div class="uploader-demo"> <p class="stwz">晒图（<span class="num'+i+'">0</span>/4）</p>'+
+//            '<div id="fileList'+i+'" class="uploader-list"> <div class="filePicker" class="filePicker" style="width:'+(widnth-60)/4+'px'+';height:'+(widnth-60)/4+'px'+'"></div> </div> </div>').appendTo('.box');
+//
+//    }
+    $(".filePicker").css({"width":(widnth-60)/4,"height":(widnth-60)/4});
+    $(".file-item").css({"width":(widnth-60)/4,"height":(widnth-60)/4});
+
+    $('#msxf').barrating({
+        theme: 'fontawesome-stars',
+        readonly:true
+    });
+    $('#wlfw').barrating({
+        theme: 'fontawesome-stars',
+        readonly:true
+    });
+
+    $('#fwtd').barrating({
+        theme: 'fontawesome-stars',
+        readonly:true
+    });
+    $('#msxf,#wlfw,#fwtd').barrating('set',5);
+
+</script>
+</html>
+

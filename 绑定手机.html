@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>绑定手机</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+    <style>
+        .inp{
+            padding:10px;
+            color:#000;
+        }
+
+        .mb15{
+            margin-bottom:15px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="padding_15">
+        <p class="ybd" >您已经绑定的手机号为<span id="phone">186152104985</span>，重新绑定后变更为新手机号。</p>
+        <div>
+            <input class="inp mb15" type="tel" name="mobile" id="mobile" autocomplete="off" placeholder="手机号码">
+            <input class="btn mb15" id="btnSendCode"  type="button" value="发送验证码">
+        </div>
+        <div style="display: none" id="checkcodeWrap">
+            <p class="yzmsbd dn" id="yzmsbd">短信验证码收不到？<a>试试语音验证码</a></p>
+            <input class="inp mb15" type="tel" name="checkcode" id="checkcode" autocomplete="off" placeholder="短信验证码">
+            <button class="btn mb15" id="btnCheckCode">确认绑定</button>
+        </div>
+    </div>
+    <script>
+        var wait=60;
+        var djs=5;
+        var o=document.getElementById("btnSendCode");
+        //alert(o)
+        function yyyz() {
+            djs--;
+            if(djs == 0){
+                $("#yzmsbd").show();
+            }
+        }
+        function time() {
+            if (wait == 0) {
+                o.removeAttribute("disabled");
+                o.value="发送验证码";
+                wait = 60;
+            } else {
+                o.setAttribute("disabled", true);
+                o.value="重新发送(" + wait + ")";
+                wait--;
+                setTimeout(function() {
+                        time();
+                        yyyz();
+                    },
+                    1000)
+            }
+        }
+//        $("#checkcode").bind("input",function(){
+//            if(/^\d{4}$/.test($(this).val())){
+//                $("#btnCheckCode").prop("disabled",false);
+//            }else{
+//                $("#btnCheckCode").prop("disabled",true);
+//            }
+//        });
+       $(function () {
+           $("#phone").html($("#phone").html().substring(0, 3) + "****" + $("#phone").html().substring(7, 11));
+           $("#btnSendCode").bind("click",function(){
+               var mobile=$("#mobile").val();
+               if (mobile.length === 0 || mobile === "") { //判断收货手机号是否为空，为空弹出提示
+                   layer.open({
+                       content: '手机号不为能为空',
+                       time: 100
+                   });
+                   return false;
+                   //layer.msg('收货人手机不为能为空',{time:1000});
+               } else if (!/^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/i.test(mobile)) //正则验证手机号是否合法
+               {
+                   layer.open({
+                       content: '请输入正确的手机号码',
+                       time: 1
+                   });
+                   return false;
+               }else {
+                  time();
+                   $("#checkcodeWrap").slideDown(300);
+                   //alert("1111")
+               }
+           });
+       });
+
+
+
+        $("#btnCheckCode").bind("click",function(v){
+            var checkcode=$("#checkcode").val();
+            if(checkcode===""){
+                layer.open({content:"请输入验证码",
+                    time:1
+                });
+                return false;
+            }else if(!/^\d{4}$/.test(checkcode)){
+                layer.open({content:"验证码错误",
+                    time:1
+                });
+                return false;
+            }else{
+                history.go(-1);
+            }
+        });
+    </script>
+
+</div>
+
+</body>
+</html>

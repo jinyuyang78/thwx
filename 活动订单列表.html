@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>聼花-花艺课-活动订单列表</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/layer-mobl.js"></script>
+    <style>body{font-family: "Microsoft YaHei"}</style>
+</head>
+<body style="max-width: 750px;margin: 0 auto">
+<div id="noorders" style="position:fixed;top:0;left:0;right:0;bottom:0;text-align:center;padding-top:100px;background:#f0f0f0;display: none">
+    <img src="Content/img/iconfont-empty.png" width="64px">
+    <p style="margin-top:30px">您暂时还没有订单，去逛逛吧</p>
+</div>
+<!--<div class="hdlbbox">-->
+<!--<a href="#">-->
+    <!--<div class="img fl"><img src="Content/img/dt1.jpg"></div>-->
+    <!--<div class="hdlbxx fl">-->
+        <!--<h3>听花-杭州花一颗，给喜欢听花的你们</h3>-->
+        <!--<p>时间:2016-09-26 14:00-16:00</p>-->
+        <!--<p>地址:北京市超强去白字王金华商服中心B座1306</p>-->
+        <!--<a class="btn" href="javascript:;">未付款</a>-->
+    <!--</div>-->
+<!--</a>-->
+<!--</div>-->
+
+<script>
+    $(function () {
+        $(function () {
+            if($(".hdlbbox").length===""||$(".hdlbbox").length===0){
+                $('#noorders').show();
+            }
+        })
+    })
+</script>
+</body>
+</html>

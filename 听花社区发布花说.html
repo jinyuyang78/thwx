@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>听花-发布花说</title>
+    <link rel="stylesheet" href="Content/css/thsq.css">
+    <link rel="stylesheet" href="Content/css/weui.min.css">
+</head>
+<body style="max-width: 750px;margin: 0 auto;">
+<div class="textbox">
+    <div>
+        <textarea placeholder="输入内容(最多140字)" maxlength="140" id="textarea"></textarea>
+        <p id="zsxz">140</p>
+    </div>
+
+</div>
+<div class="page uploader">
+    <div class="page__bd">
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">添加图片(<span id="sl">0</span>/9)</p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <div id="uploaderInput" class="weui-uploader__input"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button class="tjfbhs" id="btn">提交</button>
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="Content/js/weiui.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#textarea").on('input',function () {
+            $("#zsxz").html(140-$(this).val().length);
+        });
+        //SetConfig('@wx.AppId', '@wx.Timestamp', '@wx.NonceStr', '@wx.Signature');
+
+        var totalImg = 0;
+        var residual = 9;
+        $('#uploaderInput').click(function() {
+            totalImg =$("input[name='upload_image']").length;
+            residual = 9 - totalImg;
+            wx.chooseImage({
+                count: residual, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function(res) {
+                    var localIds = res.localIds;
+                    totalImg += localIds.length;
+                    residual = 9 - totalImg;
+                    if (residual <= 0) {
+                        $(".weui-uploader__input-box").hide();
+                    }
+
+                    for (var i = 0; i < localIds.length; i++) {
+                        var newimg = $("<li class='weui-uploader__file' style='background-image:url(" + localIds[i] + ")'> <a href='javascript:;' onclick='ImgClose(obj)'></a></li> <input type='hidden' name='upload_image' value='" + localIds[i] + "'></div>");
+                        newimg.prependTo($("#uploaderFiles"));
+                    }
+                }
+            });
+            $('#sl').html(totalImg);
+            if(totalImg>=1){
+                $("#btn").removeAttr("disabled");
+            }else {
+                $("#btn").attr("disabled",true)
+            }
+        });
+
+         if(totalImg>=1){
+             $("#btn").removeAttr("disabled");
+         }else {
+             $("#btn").attr("disabled",true)
+         }
+
+        //点击x 弹出确定删除
+        function ImgClose(obj) {
+            var $this = $(obj);
+                    $this.parents('li').remove();
+                    $('.weui-uploader__input-box').show();
+                    totalImg = $("input[name='upload_image']").length;
+                    $('#sl').html(totalImg);
+        }
+//        var tmpl= '<li class="weui-uploader__file" style="background-image:url(#url#)"> <a href="javascript:;"></a></li>',
+//            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+//            $uploaderInput = $("#uploaderInput"),
+//            $uploaderFiles = $("#uploaderFiles")
+//            ;
+//
+//
+//        $uploaderInput.on("change", function(e){
+//            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+//
+//            //console.log(e);
+//            for (var i = 0,len = files.length; i < len; ++i) {
+//                var file = files[i];
+//
+//                if (url) {
+//                    src = url.createObjectURL(file);
+//                } else {
+//                    src = e.target.result;
+//                }
+//
+//                $uploaderFiles.append($(tmpl.replace('#url#', src)));
+//            }
+//
+//            var leng=$("#uploaderFiles li").length;
+//            $("#sl").html(leng);
+//            if(leng===9||leng>9){
+//                $(".weui-uploader__input-box").hide();
+//            }else {
+//                $(".weui-uploader__input-box").show();
+//            }
+//        });
+//        $("#uploaderFiles").delegate('.weui-uploader__file a','click',function () {
+//            $(this).parent('li').remove();
+//            var leng=$("#uploaderFiles li").length;
+//            $("#sl").html(leng);
+//            if(leng===9||leng>9){
+//                $(".weui-uploader__input-box").hide();
+//            }else {
+//                $(".weui-uploader__input-box").show();
+//            }
+//        });
+//        $uploaderFiles.on("click", "li", function(){
+//            $galleryImg.attr("style", this.getAttribute("style"));
+//            $gallery.fadeIn(100);
+//        });
+//        $gallery.on("click", function(){
+//            $gallery.fadeOut(100);
+//        });
+    });
+</script>
+</body>
+</html>

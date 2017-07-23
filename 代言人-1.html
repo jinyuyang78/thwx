@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>我的二维码</title>
+    <link rel="stylesheet" href="Content/css/code.css" type="text/css">
+</head>
+<body>
+<div class="page">
+    <div class="page">
+        <ul class="header-top">
+            <li class="current"><a href="代言人-1.html">我的二维码</a></li>
+            <li><a href="代言人-2.html">已下单的人</a></li>
+            <li ><a href="代言人-3.html">我的兑换码</a></li>
+        </ul>   		<div class="yqm-conout">
+        <p class="tit">邀请好友得鲜花奖励</p>
+        <p class="mb20 p15">恭喜您成为「听花鲜花」带盐人！好友扫描你的专属二维码链接，成功邀请3个好友下单,您将获得1束混合单次鲜花奖励，可叠加，无上限~<span style="color:red;">备注：按照下单人数统计,扫自己的码不会算在任何带盐人内的哦!</span></p>
+        <p class="tc m5">长按分享或保存</p>
+        <p class="tc m5">专属二维码</p>
+        <div class="Img" style="margin-top:10px;padding:0 15px">
+            <img src="http://oss.flowerplus.cn/wx_qrcode_customer/2388132.jpg?t=1481792683" alt="我的二维码">
+        </div>
+        <div class="yqm-but">
+            <p>如您的二维码过期<img src="Content/img/H-right.png"  style="margin:0 10px;width:20px; height:20px;display: inline-block "><span onclick="gengxin()" style="color:#FF6699;font-size:20px;">更新</span></p>
+        </div>
+    </div>
+    </div>
+    <!--  弹窗	 -->
+    <div class="w-out" style="display:none;">
+        <div class="w-in">
+            <p style="text-align:right;display:none">
+                <a href="javascript:void(0)" class="close"></a>
+            </p>
+            <div class="w-in-header"></div>
+            <p id="content_code"></p>
+        </div>
+    </div>
+    <!--  弹窗  -->
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script>
+        // ok  waining  waiting
+        function gengxin() {
+            $('.w-out').find('div').find('div').removeClass('waining','ok').addClass('waiting');
+            $('#content_code').text('更新中...');
+            $('.w-out').show();
+//            $.post('/wx_cs/update_my_code',{},function(d) {
+//                $('#content_code').text(d.data);
+//                if (d.f== true) {
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('ok');
+//                    $('.close').parent('p').show();
+//                }else{
+//                    $('.w-out').find('div').find('div').removeClass('waiting').addClass('waining');
+//                    $('.close').parent('p').show();
+//                }
+//            },'json')
+        }
+        $(".close").click(function(event) {
+            event.stopPropagation();
+            $('.w-out').hide();
+            window.location.reload();
+
+        });
+    </script>
+
+</div>
+
+
+</body></html>

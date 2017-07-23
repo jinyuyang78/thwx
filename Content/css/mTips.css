@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+/* 初始化CSS */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img { border:none; }
+img{display: block;width: 100%}
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family:"微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { margin:0;     border: none; font-family:"微软雅黑";font-size: 12px}
+input[type="text"],input[type="tel"], textarea,select { outline-style:none; -webkit-tap-highlight-color: transparent;}
+textarea { resize:none; }
+table { border-collapse:collapse; }
+body { font-family:  "Arial","微软雅黑";}
+a {text-decoration:none; outline:none;}
+a:visited {}
+a:hover, a:active, a:focus {text-decoration:none; }
+a{ -webkit-tap-highlight-color:rgba(255,0,0,0);}
+.fl{ float:left;}
+.fr{ float:right;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.dn{ display:none;}
+.db{ display:block;}
+.hidden{visibility:hidden;}
+
+
+/* CSS 1,2 & 3 and HTML5 reset stylesheet */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* 重置所有元素的盒模型 */
+textarea { resize: none; }
+/* changes textarea resizing from "both" (UA default) to vertical only */
+
+/*  HTML5 CSS */
+article, aside, audio, footer, header, nav, section, video { display: block }
+/* 对于老的浏览器，如Firefox 3.6，由于不知道HTML5元素而将它们渲染为 display: inline 。这里不用管 date, figure和HTML5表单的input*/
+input{border:0;outline:none;/*去除蓝色边框*/}
+input[type="search"]{-webkit-appearance:textfield;}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}
+input {-webkit-appearance:none; /*去除input默认样式*/}
+/* 去除Safari 或 Mobile Safari浏览器的HTML5搜索框和提交按钮的 OS X外观 */
+#aTips_wrap table{
+    width:100%;
+}
+#aTips_wrap{    width: 80%;
+    position: absolute;
+    left: 50%;
+    margin-left: -40%;
+    top: 50%;
+    opacity: .8;
+    background-color: #fff;
+    height: 120px;
+    margin-top: -60px;
+}
+#aTips_content{
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+#aTips_foot{
+    width: 40%;
+    background-color: #5ba997;
+    font-size: 19px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 40px;
+}
+#aTips_foot a{
+    color: #fff;
+    display: block;
+}

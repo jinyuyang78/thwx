@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <title>全部工单--售中-填写内容</title>
+    <link rel="stylesheet" href="Content/css/jquery-weui.css">
+    <link rel="stylesheet" href="Content/css/wui.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+    <script src="Content/js/jquery-weui.js"></script>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <script src="Content/js/jwx.js"></script>
+
+    <style>
+        .weui_btn{
+            color: #666;
+            text-align: left;
+            padding-top: 5px;
+        }
+        .weui_btn .qxz{
+            color:#04BE02;
+            float: right;
+        }
+        .qxz-js{
+            padding: 0 5px;
+        }
+        .weui_btn:after {
+            width: 0;
+            height: 0;
+            /* border-radius: 10px; */
+        }
+        .weui_cells{
+            margin-top: 5px;
+        }
+        .part1_upload{border-bottom:1px solid #d0d0d0;background: #fff;min-height: 130px;}
+        .part1_upload_title{text-align: center;}
+        .choose_image{width:80px;height:80px;border:1px dashed #c0c0c0;border-radius:6px;float:left;margin-left: 20px;color:#d0d0d0;margin-top:8px;font-size:12px;margin-bottom: 10px;}
+        .choose_image p{text-align: center;}
+        .choose_tip img{width:20px;height:20px;margin-left:28px;margin-top: 18px;}
+
+        .image_body{float:left;margin-left:20px;margin-top:8px;}
+        .image_src{width:80px;height:80px;border-radius:6px;}
+        .img_close img{width:18px;height:18px;position: relative;top:-90px;right:-67px;}
+        .weui_dialog_visible1{
+            opacity: 1;
+            visibility:visible;
+        }
+        .weui_cell_primary a{
+            font-size: 14px;
+            color: #666;
+            display: block;
+            padding: 10px 14px;
+        }
+        .weui_cell_primary:after{
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="anniu mt">
+    <a href="javascript:;" id="show-actions" style="font-size:14px;" class="weui_btn">问题选择:<span class="qxz qxz-js">请选择</span></a>
+</div>
+<div class="weui_cells weui_cells_access mt">
+        <div class="weui_cell_bd weui_cell_primary">
+            <a>
+            <p>收花人手机:<input class="phone" placeholder="请输入手机号" name="phone" style="margin-left:15px;border:0;width:60%;"></p>
+            </a>
+        </div>
+</div>
+<div class="weui_cells weui_cells_form">
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <textarea class="weui_textarea" placeholder="问题描述(必填)" rows="4" style="font-size: 14px" maxlength="300"></textarea>
+            <div class="weui_textarea_counter"><span class="num">0</span>/300</div>
+        </div>
+    </div>
+</div>
+
+<div class="part1_upload">
+    <p class="part1_upload_title">请上传照片（非必传）</p>
+    <!--  @if($is_android)
+     <p class="android_tip">（安卓用户如无法上传图片请刷新本页面）</p>
+     @endif -->
+    <div class="show_image" id="showImage">
+        <div class='image_body'>
+            <img  class='image_src' src="Content/img/dt1.jpg">
+            <div  class='img_close'><img src='Content/img/close1.png'></div>
+            <input type='hidden' name='upload_image[]' value='"+res.serverId+"'>
+        </div>
+        <!--  @if($category && $category->cover_img)
+         <div class="image_body">
+           <input type="hidden" name='upload_image_1' id="upload_image_1" value="">
+           <img class="image_src" src="">
+           <div class="img_close1">
+             <img src="/Static/img/close1.png">
+           </div>
+         </div>
+         @endif -->
+        <div class="choose_image pr" id="chooseImage">
+            <div class="choose_tip"><img src="Content/img/add_image.png"></div>
+            <p class="choose_font">上传图片</p>
+            <p class="choose_font">（最多三张）</p>
+            <input type="file" class="file pa">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<a class="tjgd" id="tjgd">提交工单</a>
+<div class="weui_dialog_confirm">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">确认该图片吗？</strong></div>
+        <div class="weui_dialog_bd"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:void(0)" class="weui_btn_dialog default" id="qx">取消</a>
+            <a href="javascript:void(0)" class="weui_btn_dialog primary" id="qd">确定</a>
+        </div>
+    </div>
+</div>
+<script src="Content/js/layer-mobl.js"></script>
+<script>
+
+    $(document).on("click", "#show-actions", function() {
+        $.actions({
+            actions: [
+                {
+                    text: "如何修改送花时间"
+                },
+                {
+                    text: "如何修改地址，手机号码"
+                },
+                {
+                    text: "订单购买到一半，想买个花瓶"
+                },
+                {
+                    text: "积分"
+                },
+                {
+                    text: "优惠券"
+
+                },
+                {
+                    text: "其他"
+                }
+            ]
+        });
+    });
+    //点击问题列表 把文字复制给问题
+    $(document).on("click", ".weui_actionsheet_cell", function() {
+        //alert($(this).html())
+        if($(this).hasClass('weui_actionsheet_cancel')){
+            return false;
+        }
+        $(".qxz-js").removeClass('qxz').html($(this).html())
+    });
+    //计算输入的文字数量
+    $(".weui_textarea").on('input',function () {
+        $(".num").html( ($(this).val().length));
+    });
+    //点击x 弹出确定删除
+    $(".img_close").delegate("img","click",function(){
+        var $this=$(this);
+        $('.weui_mask').addClass('weui_mask_visible');
+        $('.weui_dialog').addClass('weui_dialog_visible1');
+        $("#qd").on('click',function () {
+            $this.parents('.image_body').remove();
+            $('.weui_mask').removeClass('weui_mask_visible');
+            $('.weui_dialog').removeClass('weui_dialog_visible1');
+        });
+    });
+    $("#qx").on('click',function () {
+        $('.weui_mask').removeClass('weui_mask_visible');
+        $('.weui_dialog').removeClass('weui_dialog_visible1');
+    });
+
+    $("#tjgd").on('click',function () {
+        var wtval=$(".qxz-js").html();
+        var wzval=$(".weui_textarea").val();
+        var mobile=$(".phone").val();
+        if(wtval=="请选择"){
+            layer.open({content:"请选择问题",time:1});
+            return false;
+        }else if(mobile===""){
+            layer.open({content:"手机号不能为空",time:1});
+            return false;
+        }else if(!/^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/i.test(mobile)){
+            layer.open({content:"手机号码格式错误",time:1});
+            return false;
+        }else if(wzval===""||wzval.length==0){
+            layer.open({content:"问题内容不能为空",time:1});
+            return false;
+        }else {
+            layer.open({
+                content: '提交成功，请耐心等待客服处理~',
+                btn: ['确认', '取消'],
+                shadeClose: false,
+                yes: function () {
+                    window.location.href="全部工单--售中.html";
+                },
+                no: function () {
+                }
+            });
+            //layer.open({content:"提交问题成功",time:1});
+
+        }
+    });
+</script>
+</body>
+</html>

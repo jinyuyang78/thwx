@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/* 初始化CSS */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img { border:none; }
+img{display: block;width: 100%}
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family:"微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { margin:0;     border: none; font-family:"微软雅黑";font-size: 12px}
+input[type="text"],input[type="tel"], textarea,select { outline-style:none; -webkit-tap-highlight-color: transparent;}
+textarea { resize:none; }
+table { border-collapse:collapse; }
+body { font-family:  "Arial","微软雅黑";}
+a {text-decoration:none; outline:none;}
+a:visited {}
+a:hover, a:active, a:focus {text-decoration:none; }
+a{ -webkit-tap-highlight-color:rgba(255,0,0,0);}
+.fl{ float:left;}
+.fr{ float:right;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.dn{ display:none;}
+.db{ display:block;}
+.hidden{visibility:hidden;}
+/* CSS 1,2 & 3 and HTML5 reset stylesheet */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* 重置所有元素的盒模型 */
+textarea { resize: none; }
+/* changes textarea resizing from "both" (UA default) to vertical only */
+
+/*  HTML5 CSS */
+article, aside, audio, footer, header, nav, section, video { display: block }
+/* 对于老的浏览器，如Firefox 3.6，由于不知道HTML5元素而将它们渲染为 display: inline 。这里不用管 date, figure和HTML5表单的input*/
+input{border:0;outline:none;/*去除蓝色边框*/}
+input[type="search"]{-webkit-appearance:textfield;}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}
+input {-webkit-appearance:none; /*去除input默认样式*/}
+/* 去除Safari 或 Mobile Safari浏览器的HTML5搜索框和提交按钮的 OS X外观 */
+.webuploader-container {
+	position: relative;
+    border: 1px solid #ebebeb;
+    float: left;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background:url("../img/sctbg.png") no-repeat center;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-size: 120px;
+}
+.webuploader-pick-hover {
+	/*background: #00a2d4;*/
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+.uploader-list{
+    overflow: hidden;
+    width: 100%;
+}
+.file-item{
+    margin-right: 10px;
+    float: left;
+    position: relative;
+}
+.file-item img{
+    width: 100%;
+}
+.pjbox{
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+.pjbox img{
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+.pjbox textarea{
+    width: 65%;
+    float: left;
+    font-size: 14px;
+    color: #666;
+    height: 80px;
+    padding-left: 10px;
+}
+#uploader-demo,.uploader-demo{
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #ebebeb;
+}
+.stwz{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+
+}
+.remove{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    z-index: 99;
+    background:url("../img/close1.png") no-repeat center;
+    background-size: 20px;
+}
+.pjdx{
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+}
+.wxbox {
+    overflow: hidden;
+    line-height: 25px;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.wxbox p {
+    margin-right: 5px;
+    color: rgba(0, 0, 0, 0.36);
+}
+.br-wrapper {
+    width: 225px;
+    float: left;
+    line-height: 25px;
+}
+#example-fontawesome {
+    float: right;
+    width: 60px;
+    line-height: 25px;
+    font-size: 12px;
+}
+.br-theme-fontawesome-stars .br-widget a {
+    font: normal normal normal 25px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.br-theme-fontawesome-stars .br-widget a:after {
+    content: '\f006';
+    color: #dddddd;
+}
+.br-theme-fontawesome-stars .br-widget a.br-selected:after {
+    content: '\f005';
+    color: #5ba997;
+}
+.br-current-rating{
+    float: right;
+    color: #5ba997;
+}
+.wz{
+    color: #666666;
+    font-size: 14px;
+}
+.tjpj{
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    line-height: 45px;
+    background: #5ba997;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    max-width: 750px;
+}

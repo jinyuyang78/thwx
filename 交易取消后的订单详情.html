@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>交易取消订单详情</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="page">
+    <div class="order-out" style="z-index:2;position:relative;">
+        <div class="padding_15" style="border-top:0 none">
+            <dl class="infoitem"><dt>订单状态:</dt><dd><strong>交易取消</strong></dd></dl>
+            <dl class="infoitem"><dt>下单时间:</dt><dd> 2016-08-22 14:13:12</dd></dl>
+        </div>
+        <a class="xuding"  href="#">再次购买</a>
+        <div class="padding_15" style="border-bottom:1px solid #f0f0f0">
+            <dl class="infoitem"><dt>配送方式:</dt><dd>快递配送
+            </dd></dl>
+
+            <!--区分代收点和提货地点-->
+            <dl class="infoitem"><dt>收货人/手机:</dt><dd>好几节课来解决 / 15210792815</dd></dl>
+            <dl class="infoitem"><dt>收货地址:</dt><dd>天津 天津市 南开区 空间和进口红酒
+            </dd></dl>
+
+        </div>
+
+        <div class="pinfo-wrap">
+            <div class="pinfo-image"><img src="Content/img/dt1.jpg"></div>
+            <div class="pinfo-content">
+                <div class="pinfo-title">单品鲜花包月套餐</div>
+                <div class="pinfo-sku">订几个月:3个月
+                    花瓶:买1个花瓶
+                    送达日期:周六送达</div>
+            </div>
+            <div class="pinfo-price">￥313.00</div>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>订单号:</dt><dd>W2016082214131217584648349</dd></dl>
+            <dl class="infoitem"><dt>忌讳的花:</dt><dd>白色花,绣球,勿忘我</dd></dl>
+            <dl class="infoitem"><dt>电子祝福卡:</dt><dd>
+                <a style="color:rgb(247,118,37);text-decoration:underline" href="祝福卡.html">查看详情  &gt;</a></dd></dl>
+        </div>
+        <div class="padding_15">
+            <dl class="infoitem"><dt>商品总额:</dt><dd><span>￥318.00</span></dd></dl>
+            <dl class="infoitem"><dt>运费:</dt><dd><span>￥0.00</span></dd></dl>
+            <dl class="infoitem"><dt>付款金额:</dt><dd><span class="confirm-price">￥318.00</span></dd></dl>
+            <dl class="infoitem"><dt>付款方式:</dt><dd></dd></dl>
+        </div>
+
+        <form  id="goalipay">
+            <input type="hidden" name="out_trade_no" value="W2016082214131217584648349">
+            <input type="hidden" name="subject" value="单品鲜花包月套餐">
+            <input type="hidden" name="total_fee" value="318.00">
+            <input type="hidden" name="show_url" value="http://t.flowerplus.cn/f0">
+            <input type="hidden" name="body" value="单品鲜花包月套餐">
+            <input type="hidden" name="id" value="1227881">
+        </form>
+
+
+        <!-- <div class="weiquan_wrap">
+
+    </div> -->
+        <div class="refund_ok">
+            <img src="Content/img/iconfont-success.png" width="64">
+            <p style="color:#000;padding:15px 0;line-height:2em"><strong>订单已取消</strong></p><p style="color:#999">如已付款，款项会在1~5个工作日内退回到付款账户</p><p></p>
+            <p style="padding:15px 0"><a href="#">我的所有订单</a></p>
+        </div>
+
+        <div class="right-dialog" id="shipWrap">
+            <h2>发货详情<a class="right-dialog-close" href="javascript:;"></a></h2>
+            <div class="right-dialog-content" style="padding:20px 0" id="shipDetail">
+
+            </div>
+        </div>
+    </div>
+    <div class="order-modify-bar">
+        <a class="order-cancel" id="hideorder" href="javascript:;">隐藏订单</a>
+
+    </div>
+
+</div>
+<script src="Content/js/layer-mobl.js"></script>
+<script>
+
+    $("#cancelorder").bind("click",function(){
+        layer.open({
+            content: '确认取消该订单吗？',
+            btn: ['确认', '取消'],
+            shadeClose: false,
+            yes: function () {
+                // $(".layermbox ").hide();
+                layer.open({ content: '操作成功', time: 1 });
+                $(".refund_ok").show();
+            },
+            no: function () {
+
+            }
+        });
+    });
+    $("	#hideorder").bind("click",function(){
+        layer.open({
+            content: '隐藏的订单不在用户中心显示，但不影响正常配送，请放心使用！确认要隐藏？',
+            btn: ['确认', '取消'],
+            shadeClose: false,
+            yes: function () {
+                // $(".layermbox ").hide();
+                layer.open({ content: '操作成功', time: 1 });
+                //$(".refund_ok").show();
+            },
+            no: function () {
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

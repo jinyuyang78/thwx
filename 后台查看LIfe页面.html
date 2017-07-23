@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>店中店销售统计</title>
+    <link href="http://admin.listenflower.com/Content/css/superTables.css" rel="stylesheet">
+    <script src="http://admin.listenflower.com/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://admin.listenflower.com/Content/js/superTables.js"></script>
+    <script src="http://admin.listenflower.com/Content/js/jquery.superTable.js"></script>
+
+    <style type="text/css">
+        .altRow {
+            background-color: #ddddff;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+        }
+        .check-box{
+            margin-left: 0;
+        }
+        .checkbox2{
+            padding: 5px;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("#gv").toSuperTable({ width: "100%", height: "480px", fixedCols: 2 })
+                .find("tr:even").addClass("altRow");
+        });
+    </script>
+</head>
+<body>
+<form action="/Shop/CityStatistics" id="form" method="post">            <input type="hidden" value="" name="city">
+    <div style="margin:10px;overflow: hidden">
+        <p class="wz">筛选:</p>
+        <p class="checkbox2">
+            <input type="radio" value="1" class="check-box" onclick="checkFrom()"  name="id" id="input1">
+            <label class="checkbox" for="input1">今日</label>
+        </p>
+        <p class="checkbox2">
+            <input type="radio" value="2" class="check-box" onclick="checkFrom()"  name="id" id="input2">
+            <label class="checkbox" for="input2">昨日</label>
+        </p>
+        <p class="checkbox2">
+        <input type="radio" value="3" class="check-box" onclick="checkFrom()"  name="id" id="input3">
+            <label class="checkbox" for="input3">前3天</label>
+            </p>
+        <p class="checkbox2">
+        <input type="radio" value="4" class="check-box" onclick="checkFrom()" name="id" id="input4">
+            <label class="checkbox" for="input4">本周</label>
+            </p>
+        <p class="checkbox2">
+        <input type="radio" value="5" class="check-box" onclick="checkFrom()"  name="id" id="input5">
+            <label class="checkbox" for="input5">本月</label>
+            </p>
+        <p class="checkbox2">
+        <input type="radio" value="6" class="check-box" onclick="checkFrom()" name="id" id="input6">
+            <label class="checkbox" for="input6">本季度</label>
+            </p>
+        <p class="checkbox2">
+        <input type="radio" value="7" class="check-box" onclick="checkFrom()"  name="id" id="input7">
+            <label class="checkbox" for="input7">今年</label>
+        </p>
+    </div>
+    <!--<div style="font-size: 14px;height: 30px;line-height: 30px">-->
+        <!--筛选条件-->
+            <!--<select class="selcet">-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+                <!--<option>今日</option>-->
+            <!--</select>-->
+    <!--</div>-->
+</form>
+<div>
+    <div id="gv_box" style="width: 100%; height: 480px; margin: 10px; padding: 0px; overflow: hidden;"><div class="sBase"><div class="sFHeader" style="width: 128px;"><table cellspacing="0" rules="all" border="1" id="gv" class=" sSky sSky-FixedHeaders" style="margin: 0px;"><colgroup><col width="50"><col width="77"><col width="358"><col width="91"><col width="91"><col width="104"><col width="65"><col width="78"><col width="38"></colgroup><tbody><tr>
+        <th>城市</th>
+        <th>门店负责人</th>
+        <th>店铺名称</th>
+        <th>收入总额(元)</th>
+        <th>微信支付(元)</th>
+        <th>支付宝支付(元)</th>
+        <th>单数(笔)</th>
+        <th>客单价(元)</th>
+        <th>排序</th>
+    </tr></tbody></table></div><div class="sHeader"><div class="sHeaderInner" style="right: 594px;"><table cellspacing="0" rules="all" border="1" id="gv" class=" sSky sSky-Headers" style="margin: 0px;"><colgroup><col width="50"><col width="77"><col width="358"><col width="91"><col width="91"><col width="104"><col width="65"><col width="78"><col width="38"></colgroup><tbody><tr>
+        <th>城市</th>
+        <th>门店负责人</th>
+        <th>店铺名称</th>
+        <th>收入总额(元)</th>
+        <th>微信支付(元)</th>
+        <th>支付宝支付(元)</th>
+        <th>单数(笔)</th>
+        <th>客单价(元)</th>
+        <th>排序</th>
+    </tr></tbody></table></div></div><div class="sFData"><div class="sFDataInner" style="top: 0px;"><table cellspacing="0" rules="all" border="1" id="gv" class=" sSky sSky-Fixed" style="margin: 0px;"><colgroup><col width="50"><col width="77"><col width="358"><col width="91"><col width="91"><col width="104"><col width="65"><col width="78"><col width="38"></colgroup>
+        <tbody><tr>
+            <th>城市</th>
+            <th>门店负责人</th>
+            <th>店铺名称</th>
+            <th>收入总额(元)</th>
+            <th>微信支付(元)</th>
+            <th>支付宝支付(元)</th>
+            <th>单数(笔)</th>
+            <th>客单价(元)</th>
+            <th>排序</th>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('杭州市下城区咖啡星乐', '杭州市', '下城区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>眭莹 </td>
+            <td>杭州市下城区咖啡星乐</td>
+            <td>380</td>
+            <td>380</td>
+            <td>0</td>
+            <td>5</td>
+            <td>76</td>
+            <td>1</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('长沙市河西腾讯众创空间', '长沙市', '岳麓区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市河西腾讯众创空间</td>
+            <td>350</td>
+            <td>190</td>
+            <td>160</td>
+            <td>3</td>
+            <td>116.67</td>
+            <td>2</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('杭州市拱野区zoo coffer(莫干山路店)', '杭州市', '拱墅区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>胡思行 </td>
+            <td>杭州市拱野区zoo coffer(莫干山路店)</td>
+            <td>314</td>
+            <td>116</td>
+            <td>198</td>
+            <td>3</td>
+            <td>104.67</td>
+            <td>3</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('长沙市天心区马后咖啡', '长沙市', '天心区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市天心区马后咖啡</td>
+            <td>198</td>
+            <td>198</td>
+            <td>0</td>
+            <td>6</td>
+            <td>33</td>
+            <td>4</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('合肥市华邦伊赛特广场栖巢咖啡', '合肥市', '蜀山区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>合肥市</td>
+            <td>朱迎迎 </td>
+            <td>合肥市华邦伊赛特广场栖巢咖啡</td>
+            <td>116</td>
+            <td>116</td>
+            <td>0</td>
+            <td>3</td>
+            <td>38.67</td>
+            <td>5</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('江汉区发展大道208号大武汉1911商业街A栋1楼zoo coffee', '武汉市', '江汉区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>武汉市</td>
+            <td>魏慧 </td>
+            <td>江汉区发展大道208号大武汉1911商业街A栋1楼zoo coffee</td>
+            <td>59.4</td>
+            <td>49.5</td>
+            <td>9.9</td>
+            <td>4</td>
+            <td>14.85</td>
+            <td>6</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('成都市翠台咖啡', '成都市', '锦江区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>成都市</td>
+            <td>萝莉 </td>
+            <td>成都市翠台咖啡</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>7</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('北京市朝阳区漫巴咖啡', '北京市', '朝阳区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>北京市</td>
+            <td>孙上琪 </td>
+            <td>北京市朝阳区漫巴咖啡</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>8</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('zoo coffee（浙江省杭州市拱墅区万达广场店）', '杭州市', '拱墅区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>李小燕 </td>
+            <td>zoo coffee（浙江省杭州市拱墅区万达广场店）</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>9</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('猫屎咖啡（贵州省贵阳市南明区花果园湿地公园店）', '贵阳市', '南明区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>贵阳市</td>
+            <td>杜鹏 </td>
+            <td>猫屎咖啡（贵州省贵阳市南明区花果园湿地公园店）</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('武汉市汉阳区zoocoffee(汉阳人信汇店)  ', '武汉市', '汉阳区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>武汉市</td>
+            <td>魏慧 </td>
+            <td>武汉市汉阳区zoocoffee(汉阳人信汇店)  </td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('中关村微度咖啡店', '北京市', '海淀区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>北京市</td>
+            <td>杨雨飞 </td>
+            <td>中关村微度咖啡店</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('南昌市东湖区85极致咖啡', '南昌市', '东湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>南昌市</td>
+            <td>帅珍峰   </td>
+            <td>南昌市东湖区85极致咖啡</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('杭州市西湖区SPR coffee', '杭州市', '西湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>林雨枫 </td>
+            <td>杭州市西湖区SPR coffee</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('长沙市岳麓区纯时光咖啡店', '长沙市', '岳麓区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市岳麓区纯时光咖啡店</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('南昌市西湖区卡伦比咖啡（恒茂华城店）', '南昌市', '西湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>南昌市</td>
+            <td>饶利 </td>
+            <td>南昌市西湖区卡伦比咖啡（恒茂华城店）</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c">
+            <td>合计:</td>
+            <td>/</td>
+            <td>/</td>
+            <td>1591.4</td>
+            <td>1223.5</td>
+            <td>367.9</td>
+            <td>27</td>
+            <td>58.94</td>
+            <td>/</td>
+        </tr>
+        </tbody></table></div></div><div class="sData" style="margin-top: 23px; height: 457px; margin-left: 128px; width: 231px;"><table cellspacing="0" rules="all" border="1" id="gv" class=" sSky sSky-Main" style="margin-top: -23px; margin-left: -128px;"><colgroup><col width="50"><col width="77"><col width="358"><col width="91"><col width="91"><col width="104"><col width="65"><col width="78"><col width="38"></colgroup>
+        <tbody><tr class="altRow">
+            <th>城市</th>
+            <th>门店负责人</th>
+            <th>店铺名称</th>
+            <th>收入总额(元)</th>
+            <th>微信支付(元)</th>
+            <th>支付宝支付(元)</th>
+            <th>单数(笔)</th>
+            <th>客单价(元)</th>
+            <th>排序</th>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('杭州市下城区咖啡星乐', '杭州市', '下城区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>眭莹 </td>
+            <td>杭州市下城区咖啡星乐</td>
+            <td>380</td>
+            <td>380</td>
+            <td>0</td>
+            <td>5</td>
+            <td>76</td>
+            <td>1</td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('长沙市河西腾讯众创空间', '长沙市', '岳麓区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市河西腾讯众创空间</td>
+            <td>350</td>
+            <td>190</td>
+            <td>160</td>
+            <td>3</td>
+            <td>116.67</td>
+            <td>2</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('杭州市拱野区zoo coffer(莫干山路店)', '杭州市', '拱墅区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>胡思行 </td>
+            <td>杭州市拱野区zoo coffer(莫干山路店)</td>
+            <td>314</td>
+            <td>116</td>
+            <td>198</td>
+            <td>3</td>
+            <td>104.67</td>
+            <td>3</td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('长沙市天心区马后咖啡', '长沙市', '天心区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市天心区马后咖啡</td>
+            <td>198</td>
+            <td>198</td>
+            <td>0</td>
+            <td>6</td>
+            <td>33</td>
+            <td>4</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('合肥市华邦伊赛特广场栖巢咖啡', '合肥市', '蜀山区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>合肥市</td>
+            <td>朱迎迎 </td>
+            <td>合肥市华邦伊赛特广场栖巢咖啡</td>
+            <td>116</td>
+            <td>116</td>
+            <td>0</td>
+            <td>3</td>
+            <td>38.67</td>
+            <td>5</td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('江汉区发展大道208号大武汉1911商业街A栋1楼zoo coffee', '武汉市', '江汉区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>武汉市</td>
+            <td>魏慧 </td>
+            <td>江汉区发展大道208号大武汉1911商业街A栋1楼zoo coffee</td>
+            <td>59.4</td>
+            <td>49.5</td>
+            <td>9.9</td>
+            <td>4</td>
+            <td>14.85</td>
+            <td>6</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('成都市翠台咖啡', '成都市', '锦江区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>成都市</td>
+            <td>萝莉 </td>
+            <td>成都市翠台咖啡</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>7</td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('北京市朝阳区漫巴咖啡', '北京市', '朝阳区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>北京市</td>
+            <td>孙上琪 </td>
+            <td>北京市朝阳区漫巴咖啡</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>8</td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('zoo coffee（浙江省杭州市拱墅区万达广场店）', '杭州市', '拱墅区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>李小燕 </td>
+            <td>zoo coffee（浙江省杭州市拱墅区万达广场店）</td>
+            <td>58</td>
+            <td>58</td>
+            <td>0</td>
+            <td>1</td>
+            <td>58</td>
+            <td>9</td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('猫屎咖啡（贵州省贵阳市南明区花果园湿地公园店）', '贵阳市', '南明区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>贵阳市</td>
+            <td>杜鹏 </td>
+            <td>猫屎咖啡（贵州省贵阳市南明区花果园湿地公园店）</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('武汉市汉阳区zoocoffee(汉阳人信汇店)  ', '武汉市', '汉阳区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>武汉市</td>
+            <td>魏慧 </td>
+            <td>武汉市汉阳区zoocoffee(汉阳人信汇店)  </td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('中关村微度咖啡店', '北京市', '海淀区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>北京市</td>
+            <td>杨雨飞 </td>
+            <td>中关村微度咖啡店</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('南昌市东湖区85极致咖啡', '南昌市', '东湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>南昌市</td>
+            <td>帅珍峰   </td>
+            <td>南昌市东湖区85极致咖啡</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('杭州市西湖区SPR coffee', '杭州市', '西湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>杭州市</td>
+            <td>林雨枫 </td>
+            <td>杭州市西湖区SPR coffee</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c" onclick="FindDetail('长沙市岳麓区纯时光咖啡店', '长沙市', '岳麓区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>长沙市</td>
+            <td>张凡 </td>
+            <td>长沙市岳麓区纯时光咖啡店</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c altRow" onclick="FindDetail('南昌市西湖区卡伦比咖啡（恒茂华城店）', '南昌市', '西湖区', 1, '2016/12/8 0:00:00', '2016/12/8 23:59:59')">
+            <td>南昌市</td>
+            <td>饶利 </td>
+            <td>南昌市西湖区卡伦比咖啡（恒茂华城店）</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr class="text-c">
+            <td>合计:</td>
+            <td>/</td>
+            <td>/</td>
+            <td>1591.4</td>
+            <td>1223.5</td>
+            <td>367.9</td>
+            <td>27</td>
+            <td>58.94</td>
+            <td>/</td>
+        </tr>
+        </tbody></table></div></div></div>
+</div>
+<script language="javascript" type="text/javascript">
+    $(function() {
+        //启动横竖屏事件监听
+        screenOrientationListener();
+    });
+    function checkFrom() {
+        alert(1);
+        $("#form").submit();
+    }
+    //屏幕方向标识，0横屏，其他值竖屏
+    var orientation = 0;
+    var preorientation = 0;
+    //转屏事件，内部功能可以自定义
+    function screenOrientationEvent() {
+        //if (orientation != preorientation)
+        location.reload();
+    }
+    var innerWidthTmp = window.innerWidth;
+    //横竖屏事件监听方法
+    function screenOrientationListener(){
+        try{
+            var iw = window.innerWidth;
+//屏幕方向改变处理
+            if (iw != innerWidthTmp) {
+                if(iw>window.innerHeight)orientation = 90;
+                else orientation = 0;
+                $("#show").text(iw);
+//调用转屏事件
+                screenOrientationEvent();
+                innerWidthTmp = iw;
+            }
+        } catch(e){alert(e);};
+//间隔固定事件检查是否转屏，默认500毫秒
+        setTimeout("screenOrientationListener()",500);
+    }
+</script>
+
+
+</body></html>

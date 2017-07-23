@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="花,听花,listenflower,鲜花,鲜花订阅,混合花束包月套餐">
+    <meta name="description" content="168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>订单列表</title>
+    <link rel="stylesheet" href="Content/css/m.css">
+    <link rel="stylesheet" href="Content/css/m_web.css">
+    <script src="Content/js/jquery-2.2.4.min.js"></script>
+
+</head>
+<body>
+<div class="page">
+    <div id="noorders" style="position:fixed;top:0;left:0;right:0;bottom:0;text-align:center;padding-top:100px;background:#f0f0f0;display: none">
+        <img src="Content/img/iconfont-empty.png" width="64px">
+        <p style="margin-top:30px">您暂时还没有订单，去逛逛吧</p>
+    </div>
+    <div id="orderlist">
+        <a href="未付款订单.html">
+            <dl class="order-list">
+                <dt>W2016082214131217584648349<strong class="aright">未付款</strong></dt>
+                <dd class="pinfo-wrap">
+                    <div class="pinfo-image"><img src="Content/img/00517.jpg"></div>
+                    <div class="pinfo-content">
+                        <div class="pinfo-title">单品鲜花包月套餐</div>
+                        <div class="pinfo-sku">订几个月:3个月;花瓶:买1个花瓶;送达日期:周六送达</div>
+                    </div>
+                    <!-- <div class="pinfo-price">￥{price}</div> -->
+                </dd>
+                <dd><span class="confirm-price">￥318.00</span>
+                    <span class="aright">2016-8-22</span>
+                </dd>
+            </dl>
+        </a>
+
+        <a href="已付款订单详情.html">
+            <dl class="order-list">
+                <dt>W2016081918295317584641638<strong class="aright">已付款</strong></dt>
+                <dd class="pinfo-wrap">
+                    <div class="pinfo-image"><img src="Content/img/00517.jpg"></div>
+                    <div class="pinfo-content">
+                        <div class="pinfo-title">单品鲜花包月套餐</div>
+                        <div class="pinfo-sku">订几个月:3个月;花瓶:买1个花瓶;送达日期:周六送达</div>
+                    </div>
+                    <!-- <div class="pinfo-price">￥{price}</div> -->
+                </dd>
+                <dd><span class="confirm-price">￥318.00</span>
+                    <span class="aright">2016-8-19</span>
+                </dd>
+            </dl>
+        </a>
+        <dl class="order-list">
+            <dt>W2016081918295317584641638<strong class="aright">服务中</strong></dt>
+            <dd class="pinfo-wrap">
+                <div class="pinfo-image"><img src="Content/img/00517.jpg"></div>
+                <div class="pinfo-content">
+                    <div class="pinfo-title">单品鲜花包月套餐</div>
+                    <div class="pinfo-sku">订几个月:3个月;花瓶:买1个花瓶;送达日期:周六送达</div>
+                </div>
+                <!-- <div class="pinfo-price">￥{price}</div> -->
+            </dd>
+            <dd><span class="confirm-price">￥318.00</span>
+                <span class="aright">2016-8-19</span>
+            </dd>
+        </dl>
+        <dl class="order-list">
+            <dt>W2016081918295317584641638<strong class="aright">交易完成</strong></dt>
+            <dd class="pinfo-wrap">
+                <div class="pinfo-image"><img src="Content/img/00517.jpg"></div>
+                <div class="pinfo-content">
+                    <div class="pinfo-title">单品鲜花包月套餐</div>
+                    <div class="pinfo-sku">订几个月:3个月;花瓶:买1个花瓶;送达日期:周六送达</div>
+                </div>
+                <!-- <div class="pinfo-price">￥{price}</div> -->
+            </dd>
+            <dd><span class="confirm-price">￥318.00</span>
+                <span class="aright">2016-8-19</span>
+            </dd>
+        </dl>
+    </div>
+    <script>
+        $(function () {
+            if($("#orderlist").find(".order-list").length===""||$("#orderlist").find(".order-list").length===0){
+                $('#noorders').show();
+            }
+        })
+    </script>
+
+    <script>
+        $("#orderlist").delegate(".order-list","click",function(){
+            //$("#loadingdetail").show();
+            window.location.href="/my/orderdetail/?id="+$(this).attr("data-id");
+        })
+    </script>
+
+</div>
+
+</body>
+</html>

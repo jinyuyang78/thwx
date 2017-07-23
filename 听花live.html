@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>聼花-听花live</title>
+    <link rel="stylesheet" href="Content/css/thlv.css">
+</head>
+<body style="max-width: 750px;margin: 0 auto;padding-bottom: 60px;">
+    <div class="img">
+        <img src="Content/img/dt2.jpg">
+    </div>
+    <h1 class="bt">多肉网过的寻宝图</h1>
+    <p class="text">#咖啡馆</p>
+    <p class="text line">[周一~周四] 09:00-18:00</p>
+
+    <div class="addrbox">
+        <p class="text2">多肉网过的寻宝图:010-123456 <a href="tel:010-12324563" class="telbtn"></a></p>
+        <p class="text3"><a href="#" class="addresbtn">北京市朝阳区百子湾金海湾金海湾金海商服中心B1306</a></p>
+    </div>
+
+    <p class="btx">[多肉王国的寻宝图]</p>
+
+    <p class="text4">多肉王国在798位于主路，是一抹春日景，窗里咖啡，窗外道。窗外行人，窗里佳人笑</p>
+    <div class="img">
+        <img src="Content/img/dt2.jpg">
+    </div>
+
+    <p class="text4">多肉王国在798位于主路，是一抹春日景，窗里咖啡，窗外道。窗外行人，窗里佳人笑</p>
+    <div class="img">
+        <img src="Content/img/dt2.jpg">
+    </div>
+
+    <div class="foot">
+        <div class="fl txbox">
+            <ul id="tximgbox">
+                <li><img src="Content/img/dt1.jpg"></li>
+                <li><img src="Content/img/dt1.jpg"></li>
+                <li><img src="Content/img/dt1.jpg"></li>
+                <li><img src="Content/img/dt1.jpg"></li>
+                <li><img src="Content/img/dt1.jpg"></li>
+                <li> <a class="ckgd"></a></li>
+            </ul>
+        </div>
+        <a class="xq">想去</a>
+    </div>
+
+    <div class="foot3 pr">
+        <img src="Content/img/ft.png">
+        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.tinghua.listenflowers" class="xzan"></a>
+    </div>
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script>
+    $(function () {
+        var zwidth=$(".txbox").width();
+        //console.log(zwidth)
+        var txwid=(zwidth-60)/6-1;
+        $("#tximgbox li").css({"width":txwid,"height":txwid});
+        $(".xq").css({"height":txwid+10,"line-height":txwid+10+"px"});
+
+    })
+</script>
+</body>
+</html>

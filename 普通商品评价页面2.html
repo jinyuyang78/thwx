@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>评价</title>
+    <link rel="stylesheet" type="text/css" href="Content/css/webuploader.css">
+    <link href="Content/css/font-A.css" rel="stylesheet">
+</head>
+
+<body style="max-width: 750px;margin: 0 auto;padding-bottom: 60px">
+<div class="pjdx" style="border-bottom: 1px solid #ebebeb">
+    <p class="wz">商品评分</p>
+
+    <div class="wxbox">
+        <p class="fl">描述相符 :</p>
+        <select id="msxf" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+    <div class="wxbox">
+        <p class="fl">物流服务 :</p>
+        <select id="wlfw" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+    <div class="wxbox">
+        <p class="fl">服务态度 :</p>
+        <select id="fwtd" >
+            <option value="1">很差</option>
+            <option value="2">不满意</option>
+            <option value="3">还可以</option>
+            <option value="4">满意</option>
+            <option value="5">非常满意</option>
+        </select>
+    </div>
+</div>
+<div class="box"></div>
+<!--<div class="pjbox">-->
+    <!--<img src="Content/img/dt1.jpg">-->
+    <!--<textarea class="textarea" placeholder="非常满意，好评吧！不少于10个字哦~~"></textarea>-->
+<!--</div>-->
+<!--<div class="uploader-demo">-->
+    <!--<p class="stwz">晒图（<span class="num1">0</span>/4）</p>-->
+    <!--<div id="fileList1" class="uploader-list">-->
+        <!--<div id="filePicker1" class="filePicker"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<a class="tjpj">提交评价</a>
+</body>
+<script src="Content/js/jquery-2.2.4.min.js"></script>
+<script src="Content/js/webuploader.min.js"></script>
+<script src="Content/js/jquery.barrating.js"></script>
+<script src="Content/js/examples.js"></script>
+<script src="Content/js/layer-mobl.js"></script>
+<script>
+    var widnth=$(window).width();
+    if(widnth>750){
+        widnth=750;
+    }
+    var src=" http://webuploader.duapp.com/server/fileupload.php";
+    var pjboxlength=3;
+    for(var i=1;i<=pjboxlength;i++){
+        $('<div class="pjbox"> <img src="Content/img/dt1.jpg"> <textarea class="textarea" placeholder="非常满意，好评吧！不少于10个字哦~~"></textarea></div> <div class="uploader-demo"> <p class="stwz">晒图（<span class="num'+i+'">0</span>/4）</p>'+
+            '<div id="fileList'+i+'" class="uploader-list"> <div id="filePicker'+i+'" class="filePicker" style="width:'+(widnth-60)/4+'px'+';height:'+(widnth-60)/4+'px'+'"></div> </div> </div>').appendTo('.box');
+    }
+    $(".filePicker").css({"width":(widnth-60)/4,"height":(widnth-60)/4});
+    $(".file-item").css({"width":(widnth-60)/4,"height":(widnth-60)/4});
+
+    $('#msxf').barrating({
+        theme: 'fontawesome-stars'
+    });
+    $('#wlfw').barrating({
+        theme: 'fontawesome-stars'
+    });
+
+    $('#fwtd').barrating({
+        theme: 'fontawesome-stars'
+    });
+    $('#msxf,#wlfw,#fwtd').barrating('set',5);
+     //图片上传demo
+        jQuery(function() {
+            var imgnum=0;
+            var $ = jQuery,
+                //$list = $('#fileList1'),
+                // 优化retina, 在retina下这个值是2
+                ratio = window.devicePixelRatio || 1,
+
+                // 缩略图大小
+                thumbnailWidth = 100 * ratio,
+                thumbnailHeight = 100 * ratio,
+
+                // Web Uploader实例
+                uploader;
+
+            // 初始化Web Uploader
+            uploader = WebUploader.create({
+
+                // 自动上传。
+                auto:false,
+                //验证文件数量
+                fileNumLimit:4,
+
+                // swf文件路径
+                //swf: BASE_URL + '/js/Uploader.swf',
+
+                // 文件接收服务端。
+                server: src,
+
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                //for(var j=1;j<=pjboxlength;j++){
+                pick: '#filePicker1',
+                //},
+                // 只允许选择文件，可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                }
+            });
+
+            // 当有文件添加进来的时候
+            uploader.on( 'fileQueued', function( file ) {
+                var $li = $(
+                        '<div id="' + file.id + '" class="file-item thumbnail" style="width:'+(widnth-60)/4+'px'+';height:'+(widnth-60)/4+'px'+'">' +
+                        '<img>' +
+                        '<div class="remove remove-this ' + file.id + '"></div>' +
+                        '</div>'
+                    ),
+                    $img = $li.find('img');
+
+                //$list.append( $li );
+               // $list2.append( $li );
+                $("#filePicker1").before( $li);
+                // 创建缩略图
+                uploader.makeThumb( file, function( error, src ) {
+                    if ( error ) {
+                        $img.replaceWith('<span>不能预览</span>');
+                        return;
+                    }
+
+                    $img.attr( 'src', src );
+                }, thumbnailWidth, thumbnailHeight );
+
+                imgnum= $("#filePicker1").siblings(".thumbnail").length;
+                $(".num1").html(imgnum);
+                console.log(imgnum);
+                if(imgnum===4){
+                    $("#filePicker1").hide();
+                }else {
+                    $("#filePicker1").show();
+                }
+                $li.on('click', '.remove-this', function() {
+                    //console.log(file.id);
+                    uploader.removeFile(file.id,true);
+                    $li.remove();
+                    imgnum= $("#filePicker1").siblings(".thumbnail").length;
+                    $(".num1").html(imgnum);
+                    if(imgnum===4){
+                        $("#filePicker1").hide();
+                    }else {
+                        $("#filePicker1").show();
+                    }
+
+                });
+
+            });
+
+            $(".tjpj").on('click',function () {
+                var con=$("#textarea").val();
+                if(con===""||con.length===0){
+                    layer.open({content:"评论内容不能为空",time:1});
+                    return false;
+                }if(con.length<10){
+                    layer.open({content:"评论内容少于10个字",time:1});
+                    return false;
+                }else {
+                    layer.open({content:"评论成功",time:1});
+                    upload()
+                }
+
+            });
+//            // 文件上传过程中创建进度条实时显示。
+//            uploader.on( 'uploadProgress', function( file, percentage ) {
+//                var $li = $( '#'+file.id ),
+//                    $percent = $li.find('.progress span');
+//
+//                // 避免重复创建
+//                if ( !$percent.length ) {
+//                    $percent = $('<p class="progress"><span></span></p>')
+//                        .appendTo( $li )
+//                        .find('span');
+//                }
+//
+//                $percent.css( 'width', percentage * 100 + '%' );
+//            });
+
+
+    //        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    //        uploader.on( 'uploadSuccess', function( file ) {
+    //            $( '#'+file.id ).addClass('upload-state-done');
+    //        });
+
+            //文件上传失败，现实上传出错。
+            uploader.on( 'uploadError', function( file ) {
+                var $li = $( '#'+file.id ),
+                    $error = $li.find('div.error');
+
+                // 避免重复创建
+                if ( !$error.length ) {
+                    $error = $('<div class="error"></div>').appendTo( $li );
+                }
+
+                $error.text('上传失败');
+            });
+
+            // 完成上传完了，成功或者失败，先删除进度条。
+            uploader.on( 'uploadComplete', function( file ) {
+                $( '#'+file.id ).find('.progress').remove();
+            });
+            function upload(file) {
+                uploader.upload(file);
+            }
+        });
+    jQuery(function() {
+        var imgnum=0;
+        var $ = jQuery,
+            //$list = $('#fileList1'),
+            // 优化retina, 在retina下这个值是2
+            ratio = window.devicePixelRatio || 1,
+
+            // 缩略图大小
+            thumbnailWidth = 100 * ratio,
+            thumbnailHeight = 100 * ratio,
+
+            // Web Uploader实例
+            uploader;
+
+        // 初始化Web Uploader
+        uploader = WebUploader.create({
+
+            // 自动上传。
+            auto: false,
+            //验证文件数量
+            fileNumLimit: 4,
+
+            // swf文件路径
+            //swf: BASE_URL + '/js/Uploader.swf',
+
+            // 文件接收服务端。
+            server: src,
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            //for(var j=1;j<=pjboxlength;j++){
+            pick: '#filePicker2',
+            //},
+            // 只允许选择文件，可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            }
+        });
+
+        // 当有文件添加进来的时候
+        uploader.on('fileQueued', function (file) {
+            var $li = $(
+                    '<div id="' + file.id + '" class="file-item thumbnail" style="width:' + (widnth - 60) / 4 + 'px' + ';height:' + (widnth - 60) / 4 + 'px' + '">' +
+                    '<img>' +
+                    '<div class="remove remove-this ' + file.id + '"></div>' +
+                    '</div>'
+                ),
+                $img = $li.find('img');
+
+            //$list.append( $li );
+            // $list2.append( $li );
+            $("#filePicker2").before($li);
+            // 创建缩略图
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+
+                $img.attr('src', src);
+            }, thumbnailWidth, thumbnailHeight);
+
+            imgnum = $("#filePicker2").siblings(".thumbnail").length;
+            $(".num").html(imgnum);
+            console.log(imgnum);
+            if (imgnum === 4) {
+                $("#filePicker2").hide();
+            } else {
+                $("#filePicker2").show();
+            }
+            $li.on('click', '.remove-this', function () {
+                //console.log(file.id);
+                uploader.removeFile(file.id, true);
+                $li.remove();
+                imgnum = $("#filePicker2").siblings(".thumbnail").length;
+                $(".num").html(imgnum);
+                if (imgnum === 4) {
+                    $("#filePicker2").hide();
+                } else {
+                    $("#filePicker2").show();
+                }
+
+            });
+
+        });
+    })
+
+    jQuery(function() {
+        var imgnum=0;
+        var $ = jQuery,
+            //$list = $('#fileList1'),
+            // 优化retina, 在retina下这个值是2
+            ratio = window.devicePixelRatio || 1,
+
+            // 缩略图大小
+            thumbnailWidth = 100 * ratio,
+            thumbnailHeight = 100 * ratio,
+
+            // Web Uploader实例
+            uploader;
+
+        // 初始化Web Uploader
+        uploader = WebUploader.create({
+
+            // 自动上传。
+            auto: false,
+            //验证文件数量
+            fileNumLimit: 4,
+
+            // swf文件路径
+            //swf: BASE_URL + '/js/Uploader.swf',
+
+            // 文件接收服务端。
+            server: src,
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            //for(var j=1;j<=pjboxlength;j++){
+            pick: '#filePicker3',
+            //},
+            // 只允许选择文件，可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            }
+        });
+
+        // 当有文件添加进来的时候
+        uploader.on('fileQueued', function (file) {
+            var $li = $(
+                    '<div id="' + file.id + '" class="file-item thumbnail" style="width:' + (widnth - 60) / 4 + 'px' + ';height:' + (widnth - 60) / 4 + 'px' + '">' +
+                    '<img>' +
+                    '<div class="remove remove-this ' + file.id + '"></div>' +
+                    '</div>'
+                ),
+                $img = $li.find('img');
+
+            //$list.append( $li );
+            // $list2.append( $li );
+            $("#filePicker3").before($li);
+            // 创建缩略图
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+
+                $img.attr('src', src);
+            }, thumbnailWidth, thumbnailHeight);
+
+            imgnum = $("#filePicker3").siblings(".thumbnail").length;
+            $(".num3").html(imgnum);
+            console.log(imgnum);
+            if (imgnum === 4) {
+                $("#filePicker3").hide();
+            } else {
+                $("#filePicker3").show();
+            }
+            $li.on('click', '.remove-this', function () {
+                //console.log(file.id);
+                uploader.removeFile(file.id, true);
+                $li.remove();
+                imgnum = $("#filePicker3").siblings(".thumbnail").length;
+                $(".num3").html(imgnum);
+                if (imgnum === 4) {
+                    $("#filePicker3").hide();
+                } else {
+                    $("#filePicker3").show();
+                }
+
+            });
+
+        });
+    })
+
+</script>
+</html>
+
